@@ -1,49 +1,49 @@
 {
-  "total_raw_lines": 756,
-  "accepted_after_cleaning": 691,
+  "total_raw_lines": 820,
+  "accepted_after_cleaning": 755,
   "rejected": {
     "lang_mismatch": 7,
     "dup_exact": 58
   },
   "splits": {
-    "val": 34,
-    "test": 34,
-    "train": 623
+    "val": 37,
+    "test": 37,
+    "train": 681
   },
   "train_categories": {
-    "en_build": 108,
-    "debug": 17,
-    "en_css": 50,
-    "bi_mixed": 12,
-    "fa_build": 55,
-    "en_html": 36,
-    "fa_html": 20,
-    "bi_terms": 22,
-    "pro_teach": 25,
-    "fa_css": 35,
+    "en_build": 166,
+    "debug": 16,
+    "pro_teach": 24,
     "en_js": 54,
-    "fa_debug": 21,
-    "pro_fonts": 9,
-    "pro_multifile": 34,
-    "bi_switch": 5,
-    "pro_arch": 10,
-    "refactor": 12,
-    "en_debug": 11,
-    "pro_csstricks": 23,
-    "pro_jspatterns": 11,
+    "fa_build": 58,
+    "en_html": 34,
+    "fa_css": 36,
+    "bi_terms": 22,
+    "fa_html": 21,
+    "bi_mixed": 10,
+    "pro_multifile": 35,
     "fa_js": 35,
+    "fa_debug": 22,
     "bi_fa_to_fa": 10,
-    "bi_en_to_en": 8
+    "pro_csstricks": 24,
+    "bi_switch": 6,
+    "en_debug": 14,
+    "pro_arch": 11,
+    "en_css": 46,
+    "pro_fonts": 7,
+    "bi_en_to_en": 10,
+    "pro_jspatterns": 11,
+    "refactor": 9
   },
   "train_langs": {
-    "en": 369,
-    "mixed": 38,
-    "fa": 216
+    "en": 420,
+    "fa": 221,
+    "mixed": 40
   },
   "train_difficulty": {
-    "intermediate": 314,
-    "advanced": 172,
-    "beginner": 137
+    "intermediate": 349,
+    "advanced": 196,
+    "beginner": 136
   },
   "split_ratio": "90/5/5"
 }
