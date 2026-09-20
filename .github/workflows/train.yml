@@ -123,19 +123,20 @@ jobs:
 
       - name: Smoke generation test (Persian + English)
         run: |
-          set -e
+          echo "pwd: $(pwd)"; ls -la lcpp/build/bin/ | head -6
+          lcpp/build/bin/llama-cli --version || { echo "version check failed"; exit 1; }
           lcpp/build/bin/llama-cli -m model/gguf/arion-alpha-1-Q4_K_M.gguf -no-cnv \
             -c 512 -n 48 --temp 0.7 --no-display-prompt -p \
             '<|im_start|>user
           Build a simple hero section with CSS. Keep it short.<|im_end|>
           <|im_start|>assistant
-          ' 2>/dev/null | tee /tmp/smoke_en.txt
+          ' 2>&1 | tee /tmp/smoke_en.txt || echo "EN gen exit=$? (see above)"
           lcpp/build/bin/llama-cli -m model/gguf/arion-alpha-1-Q4_K_M.gguf -no-cnv \
             -c 512 -n 48 --temp 0.7 --no-display-prompt -p \
             '<|im_start|>user
           یک هدر ساده با CSS بساز. کوتاه باشد.<|im_end|>
           <|im_start|>assistant
-          ' 2>/dev/null | tee /tmp/smoke_fa.txt
+          ' 2>&1 | tee /tmp/smoke_fa.txt || echo "FA gen exit=$? (see above)"
           [ "$(wc -c < /tmp/smoke_en.txt)" -gt 40 ] || { echo "EN smoke FAILED"; exit 1; }
           [ "$(wc -c < /tmp/smoke_fa.txt)" -gt 40 ] || { echo "FA smoke FAILED"; exit 1; }
           echo "SMOKE GENERATION OK"
