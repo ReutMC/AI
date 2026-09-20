@@ -7,3 +7,10 @@ artifacts/checkpoints/
 __pycache__/
 *.pyc
 .venv/
+node_modules/
+.next/
+dev.log
+download/
+upload/
+tool-results/
+*.log
