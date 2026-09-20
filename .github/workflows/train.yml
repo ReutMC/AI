@@ -1,0 +1,226 @@
+name: Train ARION ALPHA 1
+
+# CPU-only LoRA SFT training on GitHub Actions (public repo = free minutes).
+# Produces: LoRA adapter → merged weights → GGUF (Q8_0 + Q4_K_M) → smoke test → Release.
+# Dispatch manually from the Actions tab, or via API.
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_model:
+        description: "HuggingFace base model"
+        default: "Qwen/Qwen3-0.6B"
+        required: false
+      config:
+        description: "Training config (path)"
+        default: "configs/train_config_gh.json"
+        required: false
+      max_train_minutes:
+        description: "Override time budget in minutes (0 = use config value)"
+        default: "0"
+        required: false
+      smoke:
+        description: "Smoke run (tiny: ~10 min, validates pipeline end-to-end)"
+        type: boolean
+        default: false
+      release:
+        description: "Create GitHub Release with GGUF artifacts"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install deps (CPU torch)
+        run: |
+          pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet -r requirements.txt
+          python -c "import torch, transformers, peft, gguf; print('torch', torch.__version__, 'ready')"
+
+      - name: Download base model
+        env:
+          ARION_ROOT: ${{ github.workspace }}
+          ARION_BASE_REPO: ${{ inputs.base_model || 'Qwen/Qwen3-0.6B' }}
+          HF_HUB_DISABLE_PROGRESS_BARS: "1"
+        run: python scripts/download_base.py
+
+      - name: Prepare dataset (clean → dedupe → split)
+        env:
+          ARION_ROOT: ${{ github.workspace }}
+        run: |
+          python training/prepare_dataset.py
+          python tests/validate_datasets.py
+
+      - name: Resolve config (smoke override)
+        env:
+          ARION_ROOT: ${{ github.workspace }}
+        run: |
+          python - << 'PY'
+          import json, os
+          root = os.environ["ARION_ROOT"]
+          smoke = "${{ inputs.smoke }}" == "true"
+          cfg_path = "configs/train_config_smoke_gh.json" if smoke else "${{ inputs.config || 'configs/train_config_gh.json' }}"
+          if smoke:
+              cfg = json.load(open(f"{root}/configs/train_config_gh.json"))
+              cfg.update({
+                  "max_seq_len": 256, "max_train_minutes": 8, "max_epochs": 1,
+                  "eval_every_steps": 8, "log_every_steps": 1,
+              })
+              json.dump(cfg, open(f"{root}/configs/train_config_smoke_gh.json", "w"), indent=2)
+          minutes = "${{ inputs.max_train_minutes || '0' }}"
+          if minutes != "0":
+              full = json.load(open(f"{root}/{cfg_path}"))
+              full["max_train_minutes"] = int(minutes)
+              cfg_path = "configs/train_config_resolved.json"
+              json.dump(full, open(f"{root}/{cfg_path}", "w"), indent=2)
+          print("CONFIG=" + cfg_path)
+          with open(os.environ.get("GITHUB_ENV", "/dev/null"), "a") as f:
+              f.write(f"ARION_CFG={cfg_path}\n")
+          PY
+
+      - name: Train (LoRA SFT, time-budgeted)
+        env:
+          ARION_ROOT: ${{ github.workspace }}
+          OMP_NUM_THREADS: "4"
+        run: python training/train_sft.py --config ${{ github.workspace }}/$ARION_CFG
+
+      - name: Merge LoRA into full weights
+        env:
+          ARION_ROOT: ${{ github.workspace }}
+        run: python conversion/merge_lora.py
+
+      - name: Build llama.cpp tools (quantize + cli)
+        run: |
+          git clone --depth 1 https://github.com/ggml-org/llama.cpp.git lcpp
+          cmake -S lcpp -B lcpp/build -DGGML_NATIVE=ON -DLLAMA_BUILD_TESTS=OFF \
+                -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_SERVER=OFF -DBUILD_SHARED_LIBS=OFF > /dev/null
+          cmake --build lcpp/build --target llama-quantize llama-cli -j4 > /dev/null
+          lcpp/build/bin/llama-cli --version
+
+      - name: Convert to GGUF + quantize (Q8_0, Q4_K_M)
+        run: |
+          mkdir -p model/gguf
+          python lcpp/convert_hf_to_gguf.py model/arion-alpha-1-merged \
+            --outfile model/gguf/arion-alpha-1-F16.gguf --outtype f16
+          lcpp/build/bin/llama-quantize model/gguf/arion-alpha-1-F16.gguf model/gguf/arion-alpha-1-Q8_0.gguf Q8_0
+          lcpp/build/bin/llama-quantize model/gguf/arion-alpha-1-F16.gguf model/gguf/arion-alpha-1-Q4_K_M.gguf Q4_K_M
+          ls -la model/gguf/
+
+      - name: Smoke generation test (Persian + English)
+        run: |
+          set -e
+          lcpp/build/bin/llama-cli -m model/gguf/arion-alpha-1-Q4_K_M.gguf -no-cnv \
+            -c 512 -n 48 --temp 0.7 --no-display-prompt -p \
+            '<|im_start|>user
+          Build a simple hero section with CSS. Keep it short.<|im_end|>
+          <|im_start|>assistant
+          ' 2>/dev/null | tee /tmp/smoke_en.txt
+          lcpp/build/bin/llama-cli -m model/gguf/arion-alpha-1-Q4_K_M.gguf -no-cnv \
+            -c 512 -n 48 --temp 0.7 --no-display-prompt -p \
+            '<|im_start|>user
+          یک هدر ساده با CSS بساز. کوتاه باشد.<|im_end|>
+          <|im_start|>assistant
+          ' 2>/dev/null | tee /tmp/smoke_fa.txt
+          [ "$(wc -c < /tmp/smoke_en.txt)" -gt 40 ] || { echo "EN smoke FAILED"; exit 1; }
+          [ "$(wc -c < /tmp/smoke_fa.txt)" -gt 40 ] || { echo "FA smoke FAILED"; exit 1; }
+          echo "SMOKE GENERATION OK"
+
+      - name: Package + checksums
+        run: |
+          mkdir -p /tmp/bundle
+          cp model/gguf/arion-alpha-1-Q4_K_M.gguf model/gguf/arion-alpha-1-Q8_0.gguf /tmp/bundle/
+          cp ollama/Modelfile /tmp/bundle/
+          cp docs/MODEL_CARD.md artifacts/train_summary.json datasets/processed/dataset_stats.json /tmp/bundle/ 2>/dev/null || true
+          cp /tmp/smoke_en.txt /tmp/smoke_fa.txt /tmp/bundle/
+          ( cd /tmp/bundle && zip -q arion-alpha-1-model.zip ./* )
+          cp /tmp/bundle/arion-alpha-1-model.zip artifacts/
+          ( cd model/arion-alpha-1-lora && zip -q -r /tmp/arion-alpha-1-lora-v2.zip . )
+          mv /tmp/arion-alpha-1-lora-v2.zip artifacts/
+          sha256sum model/gguf/arion-alpha-1-Q4_K_M.gguf model/gguf/arion-alpha-1-Q8_0.gguf \
+            artifacts/arion-alpha-1-model.zip artifacts/arion-alpha-1-lora-v2.zip > artifacts/checksums_ci.sha256
+          cat artifacts/checksums_ci.sha256
+
+      - name: Generate release notes
+        run: |
+          python - << 'PY'
+          import json
+          s = json.load(open("artifacts/train_summary.json"))
+          d = json.load(open("datasets/processed/dataset_stats.json"))
+          body = f"""**ARION ALPHA 1 — CI training run**
+
+          | Metric | Value |
+          |---|---|
+          | Base model | {s.get('base_model')} |
+          | Optimizer steps | {s.get('final_step')} |
+          | Wall time | {s.get('total_minutes')} min (4-core CPU runner) |
+          | Examples trained on | {s.get('examples_trained_on')} |
+          | Tokens seen | {s.get('tokens_seen')} |
+          | Best val loss | {s.get('best_val_loss')} |
+          | LoRA | r={s.get('lora_r')}, alpha={s.get('lora_alpha')} |
+          | Stop reason | {s.get('stop_reason')} |
+
+          **Dataset:** {d.get('accepted_after_cleaning')} accepted examples {d.get('splits', {})} - languages: {d.get('train_langs', {})}
+
+          **Includes:** Q4_K_M.gguf (~400 MB, recommended) - Q8_0.gguf (~640 MB) - model.zip - LoRA adapter
+          Checksums: `artifacts/checksums_ci.sha256` in the repo. Smoke-tested EN + FA via llama-cli.
+          """
+          open("RELEASE_NOTES.md", "w").write(body)
+          print(body)
+          PY
+
+      - name: Upload workflow artifacts (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arion-artifacts
+          path: |
+            model/gguf/arion-alpha-1-Q4_K_M.gguf
+            model/gguf/arion-alpha-1-Q8_0.gguf
+            artifacts/train_summary.json
+            artifacts/checksums_ci.sha256
+            logs/train_log.jsonl
+            RELEASE_NOTES.md
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: Create Release
+        if: ${{ inputs.release && !cancelled() && !failure() }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.1-${{ github.run_id }}
+          name: ARION ALPHA 1 — v1.1 (Actions run ${{ github.run_id }})
+          body_path: RELEASE_NOTES.md
+          files: |
+            model/gguf/arion-alpha-1-Q4_K_M.gguf
+            model/gguf/arion-alpha-1-Q8_0.gguf
+            artifacts/arion-alpha-1-model.zip
+            artifacts/arion-alpha-1-lora-v2.zip
+          fail_on_unmatched_files: false
+
+      - name: Commit trained adapter + summaries back to main
+        if: ${{ !cancelled() && !failure() }}
+        run: |
+          git config user.name "arion-ci"
+          git config user.email "actions@github.com"
+          git add model/arion-alpha-1-lora || true
+          git add artifacts/train_summary.json artifacts/checksums_ci.sha256 artifacts/checksums.sha256 || true
+          git add datasets/processed/ || true
+          git add configs/train_config_smoke_gh.json || true
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -q -m "ci: trained adapter v2 (run ${{ github.run_id }})"
+          git pull --rebase -q origin main || true
+          git push -q origin main

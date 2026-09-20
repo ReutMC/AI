@@ -13,7 +13,7 @@ import json, glob, hashlib, random, os, re, unicodedata
 from collections import Counter
 
 random.seed(4217)
-ROOT = "/home/z/my-project/arion-alpha-1"
+ROOT = os.environ.get("ARION_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 GEN = f"{ROOT}/datasets/generated"
 OUT = f"{ROOT}/datasets/processed"
 os.makedirs(OUT, exist_ok=True)

@@ -16,8 +16,8 @@ os.environ.setdefault("OMP_NUM_THREADS", "2")
 import torch
 from torch.utils.data import DataLoader, Dataset
 
-ROOT = "/home/z/my-project/arion-alpha-1"
-BASE = f"{ROOT}/model/base"
+ROOT = os.environ.get("ARION_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE = os.environ.get("ARION_BASE_DIR", f"{ROOT}/model/base")
 OUTDIR = f"{ROOT}/model/arion-alpha-1-lora"
 CKPT_DIR = f"{ROOT}/artifacts/checkpoints"
 LOG_PATH = f"{ROOT}/logs/train_log.jsonl"

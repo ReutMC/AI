@@ -5,8 +5,9 @@ import os, sys
 os.environ.setdefault("HF_HUB_ENABLE_HF_TRANSFER", "1")
 from huggingface_hub import snapshot_download
 
-REPO = "Qwen/Qwen3-0.6B"
-DEST = "/home/z/my-project/arion-alpha-1/model/base"
+_root = os.environ.get("ARION_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+REPO = os.environ.get("ARION_BASE_REPO", "Qwen/Qwen3-0.6B")
+DEST = os.environ.get("ARION_BASE_DIR", os.path.join(_root, "model", "base"))
 
 print(f"downloading {REPO} -> {DEST}", flush=True)
 p = snapshot_download(

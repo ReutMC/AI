@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """ARION ALPHA 1 — dataset validation utility (tests/)."""
-import json, glob, sys
+import json, glob, sys, os
 
-ROOT = "/home/z/my-project/arion-alpha-1"
+ROOT = os.environ.get("ARION_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def main():
     ok = True

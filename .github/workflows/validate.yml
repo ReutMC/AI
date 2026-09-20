@@ -1,0 +1,55 @@
+name: Validate datasets & pipeline
+
+on:
+  push:
+    paths:
+      - "datasets/**"
+      - "tests/**"
+      - "training/prepare_dataset.py"
+      - ".github/workflows/validate.yml"
+  pull_request:
+    paths:
+      - "datasets/**"
+      - "tests/**"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate every JSONL (schema, roles, non-empty)
+        run: python tests/validate_datasets.py
+
+      - name: Prepare-dataset dry check (no writes: verify all generated files parse + stats sanity)
+        run: |
+          python - << 'PY'
+          import json, glob, os
+          total = 0
+          cats, langs = {}, {}
+          for p in sorted(glob.glob("datasets/generated/*.jsonl")):
+              for i, line in enumerate(open(p, encoding="utf-8"), 1):
+                  if not line.strip():
+                      continue
+                  ex = json.loads(line)  # raises on malformed JSON -> job fails
+                  assert ex.get("messages") and ex["messages"][0]["role"] == "system", f"{p}:{i}"
+                  assert ex["messages"][0]["content"].startswith("You are Arion Alpha 1"), f"{p}:{i} foreign system"
+                  total += 1
+                  cats[ex.get("category", "?")] = cats.get(ex.get("category", "?"), 0) + 1
+                  langs[ex.get("lang", "?")] = langs.get(ex.get("lang", "?"), 0) + 1
+          print(f"total generated examples: {total}")
+          print("langs:", langs)
+          assert total >= 500, "dataset too small — expected >= 500 generated examples"
+          assert langs.get("fa", 0) >= 100 and langs.get("en", 0) >= 100, "need both fa & en data"
+          stats = json.load(open("datasets/processed/dataset_stats.json"))
+          print("processed stats:", stats["splits"])
+          print("VALIDATION OK")
+          PY
