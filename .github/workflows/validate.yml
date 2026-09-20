@@ -40,8 +40,12 @@ jobs:
                   if not line.strip():
                       continue
                   ex = json.loads(line)  # raises on malformed JSON -> job fails
-                  assert ex.get("messages") and ex["messages"][0]["role"] == "system", f"{p}:{i}"
-                  assert ex["messages"][0]["content"].startswith("You are Arion Alpha 1"), f"{p}:{i} foreign system"
+                  msgs = ex.get("messages")
+                  assert msgs and isinstance(msgs, list) and len(msgs) >= 2, f"{p}:{i}"
+                  roles = {m.get("role") for m in msgs}
+                  assert "user" in roles and "assistant" in roles, f"{p}:{i}"
+                  if msgs[0].get("role") == "system":
+                      assert msgs[0]["content"].startswith("You are Arion Alpha 1"), f"{p}:{i} foreign system"
                   total += 1
                   cats[ex.get("category", "?")] = cats.get(ex.get("category", "?"), 0) + 1
                   langs[ex.get("lang", "?")] = langs.get(ex.get("lang", "?"), 0) + 1
