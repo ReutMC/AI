@@ -128,6 +128,15 @@ def len_sorted_batches(ds, bs, seed):
     return batches
 
 
+def cpu_has_bf16():
+    """True if the CPU has native bf16 compute (AVX512-BF16 or AMX-BF16)."""
+    try:
+        flags = open("/proc/cpuinfo").read()
+        return ("amx_bf16" in flags) or ("avx512_bf16" in flags) or ("bf16" in flags.split())
+    except Exception:
+        return False
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default=f"{ROOT}/configs/train_config.json")
@@ -156,11 +165,18 @@ def main():
     from transformers import AutoModelForCausalLM, AutoTokenizer
     from peft import LoraConfig, get_peft_model
 
+    # runner-lottery guard: without native bf16 units, bf16 matmul emulates at ~300x cost
+    eff_dtype = cfg["dtype"]
+    if cfg.get("device", "cpu") == "cpu" and eff_dtype == "bfloat16" and not cpu_has_bf16():
+        print("[dtype] no AVX512-BF16/AMX on this CPU → falling back to float32", flush=True)
+        eff_dtype = "float32"
+
     print(f"loading tokenizer from {BASE}", flush=True)
     tok = AutoTokenizer.from_pretrained(BASE)
 
-    print(f"loading base model ({cfg['dtype']}) ...", flush=True)
-    dtype = torch.bfloat16 if cfg["dtype"] == "bfloat16" else torch.float16
+    print(f"loading base model ({eff_dtype}) ...", flush=True)
+    dtype = {"bfloat16": torch.bfloat16, "float16": torch.float16,
+             "float32": torch.float32}[eff_dtype]
     model = AutoModelForCausalLM.from_pretrained(
         BASE, dtype=dtype, low_cpu_mem_usage=True)
     model.config.use_cache = False
@@ -340,6 +356,7 @@ def main():
         "examples_trained_on": len(train_ds), "tokens_seen": tokens_seen,
         "lora_r": cfg["lora_r"], "lora_alpha": cfg["lora_alpha"],
         "base_model": "Qwen/Qwen3-0.6B", "method": "LoRA SFT",
+        "dtype": eff_dtype,
         "trainable_params_millions": round(sum(p.numel() for p in params) / 1e6, 3),
     }
     json.dump(summary, open(f"{ROOT}/artifacts/train_summary.json", "w"), indent=2)
