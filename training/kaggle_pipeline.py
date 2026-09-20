@@ -28,6 +28,7 @@ USER = os.environ.get("KAGGLE_USERNAME", "reutmc")
 DATASET_SLUG = "arion-persian-data"
 KERNEL_BASELINE = "arion-persian-baseline"
 KERNEL_TRAIN = "arion-persian-train"
+KERNEL_TRAIN_CPU = "arion-cpu-test1"  # explicit CPU fallback kernel (time-boxed subset)
 KERNEL_BASELINE_CPU = "arion-persian-baseline-cpu"
 
 
@@ -297,7 +298,7 @@ def main():
     ap.add_argument("command", choices=["bundle", "dataset-push", "kernel-push",
                                         "status", "monitor", "fetch",
                                         "run-baseline", "run-train", "run-all"])
-    ap.add_argument("--kind", choices=["baseline", "baseline-cpu", "train"],
+    ap.add_argument("--kind", choices=["baseline", "baseline-cpu", "train", "train-cpu"],
                     default="baseline")
     ap.add_argument("--with-model", action="store_true",
                     help="include base model + llama.cpp in the bundle (offline mode)")
@@ -315,22 +316,49 @@ def main():
     elif args.command == "kernel-push":
         if args.kind == "baseline-cpu":
             kernel_push_cpu()
+        elif args.kind == "train-cpu":
+            require_token()
+            code = "kernel_train_cpu.py"
+            kd = os.path.join(ARION, "output", "kaggle_kernel_train_cpu")
+            if os.path.isdir(kd):
+                shutil.rmtree(kd)
+            os.makedirs(kd, exist_ok=True)
+            shutil.copy2(os.path.join(ARION, "kaggle", code), os.path.join(kd, code))
+            meta = {
+                "id": f"{USER}/{KERNEL_TRAIN_CPU}",
+                "title": KERNEL_TRAIN_CPU,
+                "code_file": code,
+                "language": "python",
+                "kernel_type": "script",
+                "is_private": True,
+                "enable_gpu": False,
+                "enable_internet": False,
+                "dataset_sources": [f"{USER}/{DATASET_SLUG}"],
+                "kernel_sources": [], "competition_sources": [], "model_sources": [],
+            }
+            json.dump(meta, open(os.path.join(kd, "kernel-metadata.json"), "w"), indent=2)
+            r = sh(f"kaggle kernels push -p {kd}", timeout=1800)
+            if r.returncode != 0:
+                die(f"kernel push failed: {r.stdout or r.stderr}")
         else:
             kernel_push(args.kind)
     elif args.command == "status":
         slug = args.slug or {"baseline": KERNEL_BASELINE,
                              "baseline-cpu": KERNEL_BASELINE_CPU,
-                             "train": KERNEL_TRAIN}[args.kind]
+                             "train": KERNEL_TRAIN,
+                             "train-cpu": KERNEL_TRAIN_CPU}[args.kind]
         print(kernel_status(slug))
     elif args.command == "monitor":
         slug = args.slug or {"baseline": KERNEL_BASELINE,
                              "baseline-cpu": KERNEL_BASELINE_CPU,
-                             "train": KERNEL_TRAIN}[args.kind]
+                             "train": KERNEL_TRAIN,
+                             "train-cpu": KERNEL_TRAIN_CPU}[args.kind]
         print(monitor(slug, max_hours=args.max_hours))
     elif args.command == "fetch":
         slug = args.slug or {"baseline": KERNEL_BASELINE,
                              "baseline-cpu": KERNEL_BASELINE_CPU,
-                             "train": KERNEL_TRAIN}[args.kind]
+                             "train": KERNEL_TRAIN,
+                             "train-cpu": KERNEL_TRAIN_CPU}[args.kind]
         fetch(slug, outdir)
     elif args.command == "run-baseline":
         run_baseline(outdir)

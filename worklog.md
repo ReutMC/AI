@@ -68,3 +68,39 @@ Stage Summary:
   → dashboard BASE column live; (b) rebuild booster data when LLM works; (c) dataset v9 with
   booster; (d) user verifies Kaggle phone → dispatch GPU train kernel → ARION GGUF + metrics;
   (e) Release v1.1 via scripts/release_persian.sh
+
+---
+Task ID: FA-3
+Agent: main (Z.ai Code)
+Task: Definitive BASE Persian benchmark (thinking-disabled) + recovery hardening
+
+Work Log:
+- Discovered Qwen3 thinking-mode issue in v1 baseline run: 160-token budget consumed by
+  English <think> traces → 87% empty answers. Fixed run_persian_benchmark.py
+  (enable_thinking=False + post-</think> strip) and persian_metrics.py (think-block defense).
+- Rebuilt dataset bundle path handling for the flat repo layout (ARION_ROOT fix),
+  dataset-metadata.json now written at bundle time, llama.cpp source restored into the
+  bundle (fresh clone lacked it) → dataset v9 (1.67GB).
+- Re-ran the bench-only kernel (arion-cpu-test1 v9, ~2h CPU): DEFINITIVE baseline:
+  | metric | BASE Qwen3-0.6B |
+  |---|---|
+  | persian_response_rate | 98.26% |
+  | language_compliance | 97.91% |
+  | arabic_leakage_rate_on_fa | 0.87% |
+  | repetition_rate | 28.03% ← main quality problem |
+  | malformed_response_rate | 1.26% |
+  | empty_response_rate | 0% |
+  Failures: "به عربی جواب بده" answered in Persian; حافظ poem answered in Arabic;
+  translation-direction confusion; 67 degenerate (repetitive) answers concentrated in
+  explanations (31), casual (6), colloquial (5).
+- Artifacts committed (3d9314f): baseline_metrics.json (definitive), raw + v1 runs,
+  225KB responses evidence. Dashboard live at :3000 showing BASE column.
+- Fixed .gitignore for output/ (bundle with 1.4GB model briefly staged — amended before push).
+
+Stage Summary:
+- BASE column of BASE-vs-ARION table is DONE and published. Training targets are now
+  concrete: repetition 28%→<5%, language_switching 17/17, arabic_leakage→~0%,
+  malformed→0%.
+- Remaining blocker for the ARION column: Kaggle phone verification (GPU). CPU pipeline
+  fully proven; GPU kernels ready; Actions workflow ready (secret configured).
+- Booster LLM generation still blocked (sandbox gateway config lost its token — 401).

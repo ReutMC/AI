@@ -353,8 +353,11 @@ objective (before any further HTML specialization):
   LoRA r=16 α=32 lr=1e-4 (unchanged from v1.0 for a controlled comparison),
   `max_epochs 2`, OOM-adaptive batch sizing, explicit no-CPU-failure guard.
 - **BASE vs ARION**: the same 239-prompt benchmark is run on the base model
-  *before* training and on ARION (GGUF) *after* training — metrics: persian_response_rate,
-  language_compliance, arabic_leakage_rate, repetition/malformed/empty rates.
+  *before* training and on ARION (GGUF) *after* training. **Definitive BASE result
+  (measured, thinking disabled, CPU run):** persian_response_rate **98.3%**,
+  language_compliance **97.9%**, arabic_leakage 0.87%, **repetition 28.0%** (67/239
+  degenerate answers — the main quality problem ARION must fix), malformed 1.3%.
+  Raw evidence: `artifacts/persian/baseline_metrics.json` + full responses.
 - Orchestration: `training/kaggle_pipeline.py` + `.github/workflows/persian-kaggle.yml`
   (Kaggle credentials only via `KAGGLE_API_TOKEN` secret — never committed).
 
@@ -369,7 +372,7 @@ objective (before any further HTML specialization):
 - **نرمال‌سازی فارسی** با محافظت از کد و URL (ی عربی→فارسی، ک عربی→کاف فارسی، ة→ه، ارقام عربی→فارسی، حذف نویسه‌های کنترلی) — ۱۰/۱۰ تست واحد.
 - **کنترل زبان**: مجموعهٔ ارزیابی ۲۳۹ پرامپتی در ۱۲ دسته؛ فارسی→فارسی، درخواست عربی→عربی، درخواست انگلیسی→انگلیسی؛ شناسایی زبان با واژه‌های نقش‌نما نه صرفاً هم‌پوشانی حروف.
 - **آموزش روی GPU کاگل** جایگزین CPU شد: بنچمارک طول توالی (۲۰۴۸/۳۰۷۲/۴۰۹۶)، LoRA r=16 α=32 با lr=1e-4 (بدون تغییر نسبت به نسخهٔ ۱٫۰ برای مقایسهٔ کنترل‌شده)، دو epoch، تنظیم خودکار batch در OOM.
-- **مقایسهٔ BASE و ARION**: همین بنچمارک قبل و بعد از آموزش روی مدل پایه و مدل نهایی اجرا و شاخص‌ها گزارش می‌شود.
+- **مقایسهٔ BASE و ARION**: همین بنچمارک قبل و بعد از آموزش روی مدل پایه و مدل نهایی اجرا می‌شود. **نتیجهٔ قطعی BASE (اندازه‌گیری‌شده):** نرخ پاسخ فارسی ۹۸٫۳٪، انطباق زبان ۹۷٫۹٪، نشتی عربی ۰٫۸۷٪، و **تکرار ۲۸٪** (۶۷ پاسخ واژگون از ۲۳۹ — مشکل اصلی کیفیت که آموزش باید حل کند). شواهد خام در `artifacts/persian/`.
 - مدارک کلیدی: `KAGGLE_API_TOKEN` فقط به‌صورت GitHub Secret — هرگز در کد کامیت نمی‌شود.
 
 </div>
