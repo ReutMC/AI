@@ -1,0 +1,11 @@
+torch>=2.0
+transformers>=4.44
+peft>=0.11
+safetensors>=0.4
+huggingface_hub>=0.24
+gguf>=0.6
+tinycss2
+html5lib
+psutil
+# optional (evaluation self-testing in a real browser):
+# playwright

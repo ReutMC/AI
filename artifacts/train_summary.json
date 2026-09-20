@@ -1,0 +1,14 @@
+{
+  "final_step": 256,
+  "stop_reason": "max_epochs_reached",
+  "examples_per_sec": 0.305,
+  "total_minutes": 167.55,
+  "best_val_loss": 1.270661165122874,
+  "examples_trained_on": 316,
+  "tokens_seen": 166128,
+  "lora_r": 12,
+  "lora_alpha": 24,
+  "base_model": "Qwen/Qwen3-0.6B",
+  "method": "LoRA SFT",
+  "trainable_params_millions": 7.569
+}

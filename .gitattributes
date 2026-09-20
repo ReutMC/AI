@@ -1,0 +1,13 @@
+# binary weights / archives
+*.safetensors binary
+*.gguf binary filter=lfs diff=lfs merge=lfs -text
+*.zip binary
+
+# datasets — hide from language stats
+datasets/** linguist-generated=true
+datasets/** linguist-detectable=false
+artifacts/** linguist-generated=true
+*.jsonl linguist-language=JSON
+
+# docs
+*.md text

@@ -1,0 +1,741 @@
+{
+  "name": "arion-webdev-eval",
+  "count": 105,
+  "prompts": [
+    {
+      "id": "wd-html-001",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_semantics",
+      "prompt": "When should I use <article> instead of <section>? Show a correct example."
+    },
+    {
+      "id": "wd-html-002",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_forms",
+      "prompt": "Write a complete accessible contact form with labels, required fields and inline validation messages."
+    },
+    {
+      "id": "wd-html-003",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_meta",
+      "prompt": "What meta tags does a modern HTML page need for SEO? Give a full <head> example."
+    },
+    {
+      "id": "wd-html-004",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_images",
+      "prompt": "How does the <picture> element differ from srcset? Show both."
+    },
+    {
+      "id": "wd-html-005",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_semantics",
+      "prompt": "Build a semantic page skeleton with header, nav, main, aside and footer."
+    },
+    {
+      "id": "wd-html-006",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_dialog",
+      "prompt": "How do I make a native modal with <dialog>? Include opening, closing and the backdrop."
+    },
+    {
+      "id": "wd-html-007",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_tables",
+      "prompt": "Show a data table with thead, tbody, tfoot, caption and proper scope attributes."
+    },
+    {
+      "id": "wd-html-008",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_semantics",
+      "prompt": "What is wrong with using <div> for everything? Explain and show the semantic version."
+    },
+    {
+      "id": "wd-html-009",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_a11y",
+      "prompt": "Write an accessible skip-link pattern."
+    },
+    {
+      "id": "wd-html-010",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_details",
+      "prompt": "How do details/summary work for an FAQ section? Show a complete example."
+    },
+    {
+      "id": "wd-html-011",
+      "lang": "fa",
+      "category": "html",
+      "tag": "html_semantics",
+      "prompt": "تفاوت تگ semantic و div چیست؟ با مثال توضیح بده."
+    },
+    {
+      "id": "wd-html-012",
+      "lang": "fa",
+      "category": "html",
+      "tag": "html_forms",
+      "prompt": "یک فرم تماس کامل با لیبل و اعتبارسنجی HTML بساز."
+    },
+    {
+      "id": "wd-html-013",
+      "lang": "fa",
+      "category": "html",
+      "tag": "html_meta",
+      "prompt": "متاتگ‌های ضروری برای سئو کدام‌اند؟ یک head کامل بنویس."
+    },
+    {
+      "id": "wd-html-014",
+      "lang": "fa",
+      "category": "html",
+      "tag": "html_dialog",
+      "prompt": "چطور با <dialog> یک مودال بسازم؟"
+    },
+    {
+      "id": "wd-html-015",
+      "lang": "fa",
+      "category": "html",
+      "tag": "html_semantics",
+      "prompt": "ساختار سمانتیک یک صفحهٔ وب را با header و nav و main بنویس."
+    },
+    {
+      "id": "wd-html-016",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_images",
+      "prompt": "Explain the loading attribute for images and iframes."
+    },
+    {
+      "id": "wd-html-017",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_iframe",
+      "prompt": "How do I embed a YouTube video responsively?"
+    },
+    {
+      "id": "wd-html-018",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_nav",
+      "prompt": "Write valid markup for a navigation bar with a logo and 4 links."
+    },
+    {
+      "id": "wd-html-019",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_template",
+      "prompt": "What does the template element do? Show a practical use."
+    },
+    {
+      "id": "wd-html-020",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_forms",
+      "prompt": "How do I validate an email input in HTML without JavaScript?"
+    },
+    {
+      "id": "wd-html-021",
+      "lang": "fa",
+      "category": "html",
+      "tag": "html_images",
+      "prompt": "چطور تصاویر را برای موبایل بهینه کنم؟ srcset را توضیح بده."
+    },
+    {
+      "id": "wd-html-022",
+      "lang": "fa",
+      "category": "html",
+      "tag": "html_tables",
+      "prompt": "جدول کامل با caption و scope بنویس."
+    },
+    {
+      "id": "wd-html-023",
+      "lang": "fa",
+      "category": "html",
+      "tag": "html_a11y",
+      "prompt": "چرا alt برای تصاویر مهم است؟"
+    },
+    {
+      "id": "wd-html-024",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_forms",
+      "prompt": "Show correct usage of fieldset and legend in a shipping form."
+    },
+    {
+      "id": "wd-html-025",
+      "lang": "en",
+      "category": "html",
+      "tag": "html_semantics",
+      "prompt": "What is the correct heading hierarchy and why does it matter?"
+    },
+    {
+      "id": "wd-css-026",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_boxmodel",
+      "prompt": "Explain the CSS box model and show how border-box changes sizing."
+    },
+    {
+      "id": "wd-css-027",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_centering",
+      "prompt": "Center a card both vertically and horizontally with flexbox AND with grid."
+    },
+    {
+      "id": "wd-css-028",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_grid",
+      "prompt": "Build a responsive 3-column grid that becomes 1 column on mobile."
+    },
+    {
+      "id": "wd-css-029",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_specificity",
+      "prompt": "Explain specificity with a concrete example where an ID beats a class."
+    },
+    {
+      "id": "wd-css-030",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_theming",
+      "prompt": "How do CSS custom properties enable dark mode? Show a full theme system."
+    },
+    {
+      "id": "wd-css-031",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_fluid",
+      "prompt": "Write fluid typography with clamp() from 1.5rem to 3rem."
+    },
+    {
+      "id": "wd-css-032",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_position",
+      "prompt": "What is the difference between position sticky and fixed? Demo both."
+    },
+    {
+      "id": "wd-css-033",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_tricks",
+      "prompt": "Create a glassmorphism card."
+    },
+    {
+      "id": "wd-css-034",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_tricks",
+      "prompt": "Build a skeleton loader with shimmer animation."
+    },
+    {
+      "id": "wd-css-035",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_position",
+      "prompt": "How does z-index actually work? Explain stacking contexts."
+    },
+    {
+      "id": "wd-css-036",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_animation",
+      "prompt": "Animate a button on hover with transform and transition — no layout properties."
+    },
+    {
+      "id": "wd-css-037",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_animation",
+      "prompt": "Write a keyframes animation for a floating element, respecting prefers-reduced-motion."
+    },
+    {
+      "id": "wd-css-038",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_boxmodel",
+      "prompt": "Explain margin collapsing and three ways to stop it."
+    },
+    {
+      "id": "wd-css-039",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_layout",
+      "prompt": "Use aspect-ratio for a responsive video embed."
+    },
+    {
+      "id": "wd-css-040",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_images",
+      "prompt": "What is object-fit: cover doing exactly? Show with an avatar."
+    },
+    {
+      "id": "wd-css-041",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_tricks",
+      "prompt": "Build a CSS-only tooltip."
+    },
+    {
+      "id": "wd-css-042",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_logical",
+      "prompt": "How do logical properties help in RTL layouts?"
+    },
+    {
+      "id": "wd-css-043",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_media",
+      "prompt": "Write a media query set for mobile-first design at 640px and 1024px."
+    },
+    {
+      "id": "wd-css-044",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_media",
+      "prompt": "What are container queries and when are they better than media queries?"
+    },
+    {
+      "id": "wd-css-045",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_tricks",
+      "prompt": "Create a responsive navbar without JavaScript."
+    },
+    {
+      "id": "wd-css-046",
+      "lang": "fa",
+      "category": "css",
+      "tag": "css_centering",
+      "prompt": "با فلکس‌باکس وسط‌چین کردن کامل را توضیح بده."
+    },
+    {
+      "id": "wd-css-047",
+      "lang": "fa",
+      "category": "css",
+      "tag": "css_layout",
+      "prompt": "تفاوت grid و flexbox در چیست و کجا از کدام استفاده کنیم؟"
+    },
+    {
+      "id": "wd-css-048",
+      "lang": "fa",
+      "category": "css",
+      "tag": "css_theming",
+      "prompt": "چطور با متغیرهای CSS حالت تاریک بسازم؟"
+    },
+    {
+      "id": "wd-css-049",
+      "lang": "fa",
+      "category": "css",
+      "tag": "css_tricks",
+      "prompt": "یک کارت شیشه‌ای بساز."
+    },
+    {
+      "id": "wd-css-050",
+      "lang": "fa",
+      "category": "css",
+      "tag": "css_specificity",
+      "prompt": " specificity یا اولویت سلکتورها را با مثال توضیح بده."
+    },
+    {
+      "id": "wd-css-051",
+      "lang": "fa",
+      "category": "css",
+      "tag": "css_fluid",
+      "prompt": "با clamp فونت واکنش‌گرا بنویس."
+    },
+    {
+      "id": "wd-css-052",
+      "lang": "fa",
+      "category": "css",
+      "tag": "css_position",
+      "prompt": "چرا z-index کار نمی‌کند؟"
+    },
+    {
+      "id": "wd-css-053",
+      "lang": "fa",
+      "category": "css",
+      "tag": "css_animation",
+      "prompt": "انیمیشن hover برای دکمه بساز."
+    },
+    {
+      "id": "wd-css-054",
+      "lang": "fa",
+      "category": "css",
+      "tag": "css_tricks",
+      "prompt": "منوی ناوبری ریسپانسیو بدون جاوااسکریپت."
+    },
+    {
+      "id": "wd-css-055",
+      "lang": "en",
+      "category": "css",
+      "tag": "css_specificity",
+      "prompt": "Explain the cascade, inheritance and specificity in 3 short paragraphs with code."
+    },
+    {
+      "id": "wd-js-056",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_closures",
+      "prompt": "Explain closures with a practical counter example."
+    },
+    {
+      "id": "wd-js-057",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_fetch",
+      "prompt": "Fetch data with async/await including error handling for HTTP errors."
+    },
+    {
+      "id": "wd-js-058",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_events",
+      "prompt": "What is event delegation and why is it efficient? Code it for a todo list."
+    },
+    {
+      "id": "wd-js-059",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_utils",
+      "prompt": "Write a debounce function and explain where to use it."
+    },
+    {
+      "id": "wd-js-060",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_basics",
+      "prompt": "How do const and let differ from var?"
+    },
+    {
+      "id": "wd-js-061",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_storage",
+      "prompt": "Store and retrieve an object in localStorage safely."
+    },
+    {
+      "id": "wd-js-062",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_async",
+      "prompt": "Explain the event loop with a console.log ordering example."
+    },
+    {
+      "id": "wd-js-063",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_observers",
+      "prompt": "Use IntersectionObserver to lazy-load images."
+    },
+    {
+      "id": "wd-js-064",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_components",
+      "prompt": "Build a simple tabs component in vanilla JS."
+    },
+    {
+      "id": "wd-js-065",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_forms",
+      "prompt": "Validate a form on submit and show inline errors."
+    },
+    {
+      "id": "wd-js-066",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_basics",
+      "prompt": "Explain spread vs rest with examples."
+    },
+    {
+      "id": "wd-js-067",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_basics",
+      "prompt": "What does optional chaining solve? Show 3 cases."
+    },
+    {
+      "id": "wd-js-068",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_timers",
+      "prompt": "Write a countdown timer with setInterval and clean it up."
+    },
+    {
+      "id": "wd-js-069",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_modules",
+      "prompt": "How do modules work in the browser with import/export?"
+    },
+    {
+      "id": "wd-js-070",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_async",
+      "prompt": "Convert this callback pyramid to async/await: getData(id, cb => getUser(cb, u => render(u)))"
+    },
+    {
+      "id": "wd-js-071",
+      "lang": "fa",
+      "category": "js",
+      "tag": "js_closures",
+      "prompt": "بستار (closure) را با مثال توضیح بده."
+    },
+    {
+      "id": "wd-js-072",
+      "lang": "fa",
+      "category": "js",
+      "tag": "js_fetch",
+      "prompt": "fetch با async/await و مدیریت خطا بنویس."
+    },
+    {
+      "id": "wd-js-073",
+      "lang": "fa",
+      "category": "js",
+      "tag": "js_events",
+      "prompt": "event delegation چیست؟ برای لیست کارها پیاده‌سازی کن."
+    },
+    {
+      "id": "wd-js-074",
+      "lang": "fa",
+      "category": "js",
+      "tag": "js_utils",
+      "prompt": "تابع debounce بنویس و کاربردش را بگو."
+    },
+    {
+      "id": "wd-js-075",
+      "lang": "fa",
+      "category": "js",
+      "tag": "js_storage",
+      "prompt": "ذخیرهٔ آبجکت در localStorage با تبدیل JSON."
+    },
+    {
+      "id": "wd-js-076",
+      "lang": "fa",
+      "category": "js",
+      "tag": "js_async",
+      "prompt": "event loop را با مثال ترتیب console.log توضیح بده."
+    },
+    {
+      "id": "wd-js-077",
+      "lang": "fa",
+      "category": "js",
+      "tag": "js_components",
+      "prompt": "کامپوننت تب ساده با جاوااسکریپت خالص."
+    },
+    {
+      "id": "wd-js-078",
+      "lang": "fa",
+      "category": "js",
+      "tag": "js_forms",
+      "prompt": "اعتبارسنجی فرم و نمایش خطا زیر هر فیلد."
+    },
+    {
+      "id": "wd-js-079",
+      "lang": "fa",
+      "category": "js",
+      "tag": "js_basics",
+      "prompt": "تفاوت == و === با مثال."
+    },
+    {
+      "id": "wd-js-080",
+      "lang": "en",
+      "category": "js",
+      "tag": "js_fetch",
+      "prompt": "When does fetch reject its promise? Explain response.ok."
+    },
+    {
+      "id": "wd-build-081",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Build a complete modern landing page for an AI startup with hero, features, pricing and footer."
+    },
+    {
+      "id": "wd-build-082",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Create a responsive dashboard page with stat cards and a table."
+    },
+    {
+      "id": "wd-build-083",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Build a login page with validation and a password visibility toggle."
+    },
+    {
+      "id": "wd-build-084",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Create a pricing section with 3 tiers and a highlighted plan."
+    },
+    {
+      "id": "wd-build-085",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Build a portfolio site with project cards and a contact section."
+    },
+    {
+      "id": "wd-build-086",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Create a testimonial slider with vanilla JS."
+    },
+    {
+      "id": "wd-build-087",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Build a responsive blog homepage with a card grid."
+    },
+    {
+      "id": "wd-build-088",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Create an FAQ accordion section."
+    },
+    {
+      "id": "wd-build-089",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Build a hero section with an animated gradient background."
+    },
+    {
+      "id": "wd-build-090",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Create a footer with 4 columns and social links."
+    },
+    {
+      "id": "wd-build-091",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Build a product card grid for an ecommerce page."
+    },
+    {
+      "id": "wd-build-092",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Create a team section with avatar cards."
+    },
+    {
+      "id": "wd-build-093",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Build a sticky navbar that hides on scroll down and shows on scroll up."
+    },
+    {
+      "id": "wd-build-094",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Create a settings page with a sidebar and form sections."
+    },
+    {
+      "id": "wd-build-095",
+      "lang": "en",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "Build a documentation page with a sidebar and content area."
+    },
+    {
+      "id": "wd-build-096",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "یک لندینگ پیج مدرن برای یک شرکت هوش مصنوعی بساز."
+    },
+    {
+      "id": "wd-build-097",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "یک داشبورد ریسپانسیو با کارت‌های آمار بساز."
+    },
+    {
+      "id": "wd-build-098",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "صفحهٔ لاگین با اعتبارسنجی بساز."
+    },
+    {
+      "id": "wd-build-099",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "بخش قیمت‌گذاری با سه پلن بساز."
+    },
+    {
+      "id": "wd-build-100",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "یک سایت نمونه‌کار (پورتفولیو) با کارت پروژه بساز."
+    },
+    {
+      "id": "wd-build-101",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "اسلایدر نظرات کاربران با جاوااسکریپت خالص بساز."
+    },
+    {
+      "id": "wd-build-102",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "یک صفحهٔ وبلاگ ریسپانسیو با گرید کارت بساز."
+    },
+    {
+      "id": "wd-build-103",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "آکاردئون سوالات متداول بساز."
+    },
+    {
+      "id": "wd-build-104",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "فوتر چهارستونه با شبکه‌های اجتماعی بساز."
+    },
+    {
+      "id": "wd-build-105",
+      "lang": "fa",
+      "category": "build",
+      "tag": "full_page",
+      "prompt": "نوبار چسبان با منوی همبرگری برای موبایل بساز."
+    }
+  ]
+}

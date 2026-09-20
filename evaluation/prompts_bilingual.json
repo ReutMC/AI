@@ -1,0 +1,666 @@
+{
+  "name": "arion-bilingual-eval",
+  "count": 110,
+  "prompts": [
+    {
+      "id": "bi-000",
+      "kind": "fa_to_fa",
+      "prompt": "چرا فلکس‌باکس من عمودی وسط‌چین نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-001",
+      "kind": "en_to_en",
+      "prompt": "How do I load Google Fonts correctly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-002",
+      "kind": "en_ask_fa",
+      "prompt": "What is the difference between grid and flexbox? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-003",
+      "kind": "fa_ask_en",
+      "prompt": "position: sticky چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-004",
+      "kind": "fa_to_fa",
+      "prompt": "چرا media query من در موبایل اعمال نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-005",
+      "kind": "en_to_en",
+      "prompt": "How do I make a dark mode toggle?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-006",
+      "kind": "en_ask_fa",
+      "prompt": "What breaks 100vh on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-007",
+      "kind": "fa_ask_en",
+      "prompt": "بارگذاری تنبل تصاویر چطور است؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-008",
+      "kind": "fa_to_fa",
+      "prompt": "حباب‌زنی رویداد (event bubbling) را توضیح بده.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-009",
+      "kind": "en_to_en",
+      "prompt": "Why is my z-index ignored?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-010",
+      "kind": "en_ask_fa",
+      "prompt": "How do I center a div? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-011",
+      "kind": "fa_ask_en",
+      "prompt": "اولویت سلکتورهای CSS چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-012",
+      "kind": "fa_to_fa",
+      "prompt": "fetch خطاها را چطور مدیریت می‌کند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-013",
+      "kind": "en_to_en",
+      "prompt": "Explain async/await simply.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-014",
+      "kind": "en_ask_fa",
+      "prompt": "How do I use Vazirmatn font? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-015",
+      "kind": "fa_ask_en",
+      "prompt": "HTML سمانتیک چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-016",
+      "kind": "fa_to_fa",
+      "prompt": "transition و animation چه فرقی دارند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-017",
+      "kind": "en_to_en",
+      "prompt": "How do I build a modal accessibly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-018",
+      "kind": "en_ask_fa",
+      "prompt": "What causes horizontal scroll on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-019",
+      "kind": "fa_ask_en",
+      "prompt": "localStorage چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-020",
+      "kind": "fa_to_fa",
+      "prompt": "چرا فلکس‌باکس من عمودی وسط‌چین نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-021",
+      "kind": "en_to_en",
+      "prompt": "How do I load Google Fonts correctly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-022",
+      "kind": "en_ask_fa",
+      "prompt": "What is the difference between grid and flexbox? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-023",
+      "kind": "fa_ask_en",
+      "prompt": "position: sticky چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-024",
+      "kind": "fa_to_fa",
+      "prompt": "چرا media query من در موبایل اعمال نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-025",
+      "kind": "en_to_en",
+      "prompt": "How do I make a dark mode toggle?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-026",
+      "kind": "en_ask_fa",
+      "prompt": "What breaks 100vh on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-027",
+      "kind": "fa_ask_en",
+      "prompt": "بارگذاری تنبل تصاویر چطور است؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-028",
+      "kind": "fa_to_fa",
+      "prompt": "حباب‌زنی رویداد (event bubbling) را توضیح بده.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-029",
+      "kind": "en_to_en",
+      "prompt": "Why is my z-index ignored?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-030",
+      "kind": "en_ask_fa",
+      "prompt": "How do I center a div? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-031",
+      "kind": "fa_ask_en",
+      "prompt": "اولویت سلکتورهای CSS چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-032",
+      "kind": "fa_to_fa",
+      "prompt": "fetch خطاها را چطور مدیریت می‌کند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-033",
+      "kind": "en_to_en",
+      "prompt": "Explain async/await simply.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-034",
+      "kind": "en_ask_fa",
+      "prompt": "How do I use Vazirmatn font? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-035",
+      "kind": "fa_ask_en",
+      "prompt": "HTML سمانتیک چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-036",
+      "kind": "fa_to_fa",
+      "prompt": "transition و animation چه فرقی دارند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-037",
+      "kind": "en_to_en",
+      "prompt": "How do I build a modal accessibly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-038",
+      "kind": "en_ask_fa",
+      "prompt": "What causes horizontal scroll on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-039",
+      "kind": "fa_ask_en",
+      "prompt": "localStorage چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-040",
+      "kind": "fa_to_fa",
+      "prompt": "چرا فلکس‌باکس من عمودی وسط‌چین نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-041",
+      "kind": "en_to_en",
+      "prompt": "How do I load Google Fonts correctly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-042",
+      "kind": "en_ask_fa",
+      "prompt": "What is the difference between grid and flexbox? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-043",
+      "kind": "fa_ask_en",
+      "prompt": "position: sticky چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-044",
+      "kind": "fa_to_fa",
+      "prompt": "چرا media query من در موبایل اعمال نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-045",
+      "kind": "en_to_en",
+      "prompt": "How do I make a dark mode toggle?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-046",
+      "kind": "en_ask_fa",
+      "prompt": "What breaks 100vh on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-047",
+      "kind": "fa_ask_en",
+      "prompt": "بارگذاری تنبل تصاویر چطور است؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-048",
+      "kind": "fa_to_fa",
+      "prompt": "حباب‌زنی رویداد (event bubbling) را توضیح بده.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-049",
+      "kind": "en_to_en",
+      "prompt": "Why is my z-index ignored?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-050",
+      "kind": "en_ask_fa",
+      "prompt": "How do I center a div? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-051",
+      "kind": "fa_ask_en",
+      "prompt": "اولویت سلکتورهای CSS چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-052",
+      "kind": "fa_to_fa",
+      "prompt": "fetch خطاها را چطور مدیریت می‌کند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-053",
+      "kind": "en_to_en",
+      "prompt": "Explain async/await simply.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-054",
+      "kind": "en_ask_fa",
+      "prompt": "How do I use Vazirmatn font? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-055",
+      "kind": "fa_ask_en",
+      "prompt": "HTML سمانتیک چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-056",
+      "kind": "fa_to_fa",
+      "prompt": "transition و animation چه فرقی دارند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-057",
+      "kind": "en_to_en",
+      "prompt": "How do I build a modal accessibly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-058",
+      "kind": "en_ask_fa",
+      "prompt": "What causes horizontal scroll on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-059",
+      "kind": "fa_ask_en",
+      "prompt": "localStorage چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-060",
+      "kind": "fa_to_fa",
+      "prompt": "چرا فلکس‌باکس من عمودی وسط‌چین نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-061",
+      "kind": "en_to_en",
+      "prompt": "How do I load Google Fonts correctly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-062",
+      "kind": "en_ask_fa",
+      "prompt": "What is the difference between grid and flexbox? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-063",
+      "kind": "fa_ask_en",
+      "prompt": "position: sticky چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-064",
+      "kind": "fa_to_fa",
+      "prompt": "چرا media query من در موبایل اعمال نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-065",
+      "kind": "en_to_en",
+      "prompt": "How do I make a dark mode toggle?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-066",
+      "kind": "en_ask_fa",
+      "prompt": "What breaks 100vh on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-067",
+      "kind": "fa_ask_en",
+      "prompt": "بارگذاری تنبل تصاویر چطور است؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-068",
+      "kind": "fa_to_fa",
+      "prompt": "حباب‌زنی رویداد (event bubbling) را توضیح بده.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-069",
+      "kind": "en_to_en",
+      "prompt": "Why is my z-index ignored?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-070",
+      "kind": "en_ask_fa",
+      "prompt": "How do I center a div? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-071",
+      "kind": "fa_ask_en",
+      "prompt": "اولویت سلکتورهای CSS چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-072",
+      "kind": "fa_to_fa",
+      "prompt": "fetch خطاها را چطور مدیریت می‌کند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-073",
+      "kind": "en_to_en",
+      "prompt": "Explain async/await simply.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-074",
+      "kind": "en_ask_fa",
+      "prompt": "How do I use Vazirmatn font? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-075",
+      "kind": "fa_ask_en",
+      "prompt": "HTML سمانتیک چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-076",
+      "kind": "fa_to_fa",
+      "prompt": "transition و animation چه فرقی دارند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-077",
+      "kind": "en_to_en",
+      "prompt": "How do I build a modal accessibly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-078",
+      "kind": "en_ask_fa",
+      "prompt": "What causes horizontal scroll on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-079",
+      "kind": "fa_ask_en",
+      "prompt": "localStorage چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-080",
+      "kind": "fa_to_fa",
+      "prompt": "چرا فلکس‌باکس من عمودی وسط‌چین نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-081",
+      "kind": "en_to_en",
+      "prompt": "How do I load Google Fonts correctly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-082",
+      "kind": "en_ask_fa",
+      "prompt": "What is the difference between grid and flexbox? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-083",
+      "kind": "fa_ask_en",
+      "prompt": "position: sticky چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-084",
+      "kind": "fa_to_fa",
+      "prompt": "چرا media query من در موبایل اعمال نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-085",
+      "kind": "en_to_en",
+      "prompt": "How do I make a dark mode toggle?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-086",
+      "kind": "en_ask_fa",
+      "prompt": "What breaks 100vh on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-087",
+      "kind": "fa_ask_en",
+      "prompt": "بارگذاری تنبل تصاویر چطور است؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-088",
+      "kind": "fa_to_fa",
+      "prompt": "حباب‌زنی رویداد (event bubbling) را توضیح بده.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-089",
+      "kind": "en_to_en",
+      "prompt": "Why is my z-index ignored?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-090",
+      "kind": "en_ask_fa",
+      "prompt": "How do I center a div? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-091",
+      "kind": "fa_ask_en",
+      "prompt": "اولویت سلکتورهای CSS چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-092",
+      "kind": "fa_to_fa",
+      "prompt": "fetch خطاها را چطور مدیریت می‌کند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-093",
+      "kind": "en_to_en",
+      "prompt": "Explain async/await simply.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-094",
+      "kind": "en_ask_fa",
+      "prompt": "How do I use Vazirmatn font? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-095",
+      "kind": "fa_ask_en",
+      "prompt": "HTML سمانتیک چیست؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-096",
+      "kind": "fa_to_fa",
+      "prompt": "transition و animation چه فرقی دارند؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-097",
+      "kind": "en_to_en",
+      "prompt": "How do I build a modal accessibly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-098",
+      "kind": "en_ask_fa",
+      "prompt": "What causes horizontal scroll on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-099",
+      "kind": "fa_ask_en",
+      "prompt": "localStorage چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-100",
+      "kind": "fa_to_fa",
+      "prompt": "چرا فلکس‌باکس من عمودی وسط‌چین نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-101",
+      "kind": "en_to_en",
+      "prompt": "How do I load Google Fonts correctly?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-102",
+      "kind": "en_ask_fa",
+      "prompt": "What is the difference between grid and flexbox? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-103",
+      "kind": "fa_ask_en",
+      "prompt": "position: sticky چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-104",
+      "kind": "fa_to_fa",
+      "prompt": "چرا media query من در موبایل اعمال نمی‌شود؟",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-105",
+      "kind": "en_to_en",
+      "prompt": "How do I make a dark mode toggle?",
+      "expect": "en"
+    },
+    {
+      "id": "bi-106",
+      "kind": "en_ask_fa",
+      "prompt": "What breaks 100vh on mobile? Please answer in Persian/Farsi.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-107",
+      "kind": "fa_ask_en",
+      "prompt": "بارگذاری تنبل تصاویر چطور است؟ لطفاً به انگلیسی جواب بده.",
+      "expect": "en"
+    },
+    {
+      "id": "bi-108",
+      "kind": "fa_to_fa",
+      "prompt": "حباب‌زنی رویداد (event bubbling) را توضیح بده.",
+      "expect": "fa"
+    },
+    {
+      "id": "bi-109",
+      "kind": "en_to_en",
+      "prompt": "Why is my z-index ignored?",
+      "expect": "en"
+    }
+  ]
+}

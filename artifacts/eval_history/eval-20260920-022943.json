@@ -1,0 +1,137 @@
+{
+  "model": "llama-server Q4_K_M (re-run)",
+  "started": "2026-09-20 02:28:14",
+  "sets": {
+    "webdev": {
+      "summary": {
+        "n": 2,
+        "empty_rate": 1.0,
+        "code_production_rate": 0.5,
+        "instruction_following": 1.0,
+        "language_correct": null,
+        "relevance_rate": 1.0,
+        "syntax_checked": 1,
+        "syntax_valid_rate": 1.0,
+        "bad_marker_rate": 1.0,
+        "mean_repetition": 0.044
+      },
+      "rows": [
+        {
+          "id": "wd-html-001",
+          "prompt": "When should I use <article> instead of <section>? Show a correct example.",
+          "metrics": {
+            "answer_chars": 785,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.08,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 3,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 203
+          },
+          "answer": "When to use `<article>` instead of `<section>`:\n\n- **Use `<article>` when you're building content that is a single, standalone piece** (e.g., a blog post, product description, or user profile).\n- **Use `<section>` when you're building content that is part of a larger structure**, such as sections within a page layout.\n\n### Example:\n```html\n<article>\n  <h1>Welcome to My Website</h1>\n  <p>This is the first section of the article.</p>\n</article>\n\n<section>\n  <h2>Featured Products</h2>\n  <ul>\n    <li>Product A</li>\n    <li>Product B</li>\n  </ul>\n</section>\n```\n\n### Explanation:\n- `<article>` is used for content that is a single, standalone element.\n- `<section>` is used when you're building a page layout with multiple sections.\n\nLet me know if you'd like help with more examples!"
+        },
+        {
+          "id": "wd-html-002",
+          "prompt": "Write a complete accessible contact form with labels, required fields and inline validation messages.",
+          "metrics": {
+            "answer_chars": 1438,
+            "has_code": false,
+            "empty": false,
+            "repetition": 0.008,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 7,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "Sure! Below is a complete **accessible contact form** in **English**, including labels, required fields, and inline validation messages.\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Contact Form</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      padding: 20px;\n    }\n    h1 {\n      text-align: center;\n      color: #333;\n    }\n    form {\n      width: 100%;\n      max-width: 600px;\n      margin: auto;\n    }\n    label {\n      display: block;\n      margin-bottom: 8px;\n    }\n    input[type=\"text\"],\n    input[type=\"email\"],\n    input[type=\"number\"] {\n      width: 100%;\n      padding: 12px;\n      font-size: 16px;\n      box-sizing: border-box;\n    }\n    textarea {\n      height: 150px;\n      padding: 8px;\n    }\n    button {\n      background-color: #4CAF50;\n      color: white;\n      padding: 12px 20px;\n      font-size: 16px;\n      border-radius: 5px;\n    }\n    .error {\n      color: red;\n    }\n  </style>\n</head>\n<body>\n\n<h1>Get in Touch</h1>\n\n<form id=\"contactForm\" onsubmit=\"return validateForm(event)\">\n  <label for=\"name\">Name:</label><br>\n  <input type=\"text\" id=\"name\" name=\"name\" required placeholder=\"Your Name\">\n\n  <label for=\"emai"
+        }
+      ]
+    },
+    "bilingual": {
+      "summary": {
+        "n": 2,
+        "empty_rate": 1.0,
+        "code_production_rate": 1.0,
+        "instruction_following": 1.0,
+        "language_correct": 1.0,
+        "relevance_rate": 1.0,
+        "syntax_checked": 2,
+        "syntax_valid_rate": 1.0,
+        "bad_marker_rate": 1.0,
+        "mean_repetition": 0.087
+      },
+      "rows": [
+        {
+          "id": "bi-000",
+          "prompt": "چرا فلکس‌باکس من عمودی وسط‌چین نمی‌شود؟",
+          "metrics": {
+            "answer_chars": 1210,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.158,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.23,
+            "relevance_hits": 8,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "فلاكس باکس من عمودی وسط چین نمی شد، اگر به دنباله کنترل های معمول مثل `position: absolute`، `top`, `bottom`, و `left` وجود دارید، این موضوع رخ مىشود. با توجه به این کنترلها، فلکس باکس من عمودی وسط چین نمی شد.\n\n### مثال کامل:\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Position Example</title>\n    <style>\n        body {\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n        }\n\n        #container {\n            position: absolute;\n            top: 50%;\n            left: 50%;\n            transform-origin: center;\n        }\n\n        .content {\n            position: absolute;\n            top: -50px; /* عمودی */\n            left: -50px; /* عمودی وسط */\n        }\n    </style>\n</head>\n<body>\n    <div id=\"container\">\n        <div class=\"content\"></div>\n    </div>\n\n    <script>\n        // چاپ فلکس باکس من\n        document.getElementById('content').textContent = 'FLASK';\n    </script>\n</body>\n</html>\n```\n\n### نتیجه:\n- اگر `position: absolute` و `top`, `left` وجود دارید، فلکس باکس من عمودی وسط چین نمی شد.\n- اگر فلکس باکس من به دنباله کنترل های معمول مثل `position: absolute`, `top`, `left` وجود دار، این موضوع رخ مىشود.\n\nبازه"
+        },
+        {
+          "id": "bi-001",
+          "prompt": "How do I load Google Fonts correctly?",
+          "metrics": {
+            "answer_chars": 1447,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.016,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 3,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 7,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 360
+          },
+          "answer": "To load Google Fonts correctly in your project, you can use the `@font-face` declaration in your HTML file. Here's how you can do it:\n\n### Step-by-Step Guide:\n\n1. **Download the Font File**: Visit [Google Fonts](https://fonts.google.com/) and download the desired font file (e.g., `.woff`, `.woff2`, or `.ttf`).\n\n2. **Add to Your HTML File**: Include the Google Fonts in your HTML file by adding a `<link>` tag with `rel=\"stylesheet\"` and `href=\"fonts/your-font-name.css\"`.\n\n   ```html\n   <link href=\"https://fonts.googleapis.com/css?family=YourFontName\" rel=\"stylesheet\">\n   ```\n\n3. **Use the Font in Your Code**: Once the font is linked, you can use it in your HTML, CSS, or JavaScript files by specifying the font family.\n\n### Example:\n\nIf you're using a specific font like \"Roboto\", your code would look like this:\n\n```html\n<link href=\"https://fonts.googleapis.com/css?family=Roboto\" rel=\"stylesheet\">\n```\n\n### Example Code:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Google Fonts</title>\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto&display=swap\" rel=\"stylesheet\">\n</head>\n<body>\n\n<!-- Your HTML content here -->\n\n</body>\n</html>\n```\n\n### "
+        }
+      ]
+    }
+  },
+  "finished": "2026-09-20 02:29:43"
+}

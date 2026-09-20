@@ -1,0 +1,9 @@
+# large binaries live in GitHub Releases, not git
+*.gguf
+*.zip
+model/base/
+model/arion-alpha-1-merged/
+artifacts/checkpoints/
+__pycache__/
+*.pyc
+.venv/

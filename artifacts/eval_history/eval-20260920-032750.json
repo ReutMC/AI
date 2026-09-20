@@ -1,0 +1,986 @@
+{
+  "model": "llama-server Q4_K_M (re-run)",
+  "started": "2026-09-20 02:47:17",
+  "sets": {
+    "webdev": {
+      "summary": {
+        "n": 20,
+        "empty_rate": 1.0,
+        "code_production_rate": 0.85,
+        "instruction_following": 0.95,
+        "language_correct": null,
+        "relevance_rate": 1.0,
+        "syntax_checked": 17,
+        "syntax_valid_rate": 0.882,
+        "bad_marker_rate": 1.0,
+        "mean_repetition": 0.078
+      },
+      "rows": [
+        {
+          "id": "wd-html-001",
+          "prompt": "When should I use <article> instead of <section>? Show a correct example.",
+          "metrics": {
+            "answer_chars": 785,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.08,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 3,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 203
+          },
+          "answer": "When to use `<article>` instead of `<section>`:\n\n- **Use `<article>` when you're building content that is a single, standalone piece** (e.g., a blog post, product description, or user profile).\n- **Use `<section>` when you're building content that is part of a larger structure**, such as sections within a page layout.\n\n### Example:\n```html\n<article>\n  <h1>Welcome to My Website</h1>\n  <p>This is the first section of the article.</p>\n</article>\n\n<section>\n  <h2>Featured Products</h2>\n  <ul>\n    <li>Product A</li>\n    <li>Product B</li>\n  </ul>\n</section>\n```\n\n### Explanation:\n- `<article>` is used for content that is a single, standalone element.\n- `<section>` is used when you're building a page layout with multiple sections.\n\nLet me know if you'd like help with more examples!"
+        },
+        {
+          "id": "wd-html-002",
+          "prompt": "Write a complete accessible contact form with labels, required fields and inline validation messages.",
+          "metrics": {
+            "answer_chars": 1438,
+            "has_code": false,
+            "empty": false,
+            "repetition": 0.008,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 7,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "Sure! Below is a complete **accessible contact form** in **English**, including labels, required fields, and inline validation messages.\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Contact Form</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      padding: 20px;\n    }\n    h1 {\n      text-align: center;\n      color: #333;\n    }\n    form {\n      width: 100%;\n      max-width: 600px;\n      margin: auto;\n    }\n    label {\n      display: block;\n      margin-bottom: 8px;\n    }\n    input[type=\"text\"],\n    input[type=\"email\"],\n    input[type=\"number\"] {\n      width: 100%;\n      padding: 12px;\n      font-size: 16px;\n      box-sizing: border-box;\n    }\n    textarea {\n      height: 150px;\n      padding: 8px;\n    }\n    button {\n      background-color: #4CAF50;\n      color: white;\n      padding: 12px 20px;\n      font-size: 16px;\n      border-radius: 5px;\n    }\n    .error {\n      color: red;\n    }\n  </style>\n</head>\n<body>\n\n<h1>Get in Touch</h1>\n\n<form id=\"contactForm\" onsubmit=\"return validateForm(event)\">\n  <label for=\"name\">Name:</label><br>\n  <input type=\"text\" id=\"name\" name=\"name\" required placeholder=\"Your Name\">\n\n  <label for=\"emai"
+        },
+        {
+          "id": "wd-html-003",
+          "prompt": "What meta tags does a modern HTML page need for SEO? Give a full <head> example.",
+          "metrics": {
+            "answer_chars": 868,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.057,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 3,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 221
+          },
+          "answer": "For SEO, a modern HTML page should include the following meta tags:\n\n- **`<meta name=\"description\" content=\"Your website description here\">`** – This tag provides a concise summary of your site.\n- **`<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">`** – Ensures the page is responsive on different devices.\n- **`<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">`** – Ensures the page uses UTF-8 for character encoding.\n\nHere's a complete `<head>` example:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>My Website</title>\n  <meta name=\"description\" content=\"Your website description here. This is a modern HTML page for SEO.\" />\n</head>\n```\n\nLet me know if you'd like help with any specific feature or implementation!"
+        },
+        {
+          "id": "wd-html-004",
+          "prompt": "How does the <picture> element differ from srcset? Show both.",
+          "metrics": {
+            "answer_chars": 1299,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.268,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 2,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 2,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 330
+          },
+          "answer": "The `<picture>` element is used to load images from a source URL, while `srcset` is used to specify different image sizes for a given source. Here's how they differ:\n\n### `<picture>`\n- **Purpose**: Used to load images from a source URL.\n- **Usage**: When you want to use an image from a specific URL, you can include it in the `<picture>` tag.\n- **Example**:\n```html\n<picture>\n  <source src=\"https://example.com/image1.jpg\" type=\"image/png\">\n  <source src=\"https://example.com/image2.jpg\" type=\"image/png\">\n</picture>\n```\n\n### `srcset`\n- **Purpose**: Used to specify different image sizes for a given source URL.\n- **Usage**: When you want to load multiple image sizes from the same source, you can include them in the `srcset` attribute.\n- **Example**:\n```html\n<picture>\n  <source src=\"https://example.com/image1.jpg\" type=\"image/png\">\n  <source srcset=\"https://example.com/image2.jpg?size=300x200\" type=\"image/png\">\n</picture>\n```\n\n### Summary:\n| Feature | `<picture>` | `srcset` |\n|--------|-------------|----------|\n| Purpose | Load images from a source URL | Specify different image sizes for the same source |\n| Usage | When you want to use an image from a single URL | When you want to load mu"
+        },
+        {
+          "id": "wd-html-005",
+          "prompt": "Build a semantic page skeleton with header, nav, main, aside and footer.",
+          "metrics": {
+            "answer_chars": 1569,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.016,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": false,
+                "error": "unclosed: ['html', 'body']"
+              }
+            },
+            "syntax_valid": false,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 10,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "Sure! Below is a semantic page skeleton using HTML5 standards with proper structure:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>My Semantic Page</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    /* Basic styling for the page */\n    body {\n      margin: 0;\n      padding: 20px;\n      font-family: Arial, sans-serif;\n    }\n\n    header {\n      background-color: #333;\n      color: white;\n      padding: 15px;\n    }\n\n    nav {\n      display: flex;\n      justify-content: center; /* Center navigation items */\n    }\n\n    nav a {\n      color: #007BFF;\n      text-decoration: none;\n    }\n\n    main {\n      padding-left: 20px;\n      padding-right: 20px;\n    }\n\n    aside {\n      display: flex;\n      margin-top: 15px;\n    }\n  </style>\n</head>\n<body>\n\n<header>\n  <h1>My Semantic Page</h1>\n</header>\n\n<nav>\n  <a href=\"#home\">Home</a>\n  <a href=\"#about\">About</a>\n  <a href=\"#contact\">Contact Us</a>\n</nav>\n\n<main id=\"home\">\n  <!-- Home content here -->\n</main>\n\n<section id=\"about\">\n  <!-- About content here -->\n</section>\n\n<section id=\"contact\">\n  <!-- Contact form or information here -->\n</section>\n\n<footer>\n  <p>&copy; "
+        },
+        {
+          "id": "wd-html-006",
+          "prompt": "How do I make a native modal with <dialog>? Include opening, closing and the backdrop.",
+          "metrics": {
+            "answer_chars": 1754,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.015,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              },
+              "js": {
+                "blocks": 2,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 7,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 411
+          },
+          "answer": "To create a native modal using HTML `<dialog>` elements, you can use the following approach:\n\n### ✅ Native Modal with `<dialog>`\n\nHere's how to implement it:\n\n#### 1. **HTML Structure**\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Native Modal</title>\n</head>\n<body>\n\n<!-- Dialog element -->\n<dialog id=\"myDialog\" class=\"modal-backdrop\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-describedby=\"dialog-description\">\n    <!-- Modal content -->\n    <div class=\"modal-content\">\n        <h2 id=\"myModalLabel\">Modal Title</h2>\n        <p>Content here...</p>\n    </div>\n\n    <!-- Close button -->\n    <button class=\"close-button\" onclick=\"closeDialog()\">×</button>\n\n    <!-- Close description -->\n    <div id=\"dialog-description\" class=\"modal-description\">\n        This is a modal to show content.\n    </div>\n</dialog>\n\n<script>\nfunction closeDialog() {\n    document.getElementById('myDialog').classList.remove('show');\n}\n</script>\n\n</body>\n</html>\n```\n\n### ✅ Explanation\n\n- **`<dialog>`**: This is the native modal element. You can set `role=\"dialog\"` and `aria-labelledby` to give it a meaningful label.\n- **Backdrop**: The class `\"modal-backdrop\"` ensures t"
+        },
+        {
+          "id": "wd-html-007",
+          "prompt": "Show a data table with thead, tbody, tfoot, caption and proper scope attributes.",
+          "metrics": {
+            "answer_chars": 948,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.157,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 2,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 305
+          },
+          "answer": "Sure! Here's a sample HTML table with proper `<table>`, `<thead>`, `<tbody>`, `<tfoot>`, and `<caption>` elements:\n\n```html\n<table>\n  <caption>Caption for the Table</caption>\n\n  <thead>\n    <tr>\n      <th>Column 1</th>\n      <th>Column 2</th>\n    </tr>\n  </thead>\n\n  <tbody>\n    <tr>\n      <td>Data Row 1, Column A</td>\n      <td>Data Row 1, Column B</td>\n    </tr>\n\n    <tr>\n      <td>Data Row 2, Column A</td>\n      <td>Data Row 2, Column B</td>\n    </tr>\n\n    <tr>\n      <td>Data Row 3, Column A</td>\n      <td>Data Row 3, Column B</td>\n    </tr>\n\n    <tr>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n\n  </tbody>\n\n  <tfoot>\n    <tr><th colspan=\"2\">Total</th></tr>\n  </tfoot>\n</table>\n```\n\n### Explanation:\n- `<caption>` is used to define the title of the table.\n- `<thead>` contains the header row.\n- `<tbody>` contains the body of the table.\n- `<tfoot>` contains a footer row.\n\nLet me know if you want to add more rows or customize further!"
+        },
+        {
+          "id": "wd-html-008",
+          "prompt": "What is wrong with using <div> for everything? Explain and show the semantic version.",
+          "metrics": {
+            "answer_chars": 1478,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 3,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 371
+          },
+          "answer": "Using `<div>` for everything can lead to several issues:\n\n1. **Unsemantic structure**: It doesn't convey meaning or purpose, which can make your code harder to understand.\n\n2. **Poor accessibility**: Without proper semantic tags, screen readers and other accessibility tools may not properly interpret the content.\n\n3. **Scalability issues**: As your website grows, using `<div>` for every element can become a maintenance nightmare.\n\nTo improve your code:\n\n### Semantic Versioning:\nUse semantic HTML elements like `<header>`, `<nav>`, `<main>`, `<section>`, etc., to give your content clear structure and meaning.\n\n### Example:\n```html\n<!-- Using semantic tags -->\n<header>\n  <h1>Welcome to My Website</h1>\n</header>\n\n<nav>\n  <ul>\n    <li><a href=\"#\">Home</a></li>\n    <li><a href=\"#\">About</a></li>\n    <li><a href=\"#\">Contact</a></li>\n  </ul>\n</nav>\n\n<main id=\"main\">\n  <section id=\"about\">\n    <h2>About Us</h2>\n    <p>Some content here...</p>\n  </section>\n\n  <article id=\"contact\">\n    <h3>Contact Us</h3>\n    <form action=\"#\">\n      <!-- Form fields -->\n    </form>\n  </article>\n\n  <footer id=\"footer\">\n    <!-- Footer content -->\n  </footer>\n```\n\n### Explanation:\n- `<header>`: For navigation "
+        },
+        {
+          "id": "wd-html-009",
+          "prompt": "Write an accessible skip-link pattern.",
+          "metrics": {
+            "answer_chars": 685,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              },
+              "css": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              },
+              "js": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 8,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 173
+          },
+          "answer": "Here's an accessible **skip-link pattern** using **HTML**, **CSS**, and **JavaScript**:\n\n### HTML:\n```html\n<a href=\"#skip\" id=\"skip-link\">Skip</a>\n```\n\n### CSS:\n```css\n#skip-link {\n  display: none;\n  position: absolute;\n  top: 20px;\n  left: -10px;\n}\n```\n\n### JavaScript (optional, for accessibility):\n```javascript\ndocument.getElementById('skip-link').addEventListener('click', function() {\n    document.getElementById('skip').style.display = 'none';\n});\n```\n\n### Explanation:\n- The `<a>` tag with the `id=\"skip\"` attribute creates a skip link.\n- When clicked, it hides itself using JavaScript, making it accessible.\n\nLet me know if you'd like this to be mobile-friendly or responsive!"
+        },
+        {
+          "id": "wd-html-010",
+          "prompt": "How do details/summary work for an FAQ section? Show a complete example.",
+          "metrics": {
+            "answer_chars": 1408,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.144,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 5,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 382
+          },
+          "answer": "**FAQ Section Details & Summary Example:**\n\nThe **FAQ section** is used to provide quick information on common questions and answers. It typically includes:\n\n- A **question** (with a brief summary)\n- A **response**\n- Optional: Additional details or tags\n\n---\n\n### ✅ Example of an FAQ Section:\n\n#### Question:\nHow do I set up my website?\n\n#### Summary:\nTo set up your website, please follow these steps:  \n1. Go to the \"Settings\" > \"Website Setup\" option.  \n2. Follow the on-screen instructions to complete the setup process.\n\n---\n\n### ✅ Complete HTML Example:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>FAQ</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      margin: 20px;\n    }\n    h2 {\n      color: #333;\n    }\n    p {\n      margin-bottom: 15px;\n    }\n  </style>\n</head>\n<body>\n\n<h2>FAQ</h2>\n\n<h3>Question:</h3>\n<p>How do I set up my website?</p>\n\n<p>Summary:</p>\n<p>To set up your website, please follow these steps:  \n1. Go to the \"Settings\" > \"Website Setup\" option.  \n2. Follow the on-screen instructions to complete the setup process.</p>\n\n</body>\n</html>\n"
+        },
+        {
+          "id": "wd-html-011",
+          "prompt": "تفاوت تگ semantic و div چیست؟ با مثال توضیح بده.",
+          "metrics": {
+            "answer_chars": 771,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.311,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 2,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.441,
+            "relevance_hits": 7,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 351
+          },
+          "answer": "تفاوت **Semantic** و **Div** چیست؟  \nتفاوت این دو نرم از نمودار های HTML، CSS و JavaScript است.  \n\n### تفاوت:\n- **Semantic**: معمولاً به معنای کلیت فناوری و ساختن نرم بدن در گروه شده (دسته) است.  \n- **Div**: نرم از نمودار های خاص (بسته) و معمول، بدون توجه به دسته.\n\n---\n\n### مثال:\n\n#### 1. **Semantic**:\n```html\n<div class=\"container\">This is a container.</div>\n```\n\n#### 2. **Div**:\n```html\n<div id=\"myDiv\">This is a div with ID.</div>\n```\n\n### توضیح:\n- **Semantic** معمولاً به معنای کلیت فناوری و ساختن نرم بدن در گروه شده (دسته) است.  \n- **Div** نرم از نمودار های خاص (بسته) و معمول، بدون توجه به دسته.\n\n---\n\n### نتیجه:\n- **Semantic** به معنای کلیت فناوری و ساختن نرم بدن در گروه شده.  \n- **Div** نرم از نمودار های خاص (بسته) و معمول.\n\nبرای توضیح بيشتر، میتونم کدکردم؟"
+        },
+        {
+          "id": "wd-html-012",
+          "prompt": "یک فرم تماس کامل با لیبل و اعتبارسنجی HTML بساز.",
+          "metrics": {
+            "answer_chars": 1293,
+            "has_code": false,
+            "empty": false,
+            "repetition": 0.059,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": false,
+            "persian_ratio": 0.06,
+            "relevance_hits": 9,
+            "relevant": true,
+            "followed": false,
+            "completion_tokens": 420
+          },
+          "answer": "بسم الله، این فرم را به شرح زده ميتوانم ساخت:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Form Contact</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      padding: 20px;\n    }\n    h1 {\n      text-align: center;\n      color: #333;\n    }\n    form {\n      width: 300px;\n      margin: auto;\n    }\n    label {\n      display: block;\n      margin-bottom: 10px;\n      font-weight: bold; /* لیبل ها را بسیار بکسته ميكنند */\n    }\n    input[type=\"text\"] {\n      width: 100%;\n      padding: 8px;\n      border: 1px solid #ccc;\n    }\n    input[type=\"email\"] {\n      width: 100%;\n      padding: 8px;\n      border: 1px solid #ccc;\n    }\n    button {\n      background-color: #4CAF16; /* زرد */\n      color: white;\n      padding: 10px;\n      border-radius: 5px;\n    }\n    button:hover {\n      background-color: #337600; /* زرد باران */\n    }\n  </style>\n</head>\n<body>\n\n<h1>Form Contact</h1>\n\n<form onsubmit=\"return false;\">\n  <label for=\"name\">نام:</label><br>\n  <input type=\"text\" id=\"name\" name=\"name\" required><br>\n\n  <label for=\"email\">Email:</label><br>\n  <input type=\"email\" id=\"email\" name=\"email\" required><br>\n\n  <button type=\"submit\">تماس</button>"
+        },
+        {
+          "id": "wd-html-013",
+          "prompt": "متاتگ‌های ضروری برای سئو کدام‌اند؟ یک head کامل بنویس.",
+          "metrics": {
+            "answer_chars": 1656,
+            "has_code": false,
+            "empty": false,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": false,
+            "persian_ratio": 0.0,
+            "relevance_hits": 11,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Seo Elements</title>\n\n    <!-- Meta Tags -->\n    <meta name=\"description\" content=\"This is a sample SEO meta description for your website.\">\n    <meta name=\"keywords\" content=\"SEO, keywords, meta, tags\">\n\n    <!-- Google Fonts -->\n    <link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap\" rel=\"stylesheet\">\n\n    <!-- Favicon -->\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" type=\"image/x-icon\">\n\n    <!-- Stylesheets -->\n    <style>\n        body {\n            font-family: 'Segoe UI', sans-serif;\n            margin: 0;\n            padding: 0;\n        }\n\n        header {\n            background-color: #333;\n            color: white;\n            padding: 1rem;\n        }\n\n        nav {\n            display: flex;\n            justify-content: space-between;\n        }\n\n        nav a {\n            color: #fff;\n            text-decoration: none;\n        }\n\n        main {\n            padding-left: 2rem;\n        }\n    </style>\n</head>\n<body>\n\n    <header>\n        <h1>Seo Elements</h1>\n    </header>\n\n   "
+        },
+        {
+          "id": "wd-html-014",
+          "prompt": "چطور با <dialog> یک مودال بسازم؟",
+          "metrics": {
+            "answer_chars": 1300,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.118,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.177,
+            "relevance_hits": 11,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "با استفاده از `<dialog>`، میتوانید یک مودال را در قالب HTML و CSS ساختید. این مثال به شرح داده شده است:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Dialog Example</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n        }\n        #dialog {\n            display: none;\n            position: fixed;\n            top: 50%;\n            left: 50%;\n            background-color: #f4f4f4;\n            padding: 20px;\n        }\n    </style>\n</head>\n<body>\n\n<!-- مودال شروع میکنی -->\n<dialog id=\"myDialog\" class=\"dialog\">\n    <h3>Dialog Title</h3>\n    <p>This is a dialog content.</p>\n</dialog>\n\n<script>\n    // اگر مودال را نشات کنید، این فعالیت را ویرایش کنید\n    document.getElementById('myDialog').addEventListener('show', () => {\n        document.getElementById('dialog').style.display = 'block';\n    });\n\n    // اگر مودال را نشات کنید، این فعالیت را ویرایش کنید\n    document.getElementById('myDialog').addEventListener('hide', () => {\n        document.getElementById('dialog').style.display = 'none';\n    });\n</script>\n\n</body>\n</html>\n```\n\n### توضیحات:\n- `<dialog>` چندین مودال را در قالب HTML و CSS ساخته "
+        },
+        {
+          "id": "wd-html-015",
+          "prompt": "ساختار سمانتیک یک صفحهٔ وب را با header و nav و main بنویس.",
+          "metrics": {
+            "answer_chars": 1431,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.027,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": false,
+                "error": "unclosed: ['html', 'body']"
+              }
+            },
+            "syntax_valid": false,
+            "lang_ok": true,
+            "persian_ratio": 0.117,
+            "relevance_hits": 13,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "بالا، ساختار سمانتیک یک صفحهٔ وب را با header و nav و main بنویس:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>سفارش</title>\n    <style>\n        /* CSS for styling */\n        body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 0;\n        }\n\n        header {\n            background-color: #333;\n            color: white;\n            padding: 15px;\n            display: flex;\n            justify-content: space-between;\n        }\n\n        nav {\n            background-color: #444;\n            color: white;\n            display:flex\n        }\n\n        nav a {\n          color: white; \n          text-decoration:none; \n          margin-right: 10px; \n        }\n\n        main {\n            padding: 20px;\n            width: 100%;\n        }\n    </style>\n</head>\n<body>\n\n<header>\n    <h1>سفارش</h1>\n</header>\n\n<nav>\n    <a href=\"#home\">Home</a>\n    <a href=\"#about\">About</a>\n    <a href=\"#contact\">Contact</a>\n</nav>\n\n<main id=\"home\">\n    <!-- Home content -->\n</main>\n\n<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n\n<script>\n    // Optional: Add JavaScript for inter"
+        },
+        {
+          "id": "wd-html-016",
+          "prompt": "Explain the loading attribute for images and iframes.",
+          "metrics": {
+            "answer_chars": 841,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.182,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 3,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 184
+          },
+          "answer": "The `loading` attribute is used to control how an image or iframe loads data, especially when there's no direct link to a file. It determines how the content is loaded from the server:\n\n- **lazy**: The content is loaded from the server, but it may take some time to load. This is generally recommended for most cases.\n- **eager**: The content is loaded immediately from the browser, which can be faster but may cause issues if there's no actual data.\n\n### Example:\n```html\n<img src=\"https://example.com/image.jpg\" loading=\"lazy\">\n```\n\n### Explanation:\n- `lazy` means the image will load from the server, but it may take some time.\n- `eager` means the image is loaded immediately from the browser, which is faster but may cause issues if there's no actual data.\n\nThis attribute helps optimize performance and ensures a better user experience."
+        },
+        {
+          "id": "wd-html-017",
+          "prompt": "How do I embed a YouTube video responsively?",
+          "metrics": {
+            "answer_chars": 1103,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.046,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 2,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 6,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 284
+          },
+          "answer": "To embed a YouTube video responsively on your website, you can use the `YouTube Video Embed` feature by including the `youtube-iframe` tag in your HTML code. Here's how you can do it:\n\n### Step-by-step:\n1. **Include the YouTube Player Script**:\n   Add this code to your HTML file where you want to embed a YouTube video:\n\n   ```html\n   <iframe src=\"https://www.youtube.com/embed/your-video-id?enablejsapi=1&estyle=1\" width=\"600\" height=\"450\"></iframe>\n   ```\n\n2. **Replace `your-video-id`** with the ID of your YouTube video.\n\n### Example:\n```html\n<iframe src=\"https://www.youtube.com/embed/your-video-id?enablejsapi=1&estyle=1\" width=\"600\" height=\"450\"></iframe>\n```\n\n### Explanation:\n- The `width` and `height` attributes define the size of the iframe.\n- The `enablejsapi=1` and `estyle=1` parameters ensure that the video is embedded correctly.\n\n### Optional:\nYou can also use YouTube's own embed code if you want to embed videos from their own site, but this method is more flexible for embedding videos from any source.\n\nLet me know if you need help with styling or integrating this into a project!"
+        },
+        {
+          "id": "wd-html-018",
+          "prompt": "Write valid markup for a navigation bar with a logo and 4 links.",
+          "metrics": {
+            "answer_chars": 626,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 4,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 185
+          },
+          "answer": "Sure! Here's valid markup for a navigation bar with a logo and 4 links:\n\n```html\n<nav class=\"navbar\">\n  <div class=\"logo\">Logo</div>\n  <ul class=\"nav-links\">\n    <li><a href=\"#\">Home</a></li>\n    <li><a href=\"#\">Services</a></li>\n    <li><a href=\"#\">Contact</a></li>\n    <li><a href=\"#\">About</a></li>\n  </ul>\n</nav>\n```\n\n### Explanation:\n- `class=\"navbar\"` is the main container for the navigation bar.\n- The `<div class=\"logo\">` element holds the logo.\n- The `<ul class=\"nav-links\">` is a list of links, each with an anchor tag (`<a href=\"#\">`) to map to a URL.\n\nYou can customize this markup further if needed. Let me know!"
+        },
+        {
+          "id": "wd-html-019",
+          "prompt": "What does the template element do? Show a practical use.",
+          "metrics": {
+            "answer_chars": 920,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.068,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 6,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 215
+          },
+          "answer": "The **`template`** element is used to define a reusable component or structure in web development, typically used in frameworks like React or Vue.js. It serves as a base for components that can be reused across different parts of the application.\n\n### Practical Use:\nIn **React**, the `template` element is part of the `useTemplate` hook, which allows developers to define a reusable component. Here's an example:\n\n```html\n<script>\n  const useTemplate = () => {\n    return {\n      template: `\n        <div class=\"container\">\n          <h1>My App</h1>\n        </div>\n      `,\n    };\n  };\n</script>\n\n<div class=\"container\" ref={useTemplate.containerRef}>\n  <h1>My App</h1>\n</div>\n```\n\n### Explanation:\n- The `template` element is used to define the structure of the component.\n- It can be used in frameworks like React, Vue, or other modern frontend technologies.\n\nLet me know if you'd like help with a specific framework!"
+        },
+        {
+          "id": "wd-html-020",
+          "prompt": "How do I validate an email input in HTML without JavaScript?",
+          "metrics": {
+            "answer_chars": 1068,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 4,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 257
+          },
+          "answer": "To validate an email input in HTML without using JavaScript, you can use HTML attributes like `pattern` or `email` to enforce the format of the email address. Here's a complete example:\n\n### Example:\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Email Validation</title>\n</head>\n<body>\n\n  <input type=\"email\" id=\"emailInput\" placeholder=\"Enter your email\">\n\n  <!-- Validate email using HTML attributes -->\n  <script type=\"text/javascript\">\n    document.getElementById(\"emailInput\").addEventListener(\"input\", function () {\n      const email = this.value.trim();\n      if (email.length === 0) {\n        alert(\"Please enter a valid email address.\");\n      } else if (!/^[^\\s@]+(\\.[^\\s@]+)+@[^\\s@\\.]+$/.test(email)) {\n        alert(\"Invalid email format. Please try again.\");\n      }\n    });\n  </script>\n\n</body>\n</html>\n```\n\n### Explanation:\n- The `pattern` attribute is used to validate the email format.\n- The input field is bound to an event listener that checks if the value is valid.\n\nLet me know if you want a version in Persian!"
+        }
+      ]
+    },
+    "bilingual": {
+      "summary": {
+        "n": 20,
+        "empty_rate": 0.3,
+        "code_production_rate": 0.25,
+        "instruction_following": 0.3,
+        "language_correct": 0.6,
+        "relevance_rate": 0.3,
+        "syntax_checked": 5,
+        "syntax_valid_rate": 1.0,
+        "bad_marker_rate": 1.0,
+        "mean_repetition": 0.037
+      },
+      "rows": [
+        {
+          "id": "bi-000",
+          "prompt": "چرا فلکس‌باکس من عمودی وسط‌چین نمی‌شود؟",
+          "metrics": {
+            "answer_chars": 1059,
+            "has_code": false,
+            "empty": false,
+            "repetition": 0.217,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.324,
+            "relevance_hits": 7,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "فلاسخ باکس من عمودی وسط چین نمی شد، اگر کنترل های مربوط به فلکس (CSS) در جدول چاپ شده است، این مشكله می تواند دوباره بوجود آمد. بازخانه:\n\n**چرا؟**\n\n1. **محدودیت CSS**: اگر فلکس باکس را به صورت `position: absolute` یا `absolute` نشده است، مثلاً در جدول چاپ شده، این محدودیت بوجود آمد.\n2. **محدودیت تولید**: اگر فلکس باکس را به صورت `position: relative` یا `relative` نشده است، مثلاً در جدول چاپ شده، این محدودیت بوجود آمد.\n3. **محدودیت تولید**: اگر فلکس باکس را به صورت `position: fixed` یا `fixed` نشده است، مثلاً در جدول چاپ شده، این محدودیت بوجود آمد.\n\n### کدکردن:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Flask</title>\n    <style>\n        body {\n            margin: 0;\n            padding: 0;\n            font-family: Arial, sans-serif;\n        }\n\n        .flask {\n            position: relative;\n            width: 100%;\n            height: 100vh; /* عمودی */\n        }\n\n        .flask-content {\n            position: absolute;\n            top: 50%;\n            left: 50%;\n            transform: translate(-50"
+        },
+        {
+          "id": "bi-001",
+          "prompt": "How do I load Google Fonts correctly?",
+          "metrics": {
+            "answer_chars": 1196,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.021,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 6,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 310
+          },
+          "answer": "To load Google Fonts correctly in your project, you can use the `@font-face` declaration in your HTML file. Here's how you can do it:\n\n### Step-by-step:\n1. **Download** the Google Fonts from [https://fonts.google.com/](https://fonts.google.com/)\n2. **Locate** the `.ttf` or `.woff` files in your project directory.\n3. **Add them to your project's CSS file** (e.g., `style.css`) or include them directly in your HTML.\n\n### Example Code:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Google Fonts</title>\n  <style>\n    * {\n      box-sizing: border-box;\n    }\n\n    body {\n      font-family: 'Google Fonts', sans-serif;\n    }\n  </style>\n</head>\n\n<body>\n  <!-- Your content here -->\n</body>\n\n<script src=\"https://cdn.jsdelivr.net/npm/@fontsource/glyphscript@1.0.0/glyphscript.min.js\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/@fontsource/googlefonts@1.0.0/GoogleFonts.min.js\"></script>\n```\n\n### Explanation:\n- The `@font-face` declaration in the `<style>` tag loads the Google Fonts from the CDN.\n- This ensures that your project uses Google Fonts without needing to download them manually.\n\nLet me know if you need help with any specific font or layout!"
+        },
+        {
+          "id": "bi-002",
+          "prompt": "What is the difference between grid and flexbox? Please answer in Persian/Farsi.",
+          "metrics": {
+            "answer_chars": 839,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.433,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.515,
+            "relevance_hits": 6,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "**جسته‌نگاری چیزهای مختلف:**\n\n- **Grid (بازنمایش)**:  \n  این نماد به ساختن باند معمول است که هر سطر و ستون را با دوباره ترتيب و شکل متفاوت بندی می‌کند. در grid، هر سطر و ستون را با **تعداد معادل** (مثابت) بندی می‌کنند.\n\n- **Flexbox (بازنمایش)**:  \n  این نماد به ساختن باند معمول است که هر سطر و ستون را با **تعداد معادل** (مثابت) بندی می‌کنند. در flexbox، هر سطر و ستون را با **تعداد معادل** (مثابت) بندی می‌کنند، اما ترتيب آنها به **بازنمایش** (جسته) محدود است.\n\n### نمونه کد:\n```html\n<div class=\"grid\">\n  <div>Item 1</div>\n  <div>Item 2</div>\n</div>\n\n<div class=\"flexbox\">\n  <div>Item 1</div>\n  <div>Item 2</div>\n</div>\n```\n\n### نتیجه:\n- **Grid** معمول است که هر سطر و ستون را با **تعداد معادل** بندی می‌کنند.\n- **Flexbox** به ساختن باند معمول است که هر سطر و ستون را با **تعداد معادل** بندی می‌کنند، اما ترتيب آنها به **بازنمایش** (جسته"
+        },
+        {
+          "id": "bi-003",
+          "prompt": "position: sticky چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+          "metrics": {
+            "answer_chars": 704,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.036,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 5,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 195
+          },
+          "answer": "Positioning an element in a sticky position in HTML is done using the `position` property with the `sticky` value. Here's how it works:\n\n### In HTML:\n```html\n<div style=\"position: sticky; top: 50px; left: 0; width: 100%; height: 100%; background-color: #f9f9f9;\">\n    <!-- Content here -->\n</div>\n```\n\n### Explanation:\n- `position`: This sets the element to be positioned.\n- `sticky`: This makes the element stick to the nearest scrollable area (the viewport).\n- `top: 50px; left: 0; width: 100%; height: 100%` sets its dimensions.\n\n### Result:\nThe element will stay in place when scrolling down, but it will move up when scrolling up. This is commonly used for elements like navigation bars or sidebars."
+        },
+        {
+          "id": "bi-004",
+          "prompt": "چرا media query من در موبایل اعمال نمی‌شود؟",
+          "metrics": {
+            "answer_chars": 1167,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.012,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": false,
+            "persian_ratio": 0.0,
+            "relevance_hits": 6,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 276
+          },
+          "answer": "Media queries are used to apply styles based on the device's screen size. If your media query is not working on mobile, there could be several reasons:\n\n1. **Incorrect Media Queries**: Ensure that your media queries are correctly defined and placed in the appropriate section (e.g., `@media` for mobile).\n2. **Incorrect Screen Size**: Make sure you're targeting the correct screen size (e.g., `@media (max-width: 768px)`).\n3. **CSS Conflicts**: Check if there are conflicting styles or if your media queries are overlapping with other styles.\n4. **Browser Compatibility**: Some older browsers may not support media queries properly, especially on mobile.\n\nHere's a simple example of how to use media queries:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Media Queries Example</title>\n    <style>\n        @media (max-width: 768px) {\n            body {\n                font-family: Arial, sans-serif;\n            }\n        }\n    </style>\n</head>\n<body>\n\n<h1>Mobile Styles</h1>\n\n<p>This is the content for mobile devices.</p>\n\n</body>\n</html>\n```\n\nLet me know if you want to test this in a browser or with specific device sizes!"
+        },
+        {
+          "id": "bi-005",
+          "prompt": "How do I make a dark mode toggle?",
+          "metrics": {
+            "answer_chars": 1602,
+            "has_code": true,
+            "empty": false,
+            "repetition": 0.03,
+            "bad_markers": [],
+            "syntax": {
+              "html": {
+                "blocks": 1,
+                "valid": true,
+                "error": ""
+              }
+            },
+            "syntax_valid": true,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 13,
+            "relevant": true,
+            "followed": true,
+            "completion_tokens": 420
+          },
+          "answer": "To create a dark mode toggle for your website using HTML, CSS, and JavaScript, you can use the following approach:\n\n### ✅ Step-by-Step Guide:\n\n1. **HTML Structure**: Create an element to hold the toggle button.\n2. **CSS Styling**: Style the button to change colors based on the mode.\n3. **JavaScript Logic**: Toggle between light and dark modes.\n\n---\n\n### ✅ HTML Code:\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>Dark Mode Toggle</title>\n\n  <!-- CSS for dark mode -->\n  <style>\n    body {\n      margin: 0;\n      padding: 0;\n      font-family: Arial, sans-serif;\n    }\n\n    header {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n\n    .toggle-button {\n      background-color: #222; /* dark mode */\n      color: white; /* light mode */\n      padding: 10px 15px;\n      font-size: 16px;\n      cursor: pointer;\n    }\n\n    .dark-mode {\n      background-color: #333; /* dark mode */\n    }\n\n    .light-mode {\n      background-color: #fff; /* light mode */\n    }\n  </style>\n</head>\n<body>\n\n  <header>\n    <button class=\"toggle-button\" onclick=\"toggleMode()\""
+        },
+        {
+          "id": "bi-006",
+          "prompt": "What breaks 100vh on mobile? Please answer in Persian/Farsi.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": false,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-007",
+          "prompt": "بارگذاری تنبل تصاویر چطور است؟ لطفاً به انگلیسی جواب بده.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-008",
+          "prompt": "حباب‌زنی رویداد (event bubbling) را توضیح بده.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": false,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-009",
+          "prompt": "Why is my z-index ignored?",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-010",
+          "prompt": "How do I center a div? Please answer in Persian/Farsi.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": false,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-011",
+          "prompt": "اولویت سلکتورهای CSS چیست؟ لطفاً به انگلیسی جواب بده.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-012",
+          "prompt": "fetch خطاها را چطور مدیریت می‌کند؟",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": false,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-013",
+          "prompt": "Explain async/await simply.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-014",
+          "prompt": "How do I use Vazirmatn font? Please answer in Persian/Farsi.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": false,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-015",
+          "prompt": "HTML سمانتیک چیست؟ لطفاً به انگلیسی جواب بده.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-016",
+          "prompt": "transition و animation چه فرقی دارند؟",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": false,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-017",
+          "prompt": "How do I build a modal accessibly?",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-018",
+          "prompt": "What causes horizontal scroll on mobile? Please answer in Persian/Farsi.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": false,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        },
+        {
+          "id": "bi-019",
+          "prompt": "localStorage چطور کار می‌کند؟ لطفاً به انگلیسی جواب بده.",
+          "metrics": {
+            "answer_chars": 0,
+            "has_code": false,
+            "empty": true,
+            "repetition": 0.0,
+            "bad_markers": [],
+            "syntax": {},
+            "syntax_valid": null,
+            "lang_ok": true,
+            "persian_ratio": 0.0,
+            "relevance_hits": 0,
+            "relevant": false,
+            "followed": false,
+            "completion_tokens": 0
+          },
+          "answer": ""
+        }
+      ]
+    }
+  },
+  "finished": "2026-09-20 02:57:32"
+}

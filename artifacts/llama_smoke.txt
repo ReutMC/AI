@@ -1,0 +1,93 @@
+### ARION ALPHA 1 — GGUF verification (llama-cli, Q4_K_M, -c 1024, Sun Sep 20 01:16:31 UTC 2026) ###
+
+=== PROMPT (EN): Why does my flexbox not center vertically? ===
+
+
+Loading model... |-\|/-\|/-\ 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b1-e613ef2
+model      : model/gguf/arion-alpha-1-Q4_K_M.gguf
+ftype      : Q4_K - Medium
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> <|im_start|>user
+Why does my flexbox not center vertically? Short answer with the CSS fix.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+[Start thinking]
+
+Okay, the user is having trouble with their flexbox not centering vertically. They want a short answer with a CSS fix. Let me think about the common solutions.
+
+First, I remember that flexbox centers elements both horizontally and vertically. But sometimes it's not working properly. The main issue could be the order of elements in the flex container. If elements are not in the right order, the flexbox might not center them correctly. So the fix would be to ensure the elements are in the correct order, like using `justify-content` and `align-items` correctly.
+
+Wait, but how to make sure they are in the right order? Maybe set `justify-content` to `space-between` or `center` and `align
+
+[ Prompt: 154.9 t/s | Generation: 21.8 t/s ]
+
+
+Exiting...
+
+=== PROMPT (FA): چرا این کد در موبایل اسکرول افقی می‌دهد؟ ===
+
+
+Loading model... |-\|/-\|/-\ 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b1-e613ef2
+model      : model/gguf/arion-alpha-1-Q4_K_M.gguf
+ftype      : Q4_K - Medium
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> <|im_start|>user
+چرا این کد در موبایل اسکرول افقی می‌دهد؟ جواب کوتاه بده.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+[Start thinking]
+
+میخمیدم، سلام! این کد در موبایل اسکرول افقی می‌دهد از نیچ دیکش دوکسکریکی بود. این کد از نیچ دیکش دوکسکریکی بود، این کد دوکسکریکی بود، این کد در موبایل اسکرول افقی می‌دهد، این کد دوکسکریکی بود، این کد دوکسکریکی بود
+
+[ Prompt: 206.7 t/s | Generation: 21.6 t/s ]
+
+
+Exiting...

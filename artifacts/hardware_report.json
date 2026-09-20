@@ -1,0 +1,47 @@
+{
+  "hardware": {
+    "cpu_cores": 2,
+    "cpu_physical": 2,
+    "ram_total_gb": 4.36,
+    "ram_available_gb": 3.26,
+    "disk_total_gb": 10.53,
+    "disk_free_gb": 5.51,
+    "torch": "2.14.0+cpu",
+    "cuda_available": false,
+    "gpu_name": null,
+    "vram_gb": 0,
+    "bf16_support": "AVX512"
+  },
+  "derived_training_config": {
+    "device": "cpu",
+    "torch_threads": 2,
+    "max_seq_len": 256,
+    "batch_size": 1,
+    "gradient_accumulation": 8,
+    "dtype": "bfloat16",
+    "use_gradient_checkpointing": false,
+    "lora_r": 12,
+    "lora_alpha": 24,
+    "lora_dropout": 0.05,
+    "lora_targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "learning_rate": 0.00012,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.06,
+    "lr_scheduler": "cosine",
+    "max_grad_norm": 1.0,
+    "max_train_minutes": 150,
+    "eval_every_steps": 40,
+    "log_every_steps": 5,
+    "seed": 42,
+    "deterministic": true
+  },
+  "notes": "Config auto-derived so the run fits this machine (spec section 29: Hardware Adaptation)."
+}
