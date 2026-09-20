@@ -1,0 +1,371 @@
+{
+  "model": "BASE-Qwen3-0.6B (interim: think-stripped, 87% empty due to thinking budget)",
+  "n_prompts": 239,
+  "persian_response_rate": 0.8889,
+  "language_compliance": 0.9,
+  "arabic_leakage_rate_on_fa": 0.037,
+  "empty_response_rate": 0.8745,
+  "repetition_rate": 0.0042,
+  "malformed_response_rate": 0.0,
+  "average_response_length_chars": 51.8,
+  "average_response_length_tokens_est": 23.5,
+  "expect_counts": {
+    "fa": 27,
+    "ar": 2,
+    "en": 1
+  },
+  "by_category": {
+    "arabic_vs_persian": {
+      "n": 9,
+      "empty": 7,
+      "fa_expect": 1,
+      "fa_ok": 1,
+      "ar_expect": 1,
+      "ar_ok": 1
+    },
+    "casual_conversation": {
+      "n": 16,
+      "fa_expect": 7,
+      "fa_ok": 5,
+      "empty": 9
+    },
+    "colloquial_persian": {
+      "n": 22,
+      "fa_expect": 4,
+      "fa_ok": 4,
+      "empty": 18,
+      "repetitive": 1
+    },
+    "explanations": {
+      "n": 98,
+      "empty": 91,
+      "fa_expect": 7,
+      "fa_ok": 7
+    },
+    "formal_persian": {
+      "n": 28,
+      "fa_expect": 4,
+      "fa_ok": 4,
+      "empty": 24
+    },
+    "language_switching": {
+      "n": 17,
+      "fa_expect": 3,
+      "empty": 12,
+      "en_expect": 1,
+      "en_ok": 1,
+      "fa_ok": 2,
+      "ar_expect": 1,
+      "ar_ok": 1
+    },
+    "multi_turn": {
+      "n": 9,
+      "empty": 8,
+      "fa_expect": 1,
+      "fa_ok": 1
+    },
+    "persian_coding": {
+      "n": 12,
+      "empty": 12
+    },
+    "persian_english": {
+      "n": 8,
+      "empty": 8
+    },
+    "rewriting": {
+      "n": 5,
+      "empty": 5
+    },
+    "summarization": {
+      "n": 3,
+      "empty": 3
+    },
+    "technical_persian": {
+      "n": 12,
+      "empty": 12
+    }
+  },
+  "misclassified_examples": [
+    {
+      "id": "fa-bench-0000",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "به فارسی جواب بده: توضیح بده DNS چیست.",
+      "response": "DNS (Domain Name System)"
+    },
+    {
+      "id": "fa-bench-0001",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "من فارسی صحبت می‌کنم. فقط فارسی جواب بده. فرق GET و POST چیه؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0002",
+      "expect": "ar",
+      "got": "empty",
+      "prompt": "به عربی جواب بده.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0003",
+      "expect": "ar",
+      "got": "empty",
+      "prompt": "فقط به عربی جواب بده: ما هي الحاسوب؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0004",
+      "expect": "en",
+      "got": "empty",
+      "prompt": "Answer in English from now on. What is normalization in databases?",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0005",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "فارسی جواب بده. هوش مصنوعی چیه؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0006",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "از این به بعد فقط فارسی بنویس. مزایای لینوکس چیه؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0008",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "برگرد به فارسی. داشبورد ادمین چی؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0010",
+      "expect": "ar",
+      "got": "empty",
+      "prompt": "Please answer in Arabic: what is a variable?",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0011",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "Answer in Persian/Farsi: what is machine learning?",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0012",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "شعر از حافظ بخوان.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0014",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "این جمله به چه زبانی است؟ «کتاب» و «قلم» چه معنایی دارند؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0015",
+      "expect": "ar",
+      "got": "empty",
+      "prompt": "ما هو الفرق بين القهوة والشاي؟ أجب بالعربية.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0016",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "زبان من فارسی است. دربارهٔ تاریخ ایران توضیح بده.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0017",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "کلمهٔ «عشق» در جملهٔ فارسی استفاده کن.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0019",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "دو خط پشت سر هم بنویس: اولی فارسی، دومی عربی — موضوع: هوا.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0020",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "فارسی و عربی چه فرق‌هایی از نظر حروف دارند؟ جواب فارسی بده.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0021",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "سلام",
+      "response": "سلام! 😊 How can I assist you today?"
+    },
+    {
+      "id": "fa-bench-0025",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "خسته‌ام از کار، چی کار کنم؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0026",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "اسم من علیه، دوست داری باهم آشنا بشیم؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0027",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "روزت چطور گذشت؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0028",
+      "expect": "fa",
+      "got": "ar",
+      "prompt": "من امروز قبول شدم! 🎉",
+      "response": "من امروز قبول شدم! 🎉  \nبَلْ أَنْتَ أَحْتَى ب"
+    },
+    {
+      "id": "fa-bench-0029",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "چی کارار دریاری؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0030",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "برای آخر هفته چه پیشنهادی داری؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0031",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "دلم گرفته، یه چیزی بگو حال خوب بشه.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0032",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "با چند تا دوست قراره بریم شمال، لیست وسایل لازم رو بگو.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0034",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "ساده بگو، بیت‌کوین با بانک چه فرقی داره؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0035",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "به زبون خودمونی بگو API یعنی چی.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0036",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "مثل یه بچه ۵ ساله توضیح بده اینترنت چیه.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0040",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "یه مثال بزن برای چی هستن کوکی‌های مرورگر.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0041",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "عربی حرف نزن، خودمونی فارسی بگو وایرشارک چیه.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0042",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "خلاصه و مفید بگو، ضد ویروس لازمه برای لینوکس؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0044",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "یک نامهٔ اداری رسمی برای مرخصی استحقاقی بنویسید.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0045",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "خواهشمند است معایب و مزایای کار از راه دور را به صورت رسمی بیان کنید.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0047",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "با ادبیات رسمی دربارهٔ اهمیت آموزش مداوم بنویسید.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0049",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "به رسمی‌ترین شکل ممکن، علت تأخیر پروژه را به مدیرعامل گزارش کنید.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0050",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "REST API چیست و چه تفاوتی با GraphQL دارد؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0051",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "دیتابیس رابطه‌ای و غیررابطه‌ای را مقایسه کنید.",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0052",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "برای وب‌سایت فروشگاهی، MongoDB مناسب‌تره یا PostgreSQL؟ چرا؟",
+      "response": ""
+    },
+    {
+      "id": "fa-bench-0053",
+      "expect": "fa",
+      "got": "empty",
+      "prompt": "مفهوم کش (cache) را در وب توضیح دهید.",
+      "response": ""
+    }
+  ],
+  "misclassified_total": 212
+}

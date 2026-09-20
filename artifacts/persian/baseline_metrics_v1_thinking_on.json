@@ -1,0 +1,354 @@
+{
+  "model": "BASE-Qwen3-0.6B",
+  "n_prompts": 239,
+  "persian_response_rate": 0.0,
+  "language_compliance": 0.0126,
+  "arabic_leakage_rate_on_fa": 0.0,
+  "empty_response_rate": 0.0,
+  "repetition_rate": 0.0,
+  "malformed_response_rate": 0.0,
+  "average_response_length_chars": 737.9,
+  "average_response_length_tokens_est": 335.4,
+  "expect_counts": {
+    "fa": 230,
+    "ar": 6,
+    "en": 3
+  },
+  "by_category": {
+    "arabic_vs_persian": {
+      "n": 9,
+      "fa_expect": 7,
+      "ar_expect": 2
+    },
+    "casual_conversation": {
+      "n": 16,
+      "fa_expect": 16
+    },
+    "colloquial_persian": {
+      "n": 22,
+      "fa_expect": 22
+    },
+    "explanations": {
+      "n": 98,
+      "fa_expect": 98
+    },
+    "formal_persian": {
+      "n": 28,
+      "fa_expect": 28
+    },
+    "language_switching": {
+      "n": 17,
+      "fa_expect": 10,
+      "ar_expect": 4,
+      "en_expect": 3,
+      "en_ok": 3
+    },
+    "multi_turn": {
+      "n": 9,
+      "fa_expect": 9
+    },
+    "persian_coding": {
+      "n": 12,
+      "fa_expect": 12
+    },
+    "persian_english": {
+      "n": 8,
+      "fa_expect": 8
+    },
+    "rewriting": {
+      "n": 5,
+      "fa_expect": 5
+    },
+    "summarization": {
+      "n": 3,
+      "fa_expect": 3
+    },
+    "technical_persian": {
+      "n": 12,
+      "fa_expect": 12
+    }
+  },
+  "misclassified_examples": [
+    {
+      "id": "fa-bench-0000",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "به فارسی جواب بده: توضیح بده DNS چیست.",
+      "response": "<think>\nOkay, the user is asking for a translation of \"explain DNS\" into Persian. Let me start by recalling the correct terms. DNS stands for Domain Name System, which is a recursive lookup service. I"
+    },
+    {
+      "id": "fa-bench-0001",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "من فارسی صحبت می‌کنم. فقط فارسی جواب بده. فرق GET و POST چیه؟",
+      "response": "<think>\nOkay, the user is asking in Arabic about the difference between GET and POST. They want the answer in Arabic, but the system is responding in English. Let me check the history. The user's quer"
+    },
+    {
+      "id": "fa-bench-0002",
+      "expect": "ar",
+      "got": "en",
+      "prompt": "به عربی جواب بده.",
+      "response": "<think>\nOkay, the user wants a response in Arabic. Let me start by understanding the query. They mentioned \"به عربی جواب بده\" which translates to \"Please give me an Arabic answer.\" So, they probably n"
+    },
+    {
+      "id": "fa-bench-0003",
+      "expect": "ar",
+      "got": "en",
+      "prompt": "فقط به عربی جواب بده: ما هي الحاسوب؟",
+      "response": "<think>\nOkay, the user is asking in Arabic: \"ما هي الحاسوب؟\" which translates to \"What is a computer?\" in English. They want a non-English answer, specifically in Arabic. Let me make sure I understand"
+    },
+    {
+      "id": "fa-bench-0005",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "فارسی جواب بده. هوش مصنوعی چیه؟",
+      "response": "<think>\nOkay, the user is asking for a translation of the question \"What is artificial intelligence?\" in Arabic. Let me start by understanding the context. The user might be a student or someone inter"
+    },
+    {
+      "id": "fa-bench-0006",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "از این به بعد فقط فارسی بنویس. مزایای لینوکس چیه؟",
+      "response": "<think>\nOkay, the user is asking about the advantages of a link. Let me start by recalling what I know about links. Links are important in web design, right? They help users navigate between different"
+    },
+    {
+      "id": "fa-bench-0008",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "برگرد به فارسی. داشبورد ادمین چی؟",
+      "response": "<think>\nOkay, the user is asking in Persian for the definition of \"داشبورد ادمین\" which translates to \"Admin Dashboard.\" I need to make sure I understand the term correctly. Let me break it down.\n\nFir"
+    },
+    {
+      "id": "fa-bench-0009",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "جواب‌هات رو از این لحظه به زبان فارسی ارائه بده.",
+      "response": "<think>\nOkay, the user wants a response in Arabic. Let me check the query again. They mentioned \"جوابهات\" which translates to \"answers\" in Arabic. So, I need to provide a response in Arabic. The previ"
+    },
+    {
+      "id": "fa-bench-0010",
+      "expect": "ar",
+      "got": "en",
+      "prompt": "Please answer in Arabic: what is a variable?",
+      "response": "<think>\nOkay, the user is asking in Arabic: \"what is a variable?\" I need to provide a clear and accurate answer in Arabic. Let me start by recalling the definition of a variable in mathematics. A vari"
+    },
+    {
+      "id": "fa-bench-0011",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "Answer in Persian/Farsi: what is machine learning?",
+      "response": "<think>\nOkay, the user is asking \"what is machine learning?\" in Persian. Let me start by recalling the basic definition. Machine learning is a subset of artificial intelligence that involves algorithm"
+    },
+    {
+      "id": "fa-bench-0012",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "شعر از حافظ بخوان.",
+      "response": "<think>\nOkay, the user is asking for a poem in the style of \"Ahmad ibn Hanbal\". First, I need to recall the characteristics of this poet. He's known for his deep philosophical and spiritual insights, "
+    },
+    {
+      "id": "fa-bench-0013",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "من فارسی صحبت می‌کنم نه عربی. لطفاً فارسی جواب بده: وردپرس چیه؟",
+      "response": "<think>\nOkay, the user is asking in Arabic, \"وردپرس چیه؟\" which translates to \"What is the question?\" in English. They want a response in Arabic. Let me check the translation. The correct translation "
+    },
+    {
+      "id": "fa-bench-0014",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "این جمله به چه زبانی است؟ «کتاب» و «قلم» چه معنایی دارند؟",
+      "response": "<think>\nOkay, the user is asking in which language the sentence \"کتاب\" and \"قلم\" are referring to. Let me start by breaking down the question. The user wants to know the meanings of \"کتاب\" and \"قلم\" i"
+    },
+    {
+      "id": "fa-bench-0015",
+      "expect": "ar",
+      "got": "en",
+      "prompt": "ما هو الفرق بين القهوة والشاي؟ أجب بالعربية.",
+      "response": "<think>\nOkay, the user is asking about the difference between coffee and tea. Let me start by recalling the basics. Coffee and tea are both beverages, but they have distinct characteristics. First, I "
+    },
+    {
+      "id": "fa-bench-0016",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "زبان من فارسی است. دربارهٔ تاریخ ایران توضیح بده.",
+      "response": "<think>\nOkay, the user wants a historical explanation of Iran's history in Persian. Let me start by recalling the key periods. The early history is from around 2000 BCE to 300 BCE, which is the Old Pe"
+    },
+    {
+      "id": "fa-bench-0017",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "کلمهٔ «عشق» در جملهٔ فارسی استفاده کن.",
+      "response": "<think>\nOkay, the user is asking if the word \"عشق\" (love) is used in a Persian sentence. First, I need to confirm the correct usage of \"عشق\" in Persian. I know that \"عشق\" is the plural form of \"عشق\" ("
+    },
+    {
+      "id": "fa-bench-0018",
+      "expect": "ar",
+      "got": "en",
+      "prompt": "اشرح لي ما هو الإنترنت بالعربية.",
+      "response": "<think>\nOkay, the user wants to know what the internet is in Arabic. Let me start by breaking down the basics. The internet is a global network of computers and telecommunications that allows people t"
+    },
+    {
+      "id": "fa-bench-0019",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "دو خط پشت سر هم بنویس: اولی فارسی، دومی عربی — موضوع: هوا.",
+      "response": "<think>\nOkay, the user wants two Arabic and one Persian text about the topic \"Hava\" (air). Let me start by understanding the requirements. First, the first part should be in Arabic, then the second in"
+    },
+    {
+      "id": "fa-bench-0020",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "فارسی و عربی چه فرق‌هایی از نظر حروف دارند؟ جواب فارسی بده.",
+      "response": "<think>\nOkay, the user is asking about the differences between Arabic and Persian in terms of letters. Let me start by recalling the main points. First, I need to mention that both languages use the s"
+    },
+    {
+      "id": "fa-bench-0021",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "سلام",
+      "response": "<think>\nOkay, the user just said \"سلام\" which is the greeting in Arabic. I need to respond appropriately. Since they're using the greeting, I should acknowledge it and offer help. Let me make sure the"
+    },
+    {
+      "id": "fa-bench-0022",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "چطوری؟",
+      "response": "<think>\nOkay, the user is asking \"چطوری؟\" which translates to \"How?\" in Arabic. They might be looking for guidance on how to do something, maybe a step-by-step process. I need to respond in Arabic, so"
+    },
+    {
+      "id": "fa-bench-0023",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "حالت چطوره امروز؟",
+      "response": "<think>\nOkay, the user is asking \"How is the current situation?\" in Arabic. Let me start by understanding the context. They might be referring to a specific situation, like a political event, a natura"
+    },
+    {
+      "id": "fa-bench-0024",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "یه جوک بگو.",
+      "response": "<think>\nOkay, the user asked for a \"joke.\" Let me think of something simple and engaging. Maybe a play on words or a funny situation. Let's start with a common scenario. A person trying to get somethi"
+    },
+    {
+      "id": "fa-bench-0025",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "خسته‌ام از کار، چی کار کنم؟",
+      "response": "<think>\nOkay, the user is asking, \"خسته‌ام از کار، چی کار کنم؟\" which translates to \"Hi, how should I work?\" in Arabic. They might be looking for advice on what to do next after a job. Let me break th"
+    },
+    {
+      "id": "fa-bench-0026",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "اسم من علیه، دوست داری باهم آشنا بشیم؟",
+      "response": "<think>\nOkay, the user is asking for a name of a friend, and they want to know if they can meet him. Let me think about how to approach this.\n\nFirst, I need to make sure the name is appropriate. The u"
+    },
+    {
+      "id": "fa-bench-0027",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "روزت چطور گذشت؟",
+      "response": "<think>\nOkay, the user is asking how to age. First, I need to make sure I understand the question correctly. They might be asking about the process of aging, or maybe they're referring to a specific s"
+    },
+    {
+      "id": "fa-bench-0028",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "من امروز قبول شدم! 🎉",
+      "response": "<think>\nOkay, the user just said \"من امروز قبول شدم! 🎉\" which translates to \"From what I see, I have accepted! 🎉\". I need to respond in Arabic. Let me start by acknowledging their statement. Since the"
+    },
+    {
+      "id": "fa-bench-0029",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "چی کارار دریاری؟",
+      "response": "<think>\nOkay, the user is asking about a possible career path in the field of water. Let me start by understanding the context. They might be interested in a job related to water, maybe in environment"
+    },
+    {
+      "id": "fa-bench-0030",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "برای آخر هفته چه پیشنهادی داری؟",
+      "response": "<think>\nOkay, the user is asking for suggestions for the final week of the month. Let me start by understanding what they need. They might be looking for a plan to wrap up the month effectively. First"
+    },
+    {
+      "id": "fa-bench-0031",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "دلم گرفته، یه چیزی بگو حال خوب بشه.",
+      "response": "<think>\nOkay, the user said \"dalm گرفته، یه چیزی بگو حال خوب بشه.\" Let me parse that. \"Dalm\" probably means \"dalm\" in Arabic, which is a common term for a type of fish. Then \"گرفته\" is \"taken\" or \"tak"
+    },
+    {
+      "id": "fa-bench-0032",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "با چند تا دوست قراره بریم شمال، لیست وسایل لازم رو بگو.",
+      "response": "<think>\nOkay, the user is asking for a list of necessary items to carry to the north. Let me start by considering the different factors involved. First, the user might be traveling to a place in the n"
+    },
+    {
+      "id": "fa-bench-0033",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "خودمونی توضیح بده داکر چیه.",
+      "response": "<think>\nOkay, the user is asking for a description of a doctor. Let me start by understanding the context. They might be looking for information about medical professionals. I should mention the diffe"
+    },
+    {
+      "id": "fa-bench-0034",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "ساده بگو، بیت‌کوین با بانک چه فرقی داره؟",
+      "response": "<think>\nOkay, the user is asking about the difference between Bitcoin and a bank. Let me start by clarifying that Bitcoin is a decentralized digital currency, not a traditional bank. Banks handle mone"
+    },
+    {
+      "id": "fa-bench-0035",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "به زبون خودمونی بگو API یعنی چی.",
+      "response": "<think>\nOkay, the user is asking me to explain what an API is to their customer. Let me start by recalling what an API is. An API is a set of standardized interfaces that allows different software app"
+    },
+    {
+      "id": "fa-bench-0036",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "مثل یه بچه ۵ ساله توضیح بده اینترنت چیه.",
+      "response": "<think>\nOkay, the user wants a 5-year-old's perspective on the internet. Let me start by thinking about what a 5-year-old would understand. They might be curious, maybe a bit adventurous, and have som"
+    },
+    {
+      "id": "fa-bench-0037",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "راستش رو بگو، یادگیری برنامه‌نویسی سخت‌ه؟",
+      "response": "<think>\nOkay, the user is asking for help with learning programming. Let me start by breaking down the question. They might be a beginner or someone looking to improve their skills. I should cover the"
+    },
+    {
+      "id": "fa-bench-0038",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "بهم بگو اینترنت اکسپلورر چرا مرد؟",
+      "response": "<think>\nOkay, the user is asking why men use the internet. First, I need to consider different angles. Maybe they're curious about the reasons behind this behavior. I should mention factors like conve"
+    },
+    {
+      "id": "fa-bench-0039",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "خودمونی بگو وای‌فای چطور کار می‌کنه.",
+      "response": "<think>\nOkay, the user is asking how to use the phone. Let me start by breaking down the process. First, I need to explain the basic steps. Maybe start with the phone's features, like the screen, butt"
+    },
+    {
+      "id": "fa-bench-0040",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "یه مثال بزن برای چی هستن کوکی‌های مرورگر.",
+      "response": "<think>\nOkay, the user wants an example of what a driver's license (Kooc) is. Let me start by recalling the basic components of a driver's license. It's a document that proves someone is legally allow"
+    },
+    {
+      "id": "fa-bench-0041",
+      "expect": "fa",
+      "got": "en",
+      "prompt": "عربی حرف نزن، خودمونی فارسی بگو وایرشارک چیه.",
+      "response": "<think>\nOkay, the user is asking for a name in Arabic, specifically a \"nazer\" (which I think is a name for a woman in Arabic, like \"Nazar\" or \"Nazar al-ayn\" or something similar), and they want it in "
+    }
+  ],
+  "misclassified_total": 236
+}
