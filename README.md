@@ -327,6 +327,55 @@ Provenance & licenses: [`DATA_SOURCES.md`](DATA_SOURCES.md) — 100 % locally au
 
 ---
 
+## 🇮🇷 Persian phase (v1.1 — in progress)
+
+The next training round makes ARION speak **natural Persian** as its primary
+objective (before any further HTML specialization):
+
+- **Source dataset**: [`ParsBench/PersianSyntheticQA`](https://huggingface.co/datasets/ParsBench/PersianSyntheticQA) (Apache-2.0, ~100k Persian QA conversations, 50 domains) + locally authored booster conversations (colloquial / multi-turn / language-switching / fa+en technical).
+- **Measured preprocessing** (`training/prepare_persian_dataset.py`, seed 42, fully reproducible):
+
+| Stage | Count |
+|---|---:|
+| Raw source rows | **99 994** |
+| Rejected (structure/quality/language) | 16 |
+| Exact duplicates removed | 1 756 |
+| Near-duplicates removed (MinHash-LSH, Jaccard ≥ 0.85) | **33 928** |
+| Accepted after quality-ranked, domain-balanced selection | **44 908** |
+| Split (deterministic, near-dup-group isolated) | **40 382 train / 4 526 validation** |
+
+- **Persian normalization** with code/URL protection: Arabic Yeh→Persian Yeh, Arabic Kaf→Keh, teh-marbuta→heh, Arabic-Indic→Persian digits, bidi-junk removal — code fences, URLs, paths and English identifiers are never touched (`training/persian_norm.py`, 10/10 unit tests).
+- **Language control**: the corpus and the 239-prompt benchmark
+  (`evaluation/persian_fluency_benchmark.jsonl`, 12 categories) explicitly train & test
+  *Persian in → Persian out*, *Arabic request → Arabic out*, *English request → English out*,
+  with function-word-based language ID (not mere character overlap).
+- **Kaggle GPU training** replaces the CPU pipeline: seq-len benchmark (2048/3072/4096),
+  LoRA r=16 α=32 lr=1e-4 (unchanged from v1.0 for a controlled comparison),
+  `max_epochs 2`, OOM-adaptive batch sizing, explicit no-CPU-failure guard.
+- **BASE vs ARION**: the same 239-prompt benchmark is run on the base model
+  *before* training and on ARION (GGUF) *after* training — metrics: persian_response_rate,
+  language_compliance, arabic_leakage_rate, repetition/malformed/empty rates.
+- Orchestration: `training/kaggle_pipeline.py` + `.github/workflows/persian-kaggle.yml`
+  (Kaggle credentials only via `KAGGLE_API_TOKEN` secret — never committed).
+
+<div dir="rtl">
+
+## فاز فارسی (نسخهٔ ۱٫۱ — در حال اجرا)
+
+هدف فاز بعدی، **فارسی روان و طبیعی** است؛ قبل از هر تخصص‌دهی دیگری:
+
+- **منبع داده**: دیتاست [`ParsBench/PersianSyntheticQA`](https://huggingface.co/datasets/ParsBench/PersianSyntheticQA) (آپاچی ۲٫۰، حدود ۱۰۰ هزار گفت‌وگوی پرسش‌وپاسخ فارسی در ۵۰ حوزه) به‌همراه گفت‌وگوهای محاوره‌ای/چندنوبته/جابه‌جایی زبان که برای این پروژه نوشته شده است.
+- **پیش‌پردازش اندازه‌گیری‌شده** (بذر ۴۲، کاملاً قابل تکرار): از ۹۹٬۹۹۴ ردیف خام، ۳۳٬۹۲۸ شبه‌تکرار و ۱٬۷۵۶ تکرار دقیق حذف شد و **۴۴٬۹۰۸ نمونه** با توازن دامنه‌ای پذیرفته شد؛ تفکیک قطعی **۴۰٬۳۸۲ آموزش / ۴٬۵۲۶ اعتبارسنجی** بدون نشت شبه‌تکرارها.
+- **نرمال‌سازی فارسی** با محافظت از کد و URL (ی عربی→فارسی، ک عربی→کاف فارسی، ة→ه، ارقام عربی→فارسی، حذف نویسه‌های کنترلی) — ۱۰/۱۰ تست واحد.
+- **کنترل زبان**: مجموعهٔ ارزیابی ۲۳۹ پرامپتی در ۱۲ دسته؛ فارسی→فارسی، درخواست عربی→عربی، درخواست انگلیسی→انگلیسی؛ شناسایی زبان با واژه‌های نقش‌نما نه صرفاً هم‌پوشانی حروف.
+- **آموزش روی GPU کاگل** جایگزین CPU شد: بنچمارک طول توالی (۲۰۴۸/۳۰۷۲/۴۰۹۶)، LoRA r=16 α=32 با lr=1e-4 (بدون تغییر نسبت به نسخهٔ ۱٫۰ برای مقایسهٔ کنترل‌شده)، دو epoch، تنظیم خودکار batch در OOM.
+- **مقایسهٔ BASE و ARION**: همین بنچمارک قبل و بعد از آموزش روی مدل پایه و مدل نهایی اجرا و شاخص‌ها گزارش می‌شود.
+- مدارک کلیدی: `KAGGLE_API_TOKEN` فقط به‌صورت GitHub Secret — هرگز در کد کامیت نمی‌شود.
+
+</div>
+
+---
+
 ## 📊 Evaluation / ارزیابی
 
 Automated eval (20 prompts per set, llama.cpp backend on Q4_K_M) from

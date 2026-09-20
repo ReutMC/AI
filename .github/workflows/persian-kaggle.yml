@@ -1,0 +1,106 @@
+name: Persian Kaggle pipeline
+
+# ARION ALPHA 1 — Persian-phase pipeline orchestrator.
+# Prepares the dataset, syncs it to the private Kaggle dataset, launches the
+# Kaggle GPU (or explicit CPU fallback) kernels, monitors, fetches artifacts.
+#
+# Required secret: KAGGLE_API_TOKEN (Kaggle KGAT token — never hardcoded).
+# NOTE: Kaggle GPU/internet requires a phone-verified Kaggle account; until
+# verified, use target=cpu (explicit CPU baseline + smoke mode).
+
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: "baseline-cpu | baseline(gpu) | train(gpu) | all(gpu)"
+        required: true
+        default: "baseline-cpu"
+        type: choice
+        options:
+          - baseline-cpu
+          - baseline
+          - train
+          - all
+
+permissions:
+  contents: write
+
+concurrency:
+  group: persian-kaggle
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 780
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyarrow numpy huggingface_hub
+
+      - name: Prepare Persian dataset (if missing)
+        run: |
+          if [ ! -f arion-alpha-1/datasets/processed/persian_train.jsonl ]; then
+            echo "processed dataset missing → rebuilding from ParsBench/PersianSyntheticQA"
+            cd arion-alpha-1
+            python3 - <<'PY'
+            from huggingface_hub import snapshot_download
+            snapshot_download(repo_id="ParsBench/PersianSyntheticQA",
+                              repo_type="dataset",
+                              local_dir="datasets/raw/persiansyntheticqa",
+                              allow_patterns=["*.parquet", "*.md", "*.json"])
+            PY
+            python3 training/prepare_persian_dataset.py --target 45000
+          else
+            echo "processed dataset present → skipping rebuild"
+          fi
+
+      - name: Run Kaggle stage
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        working-directory: arion-alpha-1
+        run: |
+          case "${{ inputs.stage }}" in
+            baseline-cpu)
+              python3 training/kaggle_pipeline.py dataset-push --with-model
+              python3 training/kaggle_pipeline.py kernel-push --kind baseline-cpu
+              python3 training/kaggle_pipeline.py monitor --kind baseline-cpu --max-hours 11
+              python3 training/kaggle_pipeline.py fetch --kind baseline-cpu --out output/kaggle_baseline_out
+              ;;
+            baseline)
+              python3 training/kaggle_pipeline.py kernel-push --kind baseline
+              python3 training/kaggle_pipeline.py monitor --kind baseline --max-hours 11
+              python3 training/kaggle_pipeline.py fetch --kind baseline --out output/kaggle_baseline_out
+              ;;
+            train)
+              python3 training/kaggle_pipeline.py kernel-push --kind train
+              python3 training/kaggle_pipeline.py monitor --kind train --max-hours 12
+              python3 training/kaggle_pipeline.py fetch --kind train --out output/kaggle_train_out
+              ;;
+            all)
+              python3 training/kaggle_pipeline.py run-all
+              ;;
+          esac
+
+      - name: Commit fetched metrics & artifacts back
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "arion-bot"
+          git config user.email "arion-bot@users.noreply.github.com"
+          mkdir -p arion-alpha-1/artifacts/persian
+          for f in baseline_metrics.json arion_gguf_metrics.json train_summary.json \
+                   run_metadata.json seq_benchmark.json persian_stats.json; do
+            find arion-alpha-1/output -name "$f" \
+              -exec cp {} arion-alpha-1/artifacts/persian/ \; 2>/dev/null || true
+          done
+          git add arion-alpha-1/artifacts/persian || true
+          git diff --cached --quiet || git commit -m "persian phase: kaggle run artifacts (${{ inputs.stage }})"
+          git push

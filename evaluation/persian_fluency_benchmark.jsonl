@@ -1,0 +1,239 @@
+{"id": "fa-bench-0000", "category": "language_switching", "expect_lang": "fa", "prompt": "به فارسی جواب بده: توضیح بده DNS چیست.", "note": "explicit fa request"}
+{"id": "fa-bench-0001", "category": "language_switching", "expect_lang": "fa", "prompt": "من فارسی صحبت می‌کنم. فقط فارسی جواب بده. فرق GET و POST چیه؟", "note": "explicit fa-only"}
+{"id": "fa-bench-0002", "category": "language_switching", "expect_lang": "ar", "prompt": "به عربی جواب بده.", "note": "explicit ar request"}
+{"id": "fa-bench-0003", "category": "language_switching", "expect_lang": "ar", "prompt": "فقط به عربی جواب بده: ما هي الحاسوب؟", "note": "ar question + ar instruction"}
+{"id": "fa-bench-0004", "category": "language_switching", "expect_lang": "en", "prompt": "Answer in English from now on. What is normalization in databases?", "note": "explicit en request"}
+{"id": "fa-bench-0005", "category": "language_switching", "expect_lang": "fa", "prompt": "فارسی جواب بده. هوش مصنوعی چیه؟", "note": "short fa instruction"}
+{"id": "fa-bench-0006", "category": "language_switching", "expect_lang": "fa", "prompt": "از این به بعد فقط فارسی بنویس. مزایای لینوکس چیه؟", "note": "fa-only constraint"}
+{"id": "fa-bench-0007", "category": "language_switching", "expect_lang": "en", "prompt": "اگه اجازه بدی این سوال رو انگلیسی بپرسم: why is the sky blue?", "note": "user switches to en"}
+{"id": "fa-bench-0008", "category": "language_switching", "expect_lang": "fa", "prompt": "برگرد به فارسی. داشبورد ادمین چی؟", "note": "switch back to fa"}
+{"id": "fa-bench-0009", "category": "language_switching", "expect_lang": "fa", "prompt": "جواب‌هات رو از این لحظه به زبان فارسی ارائه بده.", "note": "formal fa instruction"}
+{"id": "fa-bench-0010", "category": "language_switching", "expect_lang": "ar", "prompt": "Please answer in Arabic: what is a variable?", "note": "en prompt asking for ar"}
+{"id": "fa-bench-0011", "category": "language_switching", "expect_lang": "fa", "prompt": "Answer in Persian/Farsi: what is machine learning?", "note": "en prompt asking for fa"}
+{"id": "fa-bench-0012", "category": "arabic_vs_persian", "expect_lang": "fa", "prompt": "شعر از حافظ بخوان.", "note": "fa classic"}
+{"id": "fa-bench-0013", "category": "arabic_vs_persian", "expect_lang": "fa", "prompt": "من فارسی صحبت می‌کنم نه عربی. لطفاً فارسی جواب بده: وردپرس چیه؟", "note": "anti-arabic confusion"}
+{"id": "fa-bench-0014", "category": "arabic_vs_persian", "expect_lang": "fa", "prompt": "این جمله به چه زبانی است؟ «کتاب» و «قلم» چه معنایی دارند؟", "note": "shared words — answer fa"}
+{"id": "fa-bench-0015", "category": "arabic_vs_persian", "expect_lang": "ar", "prompt": "ما هو الفرق بين القهوة والشاي؟ أجب بالعربية.", "note": "real ar request"}
+{"id": "fa-bench-0016", "category": "arabic_vs_persian", "expect_lang": "fa", "prompt": "زبان من فارسی است. دربارهٔ تاریخ ایران توضیح بده.", "note": "fa identity"}
+{"id": "fa-bench-0017", "category": "arabic_vs_persian", "expect_lang": "fa", "prompt": "کلمهٔ «عشق» در جملهٔ فارسی استفاده کن.", "note": "fa output"}
+{"id": "fa-bench-0018", "category": "arabic_vs_persian", "expect_lang": "ar", "prompt": "اشرح لي ما هو الإنترنت بالعربية.", "note": "ar output"}
+{"id": "fa-bench-0019", "category": "arabic_vs_persian", "expect_lang": "fa", "prompt": "دو خط پشت سر هم بنویس: اولی فارسی، دومی عربی — موضوع: هوا.", "note": "both languages, fa first"}
+{"id": "fa-bench-0020", "category": "arabic_vs_persian", "expect_lang": "fa", "prompt": "فارسی و عربی چه فرق‌هایی از نظر حروف دارند؟ جواب فارسی بده.", "note": "meta question, fa answer"}
+{"id": "fa-bench-0021", "category": "casual_conversation", "expect_lang": "fa", "prompt": "سلام", "note": "greeting"}
+{"id": "fa-bench-0022", "category": "casual_conversation", "expect_lang": "fa", "prompt": "چطوری؟", "note": "how are you"}
+{"id": "fa-bench-0023", "category": "casual_conversation", "expect_lang": "fa", "prompt": "حالت چطوره امروز؟", "note": "smalltalk"}
+{"id": "fa-bench-0024", "category": "casual_conversation", "expect_lang": "fa", "prompt": "یه جوک بگو.", "note": "joke"}
+{"id": "fa-bench-0025", "category": "casual_conversation", "expect_lang": "fa", "prompt": "خسته‌ام از کار، چی کار کنم؟", "note": "venting"}
+{"id": "fa-bench-0026", "category": "casual_conversation", "expect_lang": "fa", "prompt": "اسم من علیه، دوست داری باهم آشنا بشیم؟", "note": "name intro"}
+{"id": "fa-bench-0027", "category": "casual_conversation", "expect_lang": "fa", "prompt": "روزت چطور گذشت؟", "note": "day talk"}
+{"id": "fa-bench-0028", "category": "casual_conversation", "expect_lang": "fa", "prompt": "من امروز قبول شدم! 🎉", "note": "celebration"}
+{"id": "fa-bench-0029", "category": "casual_conversation", "expect_lang": "fa", "prompt": "چی کارار دریاری؟", "note": "colloquial filler"}
+{"id": "fa-bench-0030", "category": "casual_conversation", "expect_lang": "fa", "prompt": "برای آخر هفته چه پیشنهادی داری؟", "note": "weekend plans"}
+{"id": "fa-bench-0031", "category": "casual_conversation", "expect_lang": "fa", "prompt": "دلم گرفته، یه چیزی بگو حال خوب بشه.", "note": "mood"}
+{"id": "fa-bench-0032", "category": "casual_conversation", "expect_lang": "fa", "prompt": "با چند تا دوست قراره بریم شمال، لیست وسایل لازم رو بگو.", "note": "trip planning"}
+{"id": "fa-bench-0033", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "خودمونی توضیح بده داکر چیه.", "note": "docker colloquial"}
+{"id": "fa-bench-0034", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "ساده بگو، بیت‌کوین با بانک چه فرقی داره؟", "note": "bitcoin colloquial"}
+{"id": "fa-bench-0035", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "به زبون خودمونی بگو API یعنی چی.", "note": "api colloquial"}
+{"id": "fa-bench-0036", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "مثل یه بچه ۵ ساله توضیح بده اینترنت چیه.", "note": "ELI5"}
+{"id": "fa-bench-0037", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "راستش رو بگو، یادگیری برنامه‌نویسی سخت‌ه؟", "note": "honest colloquial"}
+{"id": "fa-bench-0038", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "بهم بگو اینترنت اکسپلورر چرا مرد؟", "note": "casual tech history"}
+{"id": "fa-bench-0039", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "خودمونی بگو وای‌فای چطور کار می‌کنه.", "note": "wifi colloquial"}
+{"id": "fa-bench-0040", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "یه مثال بزن برای چی هستن کوکی‌های مرورگر.", "note": "cookies colloquial"}
+{"id": "fa-bench-0041", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "عربی حرف نزن، خودمونی فارسی بگو وایرشارک چیه.", "note": "colloquial + anti-ar"}
+{"id": "fa-bench-0042", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "خلاصه و مفید بگو، ضد ویروس لازمه برای لینوکس؟", "note": "short colloquial"}
+{"id": "fa-bench-0043", "category": "formal_persian", "expect_lang": "fa", "prompt": "رسمی توضیح بده مفهوم امنیت اطلاعات را.", "note": "formal register"}
+{"id": "fa-bench-0044", "category": "formal_persian", "expect_lang": "fa", "prompt": "یک نامهٔ اداری رسمی برای مرخصی استحقاقی بنویسید.", "note": "formal letter"}
+{"id": "fa-bench-0045", "category": "formal_persian", "expect_lang": "fa", "prompt": "خواهشمند است معایب و مزایای کار از راه دور را به صورت رسمی بیان کنید.", "note": "formal analysis"}
+{"id": "fa-bench-0046", "category": "formal_persian", "expect_lang": "fa", "prompt": "لطفاً به زبان اداری، یک اطلاعیهٔ تغییر ساعت کاری شرکت بنویسید.", "note": "formal notice"}
+{"id": "fa-bench-0047", "category": "formal_persian", "expect_lang": "fa", "prompt": "با ادبیات رسمی دربارهٔ اهمیت آموزش مداوم بنویسید.", "note": "formal essay"}
+{"id": "fa-bench-0048", "category": "formal_persian", "expect_lang": "fa", "prompt": "رسمی و مودبانه از مشتری بخواهید فاکتور پرداخت‌نشده را تسویه کند.", "note": "polite request"}
+{"id": "fa-bench-0049", "category": "formal_persian", "expect_lang": "fa", "prompt": "به رسمی‌ترین شکل ممکن، علت تأخیر پروژه را به مدیرعامل گزارش کنید.", "note": "formal report"}
+{"id": "fa-bench-0050", "category": "technical_persian", "expect_lang": "fa", "prompt": "REST API چیست و چه تفاوتی با GraphQL دارد؟", "note": "api concepts"}
+{"id": "fa-bench-0051", "category": "technical_persian", "expect_lang": "fa", "prompt": "دیتابیس رابطه‌ای و غیررابطه‌ای را مقایسه کنید.", "note": "db compare"}
+{"id": "fa-bench-0052", "category": "technical_persian", "expect_lang": "fa", "prompt": "برای وب‌سایت فروشگاهی، MongoDB مناسب‌تره یا PostgreSQL؟ چرا؟", "note": "db choice"}
+{"id": "fa-bench-0053", "category": "technical_persian", "expect_lang": "fa", "prompt": "مفهوم کش (cache) را در وب توضیح دهید.", "note": "caching"}
+{"id": "fa-bench-0054", "category": "technical_persian", "expect_lang": "fa", "prompt": "CDN چه کمکی به سرعت سایت ایرانی می‌کند؟", "note": "cdn"}
+{"id": "fa-bench-0055", "category": "technical_persian", "expect_lang": "fa", "prompt": "مراحل deploy یک سایت React روی سرور را بگو.", "note": "deployment"}
+{"id": "fa-bench-0056", "category": "technical_persian", "expect_lang": "fa", "prompt": "تفاوت فریم‌ورک و کتابخانه در برنامه‌نویسی چیست؟", "note": "framework vs lib"}
+{"id": "fa-bench-0057", "category": "technical_persian", "expect_lang": "fa", "prompt": "مجازی‌سازی با داکر چه مزیت‌هایی نسبت به VM سنتی دارد؟", "note": "docker vs vm"}
+{"id": "fa-bench-0058", "category": "technical_persian", "expect_lang": "fa", "prompt": "پروتکل HTTPS چطور امنیت را تأمین می‌کند؟", "note": "https"}
+{"id": "fa-bench-0059", "category": "technical_persian", "expect_lang": "fa", "prompt": "Git Flow و Trunk-based development را مقایسه کنید.", "note": "git workflows"}
+{"id": "fa-bench-0060", "category": "persian_coding", "expect_lang": "fa", "prompt": "این خط JavaScript چرا error میده؟\n```js\nconst res = await fetch('/api/users');\nconst data = res.json();\n```", "note": "debug: missing await"}
+{"id": "fa-bench-0061", "category": "persian_coding", "expect_lang": "fa", "prompt": "چرا این کد پایتون کار نمی‌کنه؟\n```python\nfor i in range(len(items)):\n    if items[i] > 5: del items[i]\n```", "note": "debug: list mutation"}
+{"id": "fa-bench-0062", "category": "persian_coding", "expect_lang": "fa", "prompt": "یه تابع پایتون بنویس که معکوس یک رشته رو برگردونه.", "note": "code gen py"}
+{"id": "fa-bench-0063", "category": "persian_coding", "expect_lang": "fa", "prompt": "چطور با CSS یه دیو رو هم عمودی هم افقی وسط بچینم؟", "note": "css centering"}
+{"id": "fa-bench-0064", "category": "persian_coding", "expect_lang": "fa", "prompt": "این کوئری SQL چه مشکلی داره؟\n```sql\nSELECT * FROM users WHERE name = \" + userInput + \"\n```", "note": "sql injection debug"}
+{"id": "fa-bench-0065", "category": "persian_coding", "expect_lang": "fa", "prompt": "یه فرم HTML با اعتبارسنجی ساده جاوااسکریپت بنویس.", "note": "form gen"}
+{"id": "fa-bench-0066", "category": "persian_coding", "expect_lang": "fa", "prompt": "چرا این دستور git کار نمی‌کنه: `git push origin master` خطای rejected می‌ده؟", "note": "git help"}
+{"id": "fa-bench-0067", "category": "persian_coding", "expect_lang": "fa", "prompt": "در React فرق useState و useEffect رو با مثال توضیح بده.", "note": "react hooks"}
+{"id": "fa-bench-0068", "category": "persian_coding", "expect_lang": "fa", "prompt": "چطور در ترمینال لینوکس فایل‌های بزرگ‌تر از ۱۰۰ مگابایت رو پیدا کنم؟", "note": "linux find"}
+{"id": "fa-bench-0069", "category": "persian_coding", "expect_lang": "fa", "prompt": "این ارور Node.js یعنی چی: «Cannot read properties of undefined»؟", "note": "node error explain"}
+{"id": "fa-bench-0070", "category": "explanations", "expect_lang": "fa", "prompt": "ساده توضیح بده: یادگیری ماشین چیه؟", "note": "ML simple"}
+{"id": "fa-bench-0071", "category": "explanations", "expect_lang": "fa", "prompt": "فرق حافظهٔ RAM و حافظهٔ ذخیره‌سازی چیه؟", "note": "ram vs disk"}
+{"id": "fa-bench-0072", "category": "explanations", "expect_lang": "fa", "prompt": "دنیای دیجیتال، رمزنگاری متقارن و نامتقارن رو توضیح بده.", "note": "crypto explain"}
+{"id": "fa-bench-0073", "category": "explanations", "expect_lang": "fa", "prompt": "چرا آسمون آبی دیده می‌شه؟", "note": "science"}
+{"id": "fa-bench-0074", "category": "explanations", "expect_lang": "fa", "prompt": "تورم دقیقاً یعنی چی و چرا پول کم‌ارزش می‌شه؟", "note": "economics"}
+{"id": "fa-bench-0075", "category": "explanations", "expect_lang": "fa", "prompt": "کوئری SQL با JOIN چطور کار می‌کنه؟ با مثال ساده بگو.", "note": "sql join"}
+{"id": "fa-bench-0076", "category": "explanations", "expect_lang": "fa", "prompt": "این یعنی چی؟ «الگوریتم زمان چندضلعی دارد».", "note": "big-o explain"}
+{"id": "fa-bench-0077", "category": "explanations", "expect_lang": "fa", "prompt": "برق ساختمان چطور از پست به خونه ما میاد؟", "note": "power grid"}
+{"id": "fa-bench-0078", "category": "summarization", "expect_lang": "fa", "prompt": "این متن رو در دو خط خلاصه کن: «هوش مصنوعی در سال‌های اخیر پیشرفت چشمگیری داشته است. مدل‌های زبانی بزرگ می‌توانند متن تولید کنند و به سؤالات پاسخ دهند. با این حال گاهی اطلاعات نادرست تولید می‌کنند که به آن توهم می‌گویند. پس خروجی آن‌ها باید بررسی شود.»", "note": "summarize tech"}
+{"id": "fa-bench-0079", "category": "summarization", "expect_lang": "fa", "prompt": "خلاصهٔ خبر: «بانک مرکزی اعلام کرد نرخ سود سپرده‌های یک‌ساله unchanged می‌ماند و تورم سالانه در فصل تابستان نسبت به بهار کمی کاهش یافته است. کارشناسان معتقدند ادامهٔ این روند به ثبات بازار کمک می‌کند.»", "note": "summarize news"}
+{"id": "fa-bench-0080", "category": "summarization", "expect_lang": "fa", "prompt": "این پاراگراف رو تو یه جمله بگو: «برای داشتن خواب خوب بهتر است قبل از خواب از گوشی استفاده نکنید، اتاق را تاریک و خنک نگه دارید و هر روز در ساعت مشخصی بخوابید.»", "note": "one-line summary"}
+{"id": "fa-bench-0081", "category": "rewriting", "expect_lang": "fa", "prompt": "خودمونی بازنویسی کن: «توصیه می‌گردد پیش از به‌روزرسانی، از اطلاعات خود نسخهٔ پشتیبان تهیه فرمایید.»", "note": "formal→casual"}
+{"id": "fa-bench-0082", "category": "rewriting", "expect_lang": "fa", "prompt": "رسمی بازنویسی کن: «سلام، پولت رو که ندادی بفرست دیگه!»", "note": "casual→formal"}
+{"id": "fa-bench-0083", "category": "rewriting", "expect_lang": "fa", "prompt": "این متن انگلیسی رو به فارسی روان ترجمه کن: \"Clean code is code that is easy to understand and change.\"", "note": "translate en→fa"}
+{"id": "fa-bench-0084", "category": "rewriting", "expect_lang": "fa", "prompt": "این جملهٔ فارسی رو به انگلیسی ترجمه کن: «تجربهٔ کاربری خوب، فروش را افزایش می‌دهد.»", "note": "translate fa→en"}
+{"id": "fa-bench-0085", "category": "rewriting", "expect_lang": "fa", "prompt": "طوری بازنویسی کن که برای بچه‌ها قابل فهم باشه: «فوتوسنتز فرایند تولید انرژی در گیاهان با استفاده از نور خورشید است.»", "note": "simplify for kids"}
+{"id": "fa-bench-0086", "category": "multi_turn", "expect_lang": "fa", "prompt": "حالا کاملش کن — ساعت کاری و شماره تماس هم بذار.", "note": "requirement evolution", "history": [{"role": "user", "content": "یه سایت برای نانوایی می‌خوام."}, {"role": "assistant", "content": "حتماً! چه سبکی مدنظرت هست؟ مدرن یا کلاسیک؟ منو محصول هم می‌خوای؟"}, {"role": "user", "content": "مدرن باشه و فارسی و راست‌چین."}]}
+{"id": "fa-bench-0087", "category": "multi_turn", "expect_lang": "fa", "prompt": "نه، منظورم این نبود — رنگ پس‌زمینه رو نمی‌خوام عوض کنم، رنگ متن دکمه رو می‌گم.", "note": "correction handling", "history": [{"role": "user", "content": "چطور رنگ دکمه رو عوض کنم؟"}, {"role": "assistant", "content": "با CSS: `background-color` رو در استایل دکمه تغییر بده. مثلاً `background-color: #22c55e;`"}]}
+{"id": "fa-bench-0088", "category": "multi_turn", "expect_lang": "fa", "prompt": "خب حالا همونو با دیتابیس وصل کن.", "note": "iterative build", "history": [{"role": "user", "content": "یه فرم تماس ساده HTML بده."}, {"role": "assistant", "content": "بفرما: `<form><input name=\"name\"><textarea name=\"msg\"></textarea><button>ارسال</button></form>`"}]}
+{"id": "fa-bench-0089", "category": "multi_turn", "expect_lang": "fa", "prompt": "ساده‌ترش کن، زیاد پیچیده شد.", "note": "simplification request", "history": [{"role": "user", "content": "یه داشبورد برای فروشگاه با نمودار فروش بساز."}, {"role": "assistant", "content": "این داشبورد با Chart.js شامل نمودار خطی فروش ماهانه، کارت‌های KPI و جدول پرفروش‌ترین محصولات است: [کد کامل ۸۰ خطی]"}]}
+{"id": "fa-bench-0090", "category": "multi_turn", "expect_lang": "fa", "prompt": "راستی کد قبلی رو می‌خوام با TypeScript باشه.", "note": "retroactive change", "history": [{"role": "user", "content": "یه تابع جاوااسکریپت برای اعتبارسنجی ایمیل بده."}, {"role": "assistant", "content": "بفرما:\n```js\nfunction isEmail(s) {\n  return /^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(s);\n}\n```"}]}
+{"id": "fa-bench-0091", "category": "persian_english", "expect_lang": "fa", "prompt": "برای deploy پروژهٔ React‌مون Caddy بهتره یا nginx؟", "note": "fa + tech terms"}
+{"id": "fa-bench-0092", "category": "persian_english", "expect_lang": "fa", "prompt": "فرق بین commit و push در git چیه؟", "note": "fa + git terms"}
+{"id": "fa-bench-0093", "category": "persian_english", "expect_lang": "fa", "prompt": "وقتی می‌گن لایبرری deprecated شده یعنی چی؟", "note": "fa + english word"}
+{"id": "fa-bench-0094", "category": "persian_english", "expect_lang": "fa", "prompt": "این جملهٔ فنی رو طبیعی فارسی کن: \"We need to scale the backend before the launch.\"", "note": "translate to natural fa"}
+{"id": "fa-bench-0095", "category": "persian_english", "expect_lang": "fa", "prompt": "چرا وقتی bundle size زیاده لود سایت کند می‌شه؟", "note": "fa + bundler terms"}
+{"id": "fa-bench-0096", "category": "persian_english", "expect_lang": "fa", "prompt": "با Express یه API ساده برای لیست کتاب‌ها بنویس، توضیحش فارسی.", "note": "code + fa explanation"}
+{"id": "fa-bench-0097", "category": "persian_english", "expect_lang": "fa", "prompt": "احتمالاً مشکل از CORS ـه. دقیقاً چیه این؟", "note": "fa + CORS"}
+{"id": "fa-bench-0098", "category": "persian_english", "expect_lang": "fa", "prompt": "داشبورد رو با charts مخلوط کن ولی performance رو حفظ کن — چیکار کنم؟", "note": "fa + tech verbs"}
+{"id": "fa-bench-0099", "category": "explanations", "expect_lang": "fa", "prompt": "دستور پخت قرمه‌سبزی رو بگو", "note": "domain variant: آشپزی"}
+{"id": "fa-bench-0100", "category": "explanations", "expect_lang": "fa", "prompt": "دستور پخت قرمه‌سبزی رو بگو (ساده توضیح بده)", "note": "domain variant: آشپزی"}
+{"id": "fa-bench-0101", "category": "explanations", "expect_lang": "fa", "prompt": "طرز تهیهٔ کیک اسفنجی رو قدم‌به‌قدم بگو", "note": "domain variant: آشپزی"}
+{"id": "fa-bench-0102", "category": "explanations", "expect_lang": "fa", "prompt": "طرز تهیهٔ کیک اسفنجی رو قدم‌به‌قدم بگو (ساده توضیح بده)", "note": "domain variant: آشپزی"}
+{"id": "fa-bench-0103", "category": "explanations", "expect_lang": "fa", "prompt": "بهترین ادویه برای خورش قیمه چیه؟", "note": "domain variant: آشپزی"}
+{"id": "fa-bench-0104", "category": "explanations", "expect_lang": "fa", "prompt": "بهترین ادویه برای خورش قیمه چیه؟ (ساده توضیح بده)", "note": "domain variant: آشپزی"}
+{"id": "fa-bench-0105", "category": "explanations", "expect_lang": "fa", "prompt": "برای مبتدی‌ها برنامهٔ تمرین باشگاه بده", "note": "domain variant: ورزش"}
+{"id": "fa-bench-0106", "category": "explanations", "expect_lang": "fa", "prompt": "برای مبتدی‌ها برنامهٔ تمرین باشگاه بده (ساده توضیح بده)", "note": "domain variant: ورزش"}
+{"id": "fa-bench-0107", "category": "explanations", "expect_lang": "fa", "prompt": "چطور دونده بهتری بشم؟", "note": "domain variant: ورزش"}
+{"id": "fa-bench-0108", "category": "explanations", "expect_lang": "fa", "prompt": "چطور دونده بهتری بشم؟ (ساده توضیح بده)", "note": "domain variant: ورزش"}
+{"id": "fa-bench-0109", "category": "explanations", "expect_lang": "fa", "prompt": "قبل از ورزش باید چی بخورم؟", "note": "domain variant: ورزش"}
+{"id": "fa-bench-0110", "category": "explanations", "expect_lang": "fa", "prompt": "قبل از ورزش باید چی بخورم؟ (ساده توضیح بده)", "note": "domain variant: ورزش"}
+{"id": "fa-bench-0111", "category": "explanations", "expect_lang": "fa", "prompt": "برای سفر به مشهد چه نکاتی مهمه؟", "note": "domain variant: سفر"}
+{"id": "fa-bench-0112", "category": "explanations", "expect_lang": "fa", "prompt": "برای سفر به مشهد چه نکاتی مهمه؟ (ساده توضیح بده)", "note": "domain variant: سفر"}
+{"id": "fa-bench-0113", "category": "explanations", "expect_lang": "fa", "prompt": "ارزون‌ترین وقت سفر به کیش کیه؟", "note": "domain variant: سفر"}
+{"id": "fa-bench-0114", "category": "explanations", "expect_lang": "fa", "prompt": "ارزون‌ترین وقت سفر به کیش کیه؟ (ساده توضیح بده)", "note": "domain variant: سفر"}
+{"id": "fa-bench-0115", "category": "explanations", "expect_lang": "fa", "prompt": "چمدون سفر زمستونی چی ببرم؟", "note": "domain variant: سفر"}
+{"id": "fa-bench-0116", "category": "explanations", "expect_lang": "fa", "prompt": "چمدون سفر زمستونی چی ببرم؟ (ساده توضیح بده)", "note": "domain variant: سفر"}
+{"id": "fa-bench-0117", "category": "explanations", "expect_lang": "fa", "prompt": "برای کنکور تجربی برنامهٔ مطالعه بچین", "note": "domain variant: تحصیل"}
+{"id": "fa-bench-0118", "category": "explanations", "expect_lang": "fa", "prompt": "برای کنکور تجربی برنامهٔ مطالعه بچین (ساده توضیح بده)", "note": "domain variant: تحصیل"}
+{"id": "fa-bench-0119", "category": "explanations", "expect_lang": "fa", "prompt": "چطور تمرکزم رو موقع درس خوندن بالا ببرم؟", "note": "domain variant: تحصیل"}
+{"id": "fa-bench-0120", "category": "explanations", "expect_lang": "fa", "prompt": "چطور تمرکزم رو موقع درس خوندن بالا ببرم؟ (ساده توضیح بده)", "note": "domain variant: تحصیل"}
+{"id": "fa-bench-0121", "category": "explanations", "expect_lang": "fa", "prompt": "بهترین روش یادگیری زبان انگلیسی چیه؟", "note": "domain variant: تحصیل"}
+{"id": "fa-bench-0122", "category": "explanations", "expect_lang": "fa", "prompt": "بهترین روش یادگیری زبان انگلیسی چیه؟ (ساده توضیح بده)", "note": "domain variant: تحصیل"}
+{"id": "fa-bench-0123", "category": "explanations", "expect_lang": "fa", "prompt": "پس‌انداز رو کجا بذارم که ارزشش کم نشه؟", "note": "domain variant: مالی"}
+{"id": "fa-bench-0124", "category": "explanations", "expect_lang": "fa", "prompt": "پس‌انداز رو کجا بذارم که ارزشش کم نشه؟ (ساده توضیح بده)", "note": "domain variant: مالی"}
+{"id": "fa-bench-0125", "category": "explanations", "expect_lang": "fa", "prompt": "فرق صندوق سرمایه‌گذاری با سپردهٔ بانکی چیه؟", "note": "domain variant: مالی"}
+{"id": "fa-bench-0126", "category": "explanations", "expect_lang": "fa", "prompt": "فرق صندوق سرمایه‌گذاری با سپردهٔ بانکی چیه؟ (ساده توضیح بده)", "note": "domain variant: مالی"}
+{"id": "fa-bench-0127", "category": "explanations", "expect_lang": "fa", "prompt": "چطور بودجهٔ ماهانه تنظیم کنم؟", "note": "domain variant: مالی"}
+{"id": "fa-bench-0128", "category": "explanations", "expect_lang": "fa", "prompt": "چطور بودجهٔ ماهانه تنظیم کنم؟ (ساده توضیح بده)", "note": "domain variant: مالی"}
+{"id": "fa-bench-0129", "category": "explanations", "expect_lang": "fa", "prompt": "برای کم‌خوابی چه راه‌حل طبیعی هست؟", "note": "domain variant: سلامت"}
+{"id": "fa-bench-0130", "category": "explanations", "expect_lang": "fa", "prompt": "برای کم‌خوابی چه راه‌حل طبیعی هست؟ (ساده توضیح بده)", "note": "domain variant: سلامت"}
+{"id": "fa-bench-0131", "category": "explanations", "expect_lang": "fa", "prompt": "ویتامین D چه فایده‌ای داره؟", "note": "domain variant: سلامت"}
+{"id": "fa-bench-0132", "category": "explanations", "expect_lang": "fa", "prompt": "ویتامین D چه فایده‌ای داره؟ (ساده توضیح بده)", "note": "domain variant: سلامت"}
+{"id": "fa-bench-0133", "category": "explanations", "expect_lang": "fa", "prompt": "کمردرد نشستن پشت میز رو چطور درمان کنم؟", "note": "domain variant: سلامت"}
+{"id": "fa-bench-0134", "category": "explanations", "expect_lang": "fa", "prompt": "کمردرد نشستن پشت میز رو چطور درمان کنم؟ (ساده توضیح بده)", "note": "domain variant: سلامت"}
+{"id": "fa-bench-0135", "category": "explanations", "expect_lang": "fa", "prompt": "بهترین گوشی زیر ۲۰ میلیون تومن چیه؟", "note": "domain variant: فناوری"}
+{"id": "fa-bench-0136", "category": "explanations", "expect_lang": "fa", "prompt": "بهترین گوشی زیر ۲۰ میلیون تومن چیه؟ (ساده توضیح بده)", "note": "domain variant: فناوری"}
+{"id": "fa-bench-0137", "category": "explanations", "expect_lang": "fa", "prompt": "لپ‌تاپ برای برنامه‌نویسی چه مشخصاتی لازم داره؟", "note": "domain variant: فناوری"}
+{"id": "fa-bench-0138", "category": "explanations", "expect_lang": "fa", "prompt": "لپ‌تاپ برای برنامه‌نویسی چه مشخصاتی لازم داره؟ (ساده توضیح بده)", "note": "domain variant: فناوری"}
+{"id": "fa-bench-0139", "category": "explanations", "expect_lang": "fa", "prompt": "تفاوت آیپد و تبلت معمولی چیه؟", "note": "domain variant: فناوری"}
+{"id": "fa-bench-0140", "category": "explanations", "expect_lang": "fa", "prompt": "تفاوت آیپد و تبلت معمولی چیه؟ (ساده توضیح بده)", "note": "domain variant: فناوری"}
+{"id": "fa-bench-0141", "category": "explanations", "expect_lang": "fa", "prompt": "برای دکوراسیون آشپزخانه کوچیک چه ایده‌ای داری؟", "note": "domain variant: خانه"}
+{"id": "fa-bench-0142", "category": "explanations", "expect_lang": "fa", "prompt": "برای دکوراسیون آشپزخانه کوچیک چه ایده‌ای داری؟ (ساده توضیح بده)", "note": "domain variant: خانه"}
+{"id": "fa-bench-0143", "category": "explanations", "expect_lang": "fa", "prompt": "چطور از گیاهان آپارتمانی مراقبت کنم؟", "note": "domain variant: خانه"}
+{"id": "fa-bench-0144", "category": "explanations", "expect_lang": "fa", "prompt": "چطور از گیاهان آپارتمانی مراقبت کنم؟ (ساده توضیح بده)", "note": "domain variant: خانه"}
+{"id": "fa-bench-0145", "category": "explanations", "expect_lang": "fa", "prompt": "رنگ مناسب اتاق خواب چی باشه؟", "note": "domain variant: خانه"}
+{"id": "fa-bench-0146", "category": "explanations", "expect_lang": "fa", "prompt": "رنگ مناسب اتاق خواب چی باشه؟ (ساده توضیح بده)", "note": "domain variant: خانه"}
+{"id": "fa-bench-0147", "category": "explanations", "expect_lang": "fa", "prompt": "چند کتاب خوب ایرانی برای شروع کتاب‌خوندن معرفی کن", "note": "domain variant: فرهنگ"}
+{"id": "fa-bench-0148", "category": "explanations", "expect_lang": "fa", "prompt": "چند کتاب خوب ایرانی برای شروع کتاب‌خوندن معرفی کن (ساده توضیح بده)", "note": "domain variant: فرهنگ"}
+{"id": "fa-bench-0149", "category": "explanations", "expect_lang": "fa", "prompt": "سینمای ایران چه filmmaker های معروفی داشته؟", "note": "domain variant: فرهنگ"}
+{"id": "fa-bench-0150", "category": "explanations", "expect_lang": "fa", "prompt": "سینمای ایران چه filmmaker های معروفی داشته؟ (ساده توضیح بده)", "note": "domain variant: فرهنگ"}
+{"id": "fa-bench-0151", "category": "explanations", "expect_lang": "fa", "prompt": "تقویم نوروزی چه آیین‌هایی داره؟", "note": "domain variant: فرهنگ"}
+{"id": "fa-bench-0152", "category": "explanations", "expect_lang": "fa", "prompt": "تقویم نوروزی چه آیین‌هایی داره؟ (ساده توضیح بده)", "note": "domain variant: فرهنگ"}
+{"id": "fa-bench-0153", "category": "explanations", "expect_lang": "fa", "prompt": "برای مصاحبهٔ شغلی چطور آماده بشم؟", "note": "domain variant: کار"}
+{"id": "fa-bench-0154", "category": "explanations", "expect_lang": "fa", "prompt": "برای مصاحبهٔ شغلی چطور آماده بشم؟ (ساده توضیح بده)", "note": "domain variant: کار"}
+{"id": "fa-bench-0155", "category": "explanations", "expect_lang": "fa", "prompt": "رزومهٔ خوب چه ویژگی‌هایی داره؟", "note": "domain variant: کار"}
+{"id": "fa-bench-0156", "category": "explanations", "expect_lang": "fa", "prompt": "رزومهٔ خوب چه ویژگی‌هایی داره؟ (ساده توضیح بده)", "note": "domain variant: کار"}
+{"id": "fa-bench-0157", "category": "explanations", "expect_lang": "fa", "prompt": "چطور با همکار سخت کنار بیام؟", "note": "domain variant: کار"}
+{"id": "fa-bench-0158", "category": "explanations", "expect_lang": "fa", "prompt": "چطور با همکار سخت کنار بیام؟ (ساده توضیح بده)", "note": "domain variant: کار"}
+{"id": "fa-bench-0159", "category": "explanations", "expect_lang": "fa", "prompt": "چطور از جنس تقلبی توی فروشگاه‌های اینترنتی جلوگیری کنم؟", "note": "domain variant: خرید آنلاین"}
+{"id": "fa-bench-0160", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "چطور از جنس تقلبی توی فروشگاه‌های اینترنتی جلوگیری کنم؟ (خودمونی)", "note": "domain variant: خرید آنلاین"}
+{"id": "fa-bench-0161", "category": "explanations", "expect_lang": "fa", "prompt": "مقایسه قیمت بهترین روشش چیه؟", "note": "domain variant: خرید آنلاین"}
+{"id": "fa-bench-0162", "category": "formal_persian", "expect_lang": "fa", "prompt": "مقایسه قیمت بهترین روشش چیه؟ (رسمی توضیح بده)", "note": "domain variant: خرید آنلاین"}
+{"id": "fa-bench-0163", "category": "explanations", "expect_lang": "fa", "prompt": "شرایط مرجوع کردن کالا در دیجی‌کالا چیه؟", "note": "domain variant: خرید آنلاین"}
+{"id": "fa-bench-0164", "category": "formal_persian", "expect_lang": "fa", "prompt": "شرایط مرجوع کردن کالا در دیجی‌کالا چیه؟ (رسمی توضیح بده)", "note": "domain variant: خرید آنلاین"}
+{"id": "fa-bench-0165", "category": "explanations", "expect_lang": "fa", "prompt": "برای کودک ۵ ساله چه بازی‌های آموزشی خوبه؟", "note": "domain variant: آموزش کودک"}
+{"id": "fa-bench-0166", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "برای کودک ۵ ساله چه بازی‌های آموزشی خوبه؟ (خودمونی)", "note": "domain variant: آموزش کودک"}
+{"id": "fa-bench-0167", "category": "explanations", "expect_lang": "fa", "prompt": "چطور بچه رو به کتاب‌خوندن علاقه‌مند کنم؟", "note": "domain variant: آموزش کودک"}
+{"id": "fa-bench-0168", "category": "formal_persian", "expect_lang": "fa", "prompt": "چطور بچه رو به کتاب‌خوندن علاقه‌مند کنم؟ (رسمی توضیح بده)", "note": "domain variant: آموزش کودک"}
+{"id": "fa-bench-0169", "category": "explanations", "expect_lang": "fa", "prompt": "زمان مناسب شروع یادگیری زبان دوم چیه؟", "note": "domain variant: آموزش کودک"}
+{"id": "fa-bench-0170", "category": "formal_persian", "expect_lang": "fa", "prompt": "زمان مناسب شروع یادگیری زبان دوم چیه؟ (رسمی توضیح بده)", "note": "domain variant: آموزش کودک"}
+{"id": "fa-bench-0171", "category": "explanations", "expect_lang": "fa", "prompt": "برای عکاسی با موبایل چه ترفندهایی هست؟", "note": "domain variant: عکاسی"}
+{"id": "fa-bench-0172", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "برای عکاسی با موبایل چه ترفندهایی هست؟ (خودمونی)", "note": "domain variant: عکاسی"}
+{"id": "fa-bench-0173", "category": "explanations", "expect_lang": "fa", "prompt": "دیافراگم دقیقاً چه کاری انجام می‌ده؟", "note": "domain variant: عکاسی"}
+{"id": "fa-bench-0174", "category": "formal_persian", "expect_lang": "fa", "prompt": "دیافراگم دقیقاً چه کاری انجام می‌ده؟ (رسمی توضیح بده)", "note": "domain variant: عکاسی"}
+{"id": "fa-bench-0175", "category": "explanations", "expect_lang": "fa", "prompt": "برای شروع عکاسی چه دوربینی بخرم؟", "note": "domain variant: عکاسی"}
+{"id": "fa-bench-0176", "category": "formal_persian", "expect_lang": "fa", "prompt": "برای شروع عکاسی چه دوربینی بخرم؟ (رسمی توضیح بده)", "note": "domain variant: عکاسی"}
+{"id": "fa-bench-0177", "category": "explanations", "expect_lang": "fa", "prompt": "برای شروع گیتار از کجا شروع کنم؟", "note": "domain variant: موسیقی"}
+{"id": "fa-bench-0178", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "برای شروع گیتار از کجا شروع کنم؟ (خودمونی)", "note": "domain variant: موسیقی"}
+{"id": "fa-bench-0179", "category": "explanations", "expect_lang": "fa", "prompt": "نت‌خوندی چقدر برای نوازندگی ضروریه؟", "note": "domain variant: موسیقی"}
+{"id": "fa-bench-0180", "category": "formal_persian", "expect_lang": "fa", "prompt": "نت‌خوندی چقدر برای نوازندگی ضروریه؟ (رسمی توضیح بده)", "note": "domain variant: موسیقی"}
+{"id": "fa-bench-0181", "category": "explanations", "expect_lang": "fa", "prompt": "بهترین ساز برای بچه ۸ ساله چیه؟", "note": "domain variant: موسیقی"}
+{"id": "fa-bench-0182", "category": "formal_persian", "expect_lang": "fa", "prompt": "بهترین ساز برای بچه ۸ ساله چیه؟ (رسمی توضیح بده)", "note": "domain variant: موسیقی"}
+{"id": "fa-bench-0183", "category": "explanations", "expect_lang": "fa", "prompt": "چطور پسورد قوی بسازم و یادم بمونه؟", "note": "domain variant: امنیت"}
+{"id": "fa-bench-0184", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "چطور پسورد قوی بسازم و یادم بمونه؟ (خودمونی)", "note": "domain variant: امنیت"}
+{"id": "fa-bench-0185", "category": "explanations", "expect_lang": "fa", "prompt": "دو مرحله‌ای کردن اکانت چطوریه؟", "note": "domain variant: امنیت"}
+{"id": "fa-bench-0186", "category": "formal_persian", "expect_lang": "fa", "prompt": "دو مرحله‌ای کردن اکانت چطوریه؟ (رسمی توضیح بده)", "note": "domain variant: امنیت"}
+{"id": "fa-bench-0187", "category": "explanations", "expect_lang": "fa", "prompt": "فیشینگ چیه و چطور بشناسمش؟", "note": "domain variant: امنیت"}
+{"id": "fa-bench-0188", "category": "formal_persian", "expect_lang": "fa", "prompt": "فیشینگ چیه و چطور بشناسمش؟ (رسمی توضیح بده)", "note": "domain variant: امنیت"}
+{"id": "fa-bench-0189", "category": "explanations", "expect_lang": "fa", "prompt": "برای شروع استارتاپ اولین قدم چیه؟", "note": "domain variant: کارآفرینی"}
+{"id": "fa-bench-0190", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "برای شروع استارتاپ اولین قدم چیه؟ (خودمونی)", "note": "domain variant: کارآفرینی"}
+{"id": "fa-bench-0191", "category": "explanations", "expect_lang": "fa", "prompt": "چطور ایده‌م رو به سرمایه‌دار معرفی کنم؟", "note": "domain variant: کارآفرینی"}
+{"id": "fa-bench-0192", "category": "formal_persian", "expect_lang": "fa", "prompt": "چطور ایده‌م رو به سرمایه‌دار معرفی کنم؟ (رسمی توضیح بده)", "note": "domain variant: کارآفرینی"}
+{"id": "fa-bench-0193", "category": "explanations", "expect_lang": "fa", "prompt": "بیزنس‌پلن خوب چه بخش‌هایی داره؟", "note": "domain variant: کارآفرینی"}
+{"id": "fa-bench-0194", "category": "formal_persian", "expect_lang": "fa", "prompt": "بیزنس‌پلن خوب چه بخش‌هایی داره؟ (رسمی توضیح بده)", "note": "domain variant: کارآفرینی"}
+{"id": "fa-bench-0195", "category": "explanations", "expect_lang": "fa", "prompt": "فرق دکتر داخلی و عمومی چیه؟", "note": "domain variant: درمانگاه"}
+{"id": "fa-bench-0196", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "فرق دکتر داخلی و عمومی چیه؟ (خودمونی)", "note": "domain variant: درمانگاه"}
+{"id": "fa-bench-0197", "category": "explanations", "expect_lang": "fa", "prompt": "چکاپ سالانه شامل چه آزمایش‌هایی می‌شه؟", "note": "domain variant: درمانگاه"}
+{"id": "fa-bench-0198", "category": "formal_persian", "expect_lang": "fa", "prompt": "چکاپ سالانه شامل چه آزمایش‌هایی می‌شه؟ (رسمی توضیح بده)", "note": "domain variant: درمانگاه"}
+{"id": "fa-bench-0199", "category": "explanations", "expect_lang": "fa", "prompt": "برای ویزیت آنلاین چه اپی‌هایی خوبه؟", "note": "domain variant: درمانگاه"}
+{"id": "fa-bench-0200", "category": "formal_persian", "expect_lang": "fa", "prompt": "برای ویزیت آنلاین چه اپی‌هایی خوبه؟ (رسمی توضیح بده)", "note": "domain variant: درمانگاه"}
+{"id": "fa-bench-0201", "category": "explanations", "expect_lang": "fa", "prompt": "معماری مونولیت و میکروسرویس رو مقایسه کن", "note": "domain variant: برنامه‌نویسی پیشرفته"}
+{"id": "fa-bench-0202", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "معماری مونولیت و میکروسرویس رو مقایسه کن (خودمونی)", "note": "domain variant: برنامه‌نویسی پیشرفته"}
+{"id": "fa-bench-0203", "category": "explanations", "expect_lang": "fa", "prompt": "الگوی طراحی Singleton کی استفاده می‌شه؟", "note": "domain variant: برنامه‌نویسی پیشرفته"}
+{"id": "fa-bench-0204", "category": "formal_persian", "expect_lang": "fa", "prompt": "الگوی طراحی Singleton کی استفاده می‌شه؟ (رسمی توضیح بده)", "note": "domain variant: برنامه‌نویسی پیشرفته"}
+{"id": "fa-bench-0205", "category": "explanations", "expect_lang": "fa", "prompt": "TDD دقیقاً چه فرایندی داره؟", "note": "domain variant: برنامه‌نویسی پیشرفته"}
+{"id": "fa-bench-0206", "category": "formal_persian", "expect_lang": "fa", "prompt": "TDD دقیقاً چه فرایندی داره؟ (رسمی توضیح بده)", "note": "domain variant: برنامه‌نویسی پیشرفته"}
+{"id": "fa-bench-0207", "category": "explanations", "expect_lang": "fa", "prompt": "برای بالا اومدن تو گوگل چیکار کنم؟", "note": "domain variant: سئو"}
+{"id": "fa-bench-0208", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "برای بالا اومدن تو گوگل چیکار کنم؟ (خودمونی)", "note": "domain variant: سئو"}
+{"id": "fa-bench-0209", "category": "explanations", "expect_lang": "fa", "prompt": "بک‌لینک چیه و چقدر مهمه؟", "note": "domain variant: سئو"}
+{"id": "fa-bench-0210", "category": "formal_persian", "expect_lang": "fa", "prompt": "بک‌لینک چیه و چقدر مهمه؟ (رسمی توضیح بده)", "note": "domain variant: سئو"}
+{"id": "fa-bench-0211", "category": "explanations", "expect_lang": "fa", "prompt": "سرعت سایت چقدر روی سئو اثر داره؟", "note": "domain variant: سئو"}
+{"id": "fa-bench-0212", "category": "formal_persian", "expect_lang": "fa", "prompt": "سرعت سایت چقدر روی سئو اثر داره؟ (رسمی توضیح بده)", "note": "domain variant: سئو"}
+{"id": "fa-bench-0213", "category": "explanations", "expect_lang": "fa", "prompt": "ChatGPT چطور کار می‌کنه به زبان ساده؟", "note": "domain variant: هوش مصنوعی"}
+{"id": "fa-bench-0214", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "ChatGPT چطور کار می‌کنه به زبان ساده؟ (خودمونی)", "note": "domain variant: هوش مصنوعی"}
+{"id": "fa-bench-0215", "category": "explanations", "expect_lang": "fa", "prompt": "فرق machine learning و deep learning چیه؟", "note": "domain variant: هوش مصنوعی"}
+{"id": "fa-bench-0216", "category": "formal_persian", "expect_lang": "fa", "prompt": "فرق machine learning و deep learning چیه؟ (رسمی توضیح بده)", "note": "domain variant: هوش مصنوعی"}
+{"id": "fa-bench-0217", "category": "explanations", "expect_lang": "fa", "prompt": "مدل زبانی چیست و چه کاربردهایی دارد؟", "note": "domain variant: هوش مصنوعی"}
+{"id": "fa-bench-0218", "category": "formal_persian", "expect_lang": "fa", "prompt": "مدل زبانی چیست و چه کاربردهایی دارد؟ (رسمی توضیح بده)", "note": "domain variant: هوش مصنوعی"}
+{"id": "fa-bench-0219", "category": "multi_turn", "expect_lang": "fa", "prompt": "مرسی! حالا سومین بخش رو هم اضافه کن.", "note": "multi-step build", "history": [{"role": "user", "content": "یه landing page برای استارتاپ می‌خوام."}, {"role": "assistant", "content": "بفرما — هدر، بخش ویژگی‌ها و فرم تماس رو گذاشتم. می‌خوای بخش قیمت‌گذاری هم اضافه کنم؟"}, {"role": "user", "content": "آره قیمت‌گذاری هم بذار."}]}
+{"id": "fa-bench-0220", "category": "multi_turn", "expect_lang": "fa", "prompt": "ایول! الان موبایل رو چک کردم، منو باز نمی‌شه.", "note": "bug report flow", "history": [{"role": "user", "content": "یه منوی ناوبری بساز."}, {"role": "assistant", "content": "این منوی افقی با HTML و CSS: `<nav><a>خانه</a><a>محصولات</a><a>تماس</a></nav>`"}]}
+{"id": "fa-bench-0221", "category": "multi_turn", "expect_lang": "fa", "prompt": "باشه ولی حالا رنگ‌بندیش رو آبی کن.", "note": "style change", "history": [{"role": "user", "content": "یه کارت محصول بساز."}, {"role": "assistant", "content": "این کارت محصول با پس‌زمینهٔ سبز و قیمت برجسته: [کد]"}]}
+{"id": "fa-bench-0222", "category": "multi_turn", "expect_lang": "fa", "prompt": "چرا هنوز کار نمی‌کنه؟ همون خطا رو می‌ده.", "note": "follow-up debugging", "history": [{"role": "user", "content": "کدم خطای 500 می‌ده."}, {"role": "assistant", "content": "خطای 500 یعنی مشکل سمت سرور. لاگ سرور رو چک کن و محتوای خطا رو برام بفرست."}]}
+{"id": "fa-bench-0223", "category": "language_switching", "expect_lang": "fa", "prompt": "دو زبونه جواب بده: اول فارسی بعد انگلیسی — سؤال: بازخورد (feedback) چیه؟", "note": "bilingual answer"}
+{"id": "fa-bench-0224", "category": "language_switching", "expect_lang": "fa", "prompt": "از اینجا به بعد مکالمه‌مون فارسی باشه.", "note": "fa continuation"}
+{"id": "fa-bench-0225", "category": "language_switching", "expect_lang": "en", "prompt": "از حالا انگلیسی جواب بده لطفاً. What is docker compose?", "note": "fa request → en answer"}
+{"id": "fa-bench-0226", "category": "language_switching", "expect_lang": "ar", "prompt": "لا أتحدث الفارسية، أجب بالعربية: ما هو الهاتف الذكي؟", "note": "ar-only user"}
+{"id": "fa-bench-0227", "category": "language_switching", "expect_lang": "fa", "prompt": "صبر کن، از اول فارسی صحبت کردیم نه؟ خب ادامه بده فارسی.", "note": "meta fa check"}
+{"id": "fa-bench-0228", "category": "casual_conversation", "expect_lang": "fa", "prompt": "چه خبر؟", "note": "whats up"}
+{"id": "fa-bench-0229", "category": "casual_conversation", "expect_lang": "fa", "prompt": "فردا تعطیلی‌م، برنامه چیکار کنم؟", "note": "day off"}
+{"id": "fa-bench-0230", "category": "casual_conversation", "expect_lang": "fa", "prompt": "یه فیلم ایرانی پیشنهاد بده.", "note": "movie rec"}
+{"id": "fa-bench-0231", "category": "casual_conversation", "expect_lang": "fa", "prompt": "قسمت این داستان اینه که دوستم رفته مهاجرت، حس خوبی ندارم.", "note": "emotional support"}
+{"id": "fa-bench-0232", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "بگو ببینم، قرعه‌کشی بانکی واقعیه یا کلاهبرداری؟", "note": "colloquial skepticism"}
+{"id": "fa-bench-0233", "category": "colloquial_persian", "expect_lang": "fa", "prompt": "موبایل قدیمی‌م بریزه به آب! تعویض کنم یا تعمیر؟", "note": "colloquial advice"}
+{"id": "fa-bench-0234", "category": "formal_persian", "expect_lang": "fa", "prompt": "متنی رسمی دربارهٔ اهمیت محیط‌زیست بنویسید.", "note": "formal env"}
+{"id": "fa-bench-0235", "category": "technical_persian", "expect_lang": "fa", "prompt": "برای بکاپ‌گیری خودکار از دیتابیس چه راه‌حلی پیشنهاد می‌کنید؟", "note": "backup strategy"}
+{"id": "fa-bench-0236", "category": "technical_persian", "expect_lang": "fa", "prompt": "تفاوت HTTP/1.1 و HTTP/2 در چیست؟", "note": "protocol compare"}
+{"id": "fa-bench-0237", "category": "persian_coding", "expect_lang": "fa", "prompt": "با پایتون یه اسکریپت بنویس که فایل‌های تکراری رو تو یه پوشه پیدا کنه.", "note": "py script gen"}
+{"id": "fa-bench-0238", "category": "persian_coding", "expect_lang": "fa", "prompt": "چرا این کد CSS اعمال نمی‌شه؟\n```css\np {\n  color: red\n  font-size: 14px;\n}\n```", "note": "css syntax bug"}
