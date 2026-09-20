@@ -48,9 +48,12 @@ def run_server(server, benchmark, out_path, max_new=256):
 def run_transformers(model_path, benchmark, out_path, max_new=256, batch_size=8, sys_prompt=None):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    dtype = (torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16) \
+        if device == "cuda" else torch.float32
     tok = AutoTokenizer.from_pretrained(model_path)
-    model = AutoModelForCausalLM.from_pretrained(model_path, dtype=torch.bfloat16,
-                                                 device_map="cuda")
+    model = AutoModelForCausalLM.from_pretrained(model_path, dtype=dtype)
+    model.to(device)
     model.eval()
     results = []
     t_all = time.time()
@@ -59,14 +62,25 @@ def run_transformers(model_path, benchmark, out_path, max_new=256, batch_size=8,
         if sys_prompt:
             msgs = [{"role": "system", "content": sys_prompt}] + msgs
         try:
-            text = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
-            ids = tok(text, return_tensors="pt").to("cuda")
+            try:
+                text = tok.apply_chat_template(msgs, tokenize=False,
+                                               add_generation_prompt=True,
+                                               enable_thinking=False)
+            except TypeError:
+                # template without the Qwen3 thinking kwarg
+                text = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
+            ids = tok(text, return_tensors="pt").to(device)
             t0 = time.time()
             with torch.no_grad():
                 out = model.generate(**ids, max_new_tokens=max_new, do_sample=False,
                                      pad_token_id=tok.pad_token_id or tok.eos_token_id)
             gen = out[0][ids["input_ids"].shape[1]:]
             resp_txt = tok.decode(gen, skip_special_tokens=True).strip()
+            # Qwen3 thinking-mode guard: keep only the post-</think> answer when present
+            if "</think>" in resp_txt:
+                tail = resp_txt.split("</think>", 1)[1].strip()
+                if tail:
+                    resp_txt = tail
             lat = time.time() - t0
         except Exception as e:
             print(f"[ERR] {b['id']}: {str(e)[:120]}", flush=True)

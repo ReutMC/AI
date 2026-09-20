@@ -14,3 +14,4 @@ download/
 upload/
 tool-results/
 *.log
+output/

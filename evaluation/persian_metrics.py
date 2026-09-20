@@ -79,6 +79,15 @@ def main():
         b = bench.get(r["id"], {})
         expect = b.get("expect_lang", "fa")
         resp = (r.get("response") or "").strip()
+        # defense: classify the ANSWER, not a Qwen3 thinking trace
+        if "</think>" in resp:
+            tail = resp.split("</think>", 1)[1].strip()
+            if tail:
+                resp = tail
+            else:
+                resp = ""  # thinking-only output (no answer produced)
+        elif resp.startswith("<think>"):
+            resp = ""  # unclosed think block = no answer
         cat = b.get("category", "unknown")
         n += 1
         by_cat[cat]["n"] += 1

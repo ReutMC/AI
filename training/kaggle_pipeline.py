@@ -18,10 +18,11 @@ logged). GitHub Actions passes it as a secret; locally export it manually.
 """
 import argparse, json, os, shutil, subprocess, sys, time, hashlib
 
-ROOT = os.environ.get("ARION_ROOT",
-                      os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-ARION = os.path.join(ROOT, "arion-alpha-1") if os.path.isdir(
-    os.path.join(ROOT, "arion-alpha-1")) else ROOT
+_HERE = os.path.dirname(os.path.abspath(__file__))            # .../training
+ARION = os.path.dirname(_HERE)                                # repo root (flat) or parent
+if os.path.isdir(os.path.join(os.path.dirname(ARION), "arion-alpha-1")):
+    ARION = os.path.join(os.path.dirname(ARION), "arion-alpha-1")  # nested legacy layout
+ROOT = ARION
 BUNDLE_DIR = os.path.join(ARION, "output", "kaggle_bundle")
 USER = os.environ.get("KAGGLE_USERNAME", "reutmc")
 DATASET_SLUG = "arion-persian-data"
@@ -106,6 +107,12 @@ def bundle(extra_files=None, with_model=False):
         if not os.path.exists(src):
             die(f"bundle source missing: {src}")
         shutil.copy2(src, os.path.join(BUNDLE_DIR, dst))
+    json.dump({
+        "title": "arion-persian-data",
+        "id": f"{USER}/{DATASET_SLUG}",
+        "licenses": [{"name": "apache-2.0"}],
+        "keywords": ["persian", "arion", "sft"],
+    }, open(os.path.join(BUNDLE_DIR, "dataset-metadata.json"), "w"), indent=2)
     manifest = {
         "git_commit": git_commit(),
         "created_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
