@@ -1,10 +1,11 @@
 ---
-base_model: /home/z/my-project/arion-alpha-1/model/base
+base_model: /home/runner/work/AI/AI/model/base
 library_name: peft
 pipeline_tag: text-generation
 tags:
-- base_model:adapter:/home/z/my-project/arion-alpha-1/model/base
+- base_model:adapter:/home/runner/work/AI/AI/model/base
 - lora
+- transformers
 ---
 
 # Model Card for Model ID

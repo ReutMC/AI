@@ -1,0 +1,4 @@
+ba809bda568af649af3d17a8127058821d5fce05c9db39a50b2495d4c25d3f60  model/gguf/arion-alpha-1-Q4_K_M.gguf
+12c85fcaa9dfcbfd6d1cc16b34f3f66e6af0bf16932f081cccc42377f86964a3  model/gguf/arion-alpha-1-Q8_0.gguf
+f3e08c06ec55f57aeb546e0b96717eda1e6d56edbe193a85db78ffb4b954c14c  artifacts/arion-alpha-1-model.zip
+550b648ea4f9f7c8e6aecf17709a7e34f9c8fe5ed927875241699e402477a1b7  artifacts/arion-alpha-1-lora-v2.zip
