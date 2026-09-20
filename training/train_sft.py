@@ -136,6 +136,10 @@ def main():
     cfg = json.load(open(args.config))
     set_seed(cfg["seed"], cfg.get("deterministic", True))
     torch.set_num_threads(cfg.get("torch_threads", os.cpu_count()))
+    try:
+        torch.set_num_interop_threads(1)
+    except RuntimeError:
+        pass  # already initialized (resume path)
     device = cfg.get("device", "cpu")
 
     from transformers import AutoModelForCausalLM, AutoTokenizer
