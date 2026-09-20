@@ -8,10 +8,11 @@ Real trainable-weight training (spec 1, 16, 29, 30):
 - checkpoint every CHECKPOINT_MINUTES with full resume support
 - JSONL training log + final train_summary.json
 """
-import argparse, json, math, os, random, time, sys, gc
+import argparse, json, math, os, random, time, sys, gc, faulthandler, signal
 
 os.environ.setdefault("MALLOC_ARENA_MAX", "2")
 os.environ.setdefault("OMP_NUM_THREADS", "2")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 
 import torch
 from torch.utils.data import DataLoader, Dataset
@@ -142,6 +143,16 @@ def main():
         pass  # already initialized (resume path)
     device = cfg.get("device", "cpu")
 
+    # watchdogs: periodic all-thread stack dumps + hard exit if total time explodes
+    faulthandler.dump_traceback_later(180, repeat=True)
+    _budget_watchdog = int(cfg["max_train_minutes"] * 60) + 1500
+    def _alarm(signum, frame):
+        print(f"WATCHDOG: exceeded {_budget_watchdog}s — thread dump:", flush=True)
+        faulthandler.dump_traceback()
+        os._exit(3)
+    signal.signal(signal.SIGALRM, _alarm)
+    signal.alarm(_budget_watchdog)
+
     from transformers import AutoModelForCausalLM, AutoTokenizer
     from peft import LoraConfig, get_peft_model
 
@@ -249,6 +260,8 @@ def main():
     t_start = time.time() - elapsed0
     accum_loss, accum_count, tokens_seen = 0.0, 0, 0
     last_ckpt_t = time.time()
+    faulthandler.cancel_dump_traceback_later()
+    faulthandler.dump_traceback_later(300, repeat=True)  # keep 5-min dumps during the loop
 
     stop_reason = "max_epochs_reached"
     micro_i = start_step * ga
@@ -307,6 +320,9 @@ def main():
                     last_ckpt_t = time.time()
         if stop_reason == "time_budget_reached":
             break
+
+    signal.alarm(0)
+    faulthandler.cancel_dump_traceback_later()
 
     if step != start_step or not os.path.exists(f"{CKPT_DIR}/latest"):
         save_ckpt("latest", step, best_val, time.time() - t_start)
