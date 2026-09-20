@@ -10,7 +10,21 @@ import json, os, subprocess, sys, time, glob, urllib.request, hashlib
 
 W = "/kaggle/working"
 IN = "/kaggle/input"
-DATA = IN + "/arion-persian-data"  # flattened bundle (see kaggle_pipeline.py bundle)
+
+def _find_data_root():
+    """Kaggle has two mount layouts: /kaggle/input/<slug> (legacy) and
+    /kaggle/input/datasets/<owner>/<slug> (newer). Resolve dynamically."""
+    import glob as _g
+    for pat in ("/kaggle/input/arion-persian-data",
+                "/kaggle/input/*/*/arion-persian-data",
+                "/kaggle/input/*/*/*/arion-persian-data"):
+        for c in sorted(_g.glob(pat)):
+            if os.path.isdir(c) and os.path.exists(f"{c}/persian_train.jsonl"):
+                return c
+    return None
+
+DATA = _find_data_root()
+assert DATA, "dataset arion-persian-data not found under /kaggle/input (tried legacy + nested mounts)"
 os.makedirs(W, exist_ok=True)
 os.chdir(W)
 
@@ -41,6 +55,11 @@ try:
     import peft  # noqa
 except ImportError:
     sh("pip install -q peft", timeout=300)
+
+# peft >=0.19 dispatches LoRA via torchao when installed; the image ships an
+# incompatible torchao (0.10 < required 0.16) → remove it (offline-safe) so
+# peft falls back to the default dispatch path.
+sh("pip uninstall -y torchao >/dev/null 2>&1 || true", check=False, timeout=300)
 
 # ---------------- 1. bundle paths (flattened layout) ----------------
 train_jsonl = f"{DATA}/persian_train.jsonl"
@@ -103,7 +122,7 @@ meta = {
 json.dump(meta, open(f"{W}/run_metadata.json", "w"), indent=2)
 
 # ---------------- 2. FULL TRAINING ----------------
-sh(f"python3 {DATA}/training/train_kaggle.py --config {W}/config_full.json "
+sh(f"python3 {DATA}/train_kaggle.py --config {W}/config_full.json "
    f"--data-train {train_jsonl} --data-val {val_jsonl} "
    f"--base-model Qwen/Qwen3-0.6B --output {W}/arion-persian-lora",
    timeout=36000, tail=6000)
@@ -113,7 +132,7 @@ meta["finished_utc"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 json.dump(meta, open(f"{W}/run_metadata.json", "w"), indent=2)
 
 # ---------------- 3. merge ----------------
-sh(f"python3 {DATA}/conversion/merge_lora.py --base Qwen/Qwen3-0.6B "
+sh(f"python3 {DATA}/merge_lora.py --base Qwen/Qwen3-0.6B "
    f"--lora {W}/arion-persian-lora --out {W}/arion-persian-merged", timeout=2400)
 
 # ---------------- 4. llama.cpp + GGUF F16/Q8_0/Q4_K_M ----------------
@@ -159,13 +178,13 @@ try:
             pass
     assert up, "llama-server did not come up"
     print("llama-server UP", flush=True)
-    sh(f"python3 {DATA}/evaluation/run_persian_benchmark.py "
+    sh(f"python3 {DATA}/run_persian_benchmark.py "
        f"--server http://127.0.0.1:8080 --benchmark {bench_jsonl} "
        f"--out {W}/arion_gguf_responses.jsonl --max-new 256", timeout=7200)
 finally:
     server.terminate()
 
-sh(f"python3 {DATA}/evaluation/persian_metrics.py "
+sh(f"python3 {DATA}/persian_metrics.py "
    f"--responses {W}/arion_gguf_responses.jsonl --benchmark {bench_jsonl} "
    f"--label ARION-alpha1-persian-Q4_K_M --train-summary {W}/train_summary.json "
    f"--out {W}/arion_gguf_metrics.json")

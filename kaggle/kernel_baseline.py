@@ -9,7 +9,21 @@ import json, os, subprocess, sys, time, glob
 
 W = "/kaggle/working"
 IN = "/kaggle/input"
-DATA = IN + "/arion-persian-data"  # flattened bundle (see kaggle_pipeline.py bundle)
+
+def _find_data_root():
+    """Kaggle has two mount layouts: /kaggle/input/<slug> (legacy) and
+    /kaggle/input/datasets/<owner>/<slug> (newer). Resolve dynamically."""
+    import glob as _g
+    for pat in ("/kaggle/input/arion-persian-data",
+                "/kaggle/input/*/*/arion-persian-data",
+                "/kaggle/input/*/*/*/arion-persian-data"):
+        for c in sorted(_g.glob(pat)):
+            if os.path.isdir(c) and os.path.exists(f"{c}/persian_train.jsonl"):
+                return c
+    return None
+
+DATA = _find_data_root()
+assert DATA, "dataset arion-persian-data not found under /kaggle/input (tried legacy + nested mounts)"
 os.makedirs(W, exist_ok=True)
 os.makedirs(f"{W}/baseline", exist_ok=True)
 os.chdir(W)
@@ -40,6 +54,11 @@ try:
 except ImportError:
     sh("pip install -q peft", timeout=300)
 
+# peft >=0.19 dispatches LoRA via torchao when installed; the image ships an
+# incompatible torchao (0.10 < required 0.16) → remove it (offline-safe) so
+# peft falls back to the default dispatch path.
+sh("pip uninstall -y torchao >/dev/null 2>&1 || true", check=False, timeout=300)
+
 # ---------------- 1. bundle paths (flattened layout) ----------------
 train_jsonl = f"{DATA}/persian_train.jsonl"
 val_jsonl = f"{DATA}/persian_validation.jsonl"
@@ -47,7 +66,7 @@ bench_jsonl = f"{DATA}/persian_fluency_benchmark.jsonl"
 for p in (train_jsonl, bench_jsonl):
     assert os.path.exists(p), f"missing bundle file: {p}"
 print("bundle OK:", flush=True)
-sh(f"ls -la {DATA}/datasets/processed {DATA}/evaluation", check=False)
+sh(f"ls -la {DATA}", check=False)
 
 # ---------------- 2. seq-length benchmark (2048/3072/4096) ----------------
 cfg = {
@@ -65,17 +84,17 @@ cfg = {
     "seed": 42, "gradient_checkpointing": True,
 }
 json.dump(cfg, open(f"{W}/config_smoke.json", "w"), indent=2)
-sh(f"python3 {DATA}/training/train_kaggle.py --config {W}/config_smoke.json "
+sh(f"python3 {DATA}/train_kaggle.py --config {W}/config_smoke.json "
    f"--benchmark-seq-lens 2048,3072,4096 --benchmark-steps 3 "
    f"--data-train {train_jsonl} --base-model Qwen/Qwen3-0.6B "
    f"--output {W}/smoke_lora", timeout=3600)
 # seq_benchmark.json written next to output dir
 
 # ---------------- 3. BASELINE Persian benchmark (BEFORE training) ----------------
-sh(f"python3 {DATA}/evaluation/run_persian_benchmark.py --model Qwen/Qwen3-0.6B "
+sh(f"python3 {DATA}/run_persian_benchmark.py --model Qwen/Qwen3-0.6B "
    f"--benchmark {bench_jsonl} --out {W}/baseline/baseline_responses.jsonl "
    f"--max-new 256", timeout=7200)
-sh(f"python3 {DATA}/evaluation/persian_metrics.py "
+sh(f"python3 {DATA}/persian_metrics.py "
    f"--responses {W}/baseline/baseline_responses.jsonl "
    f"--benchmark {bench_jsonl} --label BASE-Qwen3-0.6B "
    f"--out {W}/baseline/baseline_metrics.json")
@@ -92,12 +111,12 @@ cfg["train_path"] = small_train
 cfg["max_epochs"] = 1
 cfg["eval_every_steps"] = 25
 json.dump(cfg, open(f"{W}/config_smoke.json", "w"), indent=2)
-sh(f"python3 {DATA}/training/train_kaggle.py --config {W}/config_smoke.json "
+sh(f"python3 {DATA}/train_kaggle.py --config {W}/config_smoke.json "
    f"--data-train {small_train} --data-val {val_jsonl} "
    f"--base-model Qwen/Qwen3-0.6B --output {W}/smoke_lora", timeout=5400)
 
 # ---------------- 5. merge → GGUF → llama-cli smoke ----------------
-sh(f"python3 {DATA}/conversion/merge_lora.py --base Qwen/Qwen3-0.6B "
+sh(f"python3 {DATA}/merge_lora.py --base Qwen/Qwen3-0.6B "
    f"--lora {W}/smoke_lora --out {W}/smoke_merged", timeout=1800)
 # llama.cpp (shallow clone, build quantize + cli only)
 sh("git clone --depth 1 https://github.com/ggml-org/llama.cpp /kaggle/temp/llama.cpp",

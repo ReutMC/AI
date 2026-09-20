@@ -15,7 +15,21 @@ import json, os, subprocess, sys, time, glob
 
 W = "/kaggle/working"
 IN = "/kaggle/input"
-DATA = IN + "/arion-persian-data"
+
+def _find_data_root():
+    """Kaggle has two mount layouts: /kaggle/input/<slug> (legacy) and
+    /kaggle/input/datasets/<owner>/<slug> (newer). Resolve dynamically."""
+    import glob as _g
+    for pat in ("/kaggle/input/arion-persian-data",
+                "/kaggle/input/*/*/arion-persian-data",
+                "/kaggle/input/*/*/*/arion-persian-data"):
+        for c in sorted(_g.glob(pat)):
+            if os.path.isdir(c) and os.path.exists(f"{c}/persian_train.jsonl"):
+                return c
+    return None
+
+DATA = _find_data_root()
+assert DATA, "dataset arion-persian-data not found under /kaggle/input (tried legacy + nested mounts)"
 os.makedirs(W, exist_ok=True)
 os.makedirs(f"{W}/baseline", exist_ok=True)
 os.chdir(W)
@@ -36,6 +50,11 @@ def sh(cmd, timeout=None, check=True, tail=4000):
 import torch
 gpu_ok = torch.cuda.is_available()
 print("=" * 70, flush=True)
+
+# peft >=0.19 dispatches LoRA via torchao when installed; the image ships an
+# incompatible torchao (0.10 < required 0.16) → remove it (offline-safe) so
+# peft falls back to the default dispatch path.
+sh("pip uninstall -y torchao >/dev/null 2>&1 || true", check=False, timeout=300)
 print("GPU AVAILABLE:", gpu_ok, flush=True)
 if not gpu_ok:
     print("NOTE: This Kaggle account does not have GPU/internet enabled "
@@ -74,6 +93,12 @@ def resolve_base_model():
 
 
 base_model = resolve_base_model()
+if not base_model:
+    # diagnostic dump before failing
+    r = subprocess.run(f"ls -la {DATA}/ 2>&1 | head -30; echo ---; "
+                       f"find {DATA}/base -maxdepth 3 2>&1 | head -12", shell=True,
+                       capture_output=True, text=True)
+    print("[DEBUG] input tree:\n" + r.stdout, flush=True)
 assert base_model, ("base model not found in bundle (looked for base/qwen3-0.6b, "
                     "base.zip, base-* flat files)")
 print("base model:", base_model, flush=True)
