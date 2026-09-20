@@ -108,7 +108,7 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/ggml-org/llama.cpp.git lcpp
           cmake -S lcpp -B lcpp/build -DGGML_NATIVE=ON -DLLAMA_BUILD_TESTS=OFF \
-                -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_SERVER=OFF -DBUILD_SHARED_LIBS=OFF > /dev/null
+                -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_SERVER=ON -DBUILD_SHARED_LIBS=OFF > /dev/null
           cmake --build lcpp/build --target llama-quantize llama-cli -j4 > /dev/null
           lcpp/build/bin/llama-cli --version
 
