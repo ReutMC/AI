@@ -78,7 +78,7 @@ jobs:
               cfg = json.load(open(f"{root}/configs/train_config_gh.json"))
               cfg.update({
                   "max_seq_len": 256, "max_train_minutes": 8, "max_epochs": 1,
-                  "eval_every_steps": 8, "log_every_steps": 1,
+                  "eval_every_steps": 8, "log_every_steps": 1, "deterministic": False,
               })
               json.dump(cfg, open(f"{root}/configs/train_config_smoke_gh.json", "w"), indent=2)
           minutes = "${{ inputs.max_train_minutes || '0' }}"
@@ -93,9 +93,10 @@ jobs:
           PY
 
       - name: Train (LoRA SFT, time-budgeted)
+        timeout-minutes: 330
         env:
           ARION_ROOT: ${{ github.workspace }}
-          OMP_NUM_THREADS: "4"
+          PYTHONUNBUFFERED: "1"
         run: python training/train_sft.py --config ${{ github.workspace }}/$ARION_CFG
 
       - name: Merge LoRA into full weights

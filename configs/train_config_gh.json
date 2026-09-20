@@ -27,6 +27,6 @@
   "eval_every_steps": 60,
   "log_every_steps": 10,
   "seed": 42,
-  "deterministic": true,
+  "deterministic": false,
   "max_epochs": 4
 }

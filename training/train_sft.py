@@ -196,12 +196,14 @@ def main():
     bs = cfg["batch_size"]; ga = cfg["gradient_accumulation"]
     probe_batches = len_sorted_batches(train_ds, bs, cfg["seed"])[:3]
     t0 = time.time()
-    for pb in probe_batches:
+    for pi, pb in enumerate(probe_batches):
+        pb_t = time.time()
         batch = coll([train_ds[i] for i in pb])
         input_ids, labels, attn = (x.to(device) for x in batch)
         out = model(input_ids=input_ids, attention_mask=attn, labels=labels)
         out.loss.backward()
         model.zero_grad(set_to_none=True)
+        print(f"probe batch {pi + 1}/{len(probe_batches)}: {time.time() - pb_t:.1f}s", flush=True)
     sec_per_example = (time.time() - t0) / max(1, len(probe_batches) * bs)
 
     budget_s = cfg["max_train_minutes"] * 60
