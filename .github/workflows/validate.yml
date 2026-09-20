@@ -29,7 +29,7 @@ jobs:
       - name: Validate every JSONL (schema, roles, non-empty)
         run: python tests/validate_datasets.py
 
-      - name: Prepare-dataset dry check (no writes: verify all generated files parse + stats sanity)
+      - name: Prepare-dataset dry check (verify generated files parse and stats sanity)
         run: |
           python - << 'PY'
           import json, glob, os
